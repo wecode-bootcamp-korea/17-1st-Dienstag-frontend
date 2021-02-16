@@ -17,7 +17,6 @@ class MainCategory extends Component {
         this.setState({
           mainCategoryData: data,
         });
-        console.log(data);
       });
   }
 
@@ -32,11 +31,13 @@ class MainCategory extends Component {
               <div className="main-categorys">
                 <Link to={category.link} style={{ textDecoration: 'none' }}>
                   <div className="main-categorycontainer">
-                    <img
-                      alt="main-category"
-                      src={category.src}
-                      className="main-categoryimg"
-                    ></img>
+                    <div>
+                      <img
+                        alt="main-category"
+                        src={category.src}
+                        className="main-categoryimg"
+                      ></img>
+                    </div>
                     <div className="main-categorytext">{category.name}</div>
                   </div>
                 </Link>

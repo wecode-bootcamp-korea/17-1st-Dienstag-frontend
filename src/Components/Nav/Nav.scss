@@ -44,12 +44,12 @@
   display: flex;
   z-index: 10;
   font-family: 'Archivo Black', sans-serif;
+
   .top-logo {
     width: 150px;
     height: 50px;
     background-color: black;
-    // font-weight: 400;
-    font-size: 23px;
+    font-size: 22px;
     color: white;
     text-align: center;
     padding: 12px 5px 0 5px;
@@ -99,8 +99,10 @@
   z-index: 8;
   font-size: 23px;
   text-align: left;
+  cursor: pointer;
   animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   font-family: 'Archivo Black', sans-serif;
+
   li {
     height: 50px;
     border-bottom: rgb(231, 231, 231) solid 1px;
@@ -108,7 +110,7 @@
     padding-top: 5px;
 
     & :hover {
-      color: gray;
+      color: rgb(83, 83, 83);
     }
   }
   .loginen {
@@ -116,6 +118,9 @@
     justify-content: space-between;
     align-content: center;
     padding: 10px;
+    & :hover {
+      color: rgb(83, 83, 83);
+    }
 
     .ko {
       width: 23px;
@@ -125,7 +130,6 @@
     div {
       margin-right: 2px;
     }
-
   }
   .searchstores {
     display: flex;
@@ -133,6 +137,9 @@
     align-items: center;
     height: 65px;
     border-bottom: rgb(231, 231, 231) solid 1px;
+    & :hover {
+      color: rgb(83, 83, 83);
+    }
 
     div {
       width: 50%;
@@ -141,11 +148,14 @@
       border-right: rgb(231, 231, 231) solid 1px;
       padding-left: 10px;
     }
-
   }
 
   .shopcate {
     animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    & :hover {
+      color: rgb(83, 83, 83);
+    }
+
     li {
       font-size: 15px;
       color: black;
@@ -154,13 +164,14 @@
     }
 
     .bags_list {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+
       span {
         margin-left: 5px;
       }
 
-      display: flex;
-      justify-content: space-between;
-      padding: 5px;
       .bagsarrow {
         width: 20px;
         height: 20px;
@@ -168,15 +179,22 @@
     }
 
     .bags_lists li {
-      font-size: 12px;
-      color: gray;
       height: 40px;
       font-weight: 400;
+      color: black;
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
       animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
   }
 
   .navlist {
+    height: 300px;
+    & :hover {
+      color: rgb(83, 83, 83);
+    }
+
     .shop_list {
       display: flex;
       justify-content: space-between;
@@ -194,14 +212,14 @@
       padding-left: 10px;
     }
   }
-  
+
   .navbottomicons {
     display: flex;
     justify-content: space-between;
     width: 300px;
     height: 65px;
     padding: 10px;
-    
+
     .nav_bottom_iconscontainer {
       display: flex;
       justify-content: space-between;

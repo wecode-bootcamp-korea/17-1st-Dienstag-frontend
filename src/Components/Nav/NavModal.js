@@ -131,16 +131,16 @@ class FnavModal extends Component {
                   <li>
                     <IoIosInformationCircleOutline size={20} /> CONNECT
                   </li>
-                  <div className="navbottomicons">
-                    <div className="nav_bottom_iconscontainer">
-                      <RiNewspaperLine size={20} />
-                      <RiInstagramLine size={20} />
-                      <FaFacebookF size={20} />
-                    </div>
-                    <div className="nav_bottom_dienstagmark">
-                      <MdCopyright size={15} />
-                      <span> DIENSTAG 2021</span>
-                    </div>
+                </div>
+                <div className="navbottomicons">
+                  <div className="nav_bottom_iconscontainer">
+                    <RiNewspaperLine size={20} />
+                    <RiInstagramLine size={20} />
+                    <FaFacebookF size={20} />
+                  </div>
+                  <div className="nav_bottom_dienstagmark">
+                    <MdCopyright size={15} />
+                    <span> DIENSTAG 2021</span>
                   </div>
                 </div>
               </ul>
