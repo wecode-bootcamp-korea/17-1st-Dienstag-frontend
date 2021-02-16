@@ -1,0 +1,139 @@
+
+ .headlogos {
+    position: fixed;
+    display: flex;
+    z-index: 10;
+    .top-logo {
+      width: 150px;
+      height: 50px;
+      background-color: black;
+      // font-weight: 400;
+      font-size: 23px;
+      color: white;
+      text-align: center;
+      padding-top: 12px;
+    }
+    .listicon {
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .bellicon {
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 5px;
+    }
+    .carticon {
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 5px;
+    }
+  }
+
+.modaloutside {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 8;
+}
+.modalNavcontainer {
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  background-color: white;
+  width: 300px;
+  height: 100vh;
+  z-index: 8;
+  font-size: 23px;
+  text-align: left;
+  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  li {
+    height: 50px;
+    border-bottom: rgb(231, 231, 231) solid 1px;
+    padding-left: 5px;
+
+    // padding-top: 5px;
+
+    & :hover {
+      color: gray;
+    }
+  }
+  .loginen {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 10px;
+    .ko {
+      width: 23px;
+      height: 18px;
+    }
+    div {
+      margin-right: 25px;
+    }
+  }
+  .searchstores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .searchstores li {
+    border-left: rgb(231, 231, 231) solid 1px;
+    width: 150px;
+    height: 50px;
+    display: block;
+
+    // padding: 10px 0 5px 10px;
+  }
+  .shopcate {
+    animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    li {
+      font-size: 15px;
+      color: black;
+      height: 40px;
+      font-weight: 400;
+    }
+    .bags_list {
+      span {
+        margin-left: 5px;
+      }
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+      .bagsarrow {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .bags_lists li {
+      font-size: 12px;
+      color: gray;
+      height: 40px;
+      font-weight: 400;
+      animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+  }
+  .navlist {
+    .shop_list {
+      display: flex;
+      justify-content: space-between;
+      height: 50px;
+      .shoparrow {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    li {
+      display: block;
+      margin-top: 15px;
+      padding-left: 10px;
+    }
+  }
+}

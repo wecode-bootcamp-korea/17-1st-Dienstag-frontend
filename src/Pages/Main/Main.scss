@@ -1,0 +1,176 @@
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-200px);
+    transform: translateX(-200px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.Main {
+  position: relative;
+  width: auto;
+  height: auto;
+
+  .videologo-continer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    .mainvideo {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+    .unfolding-logo {
+      position: absolute;
+      background-color: black;
+      color: white;
+      padding: 20px;
+      font-size: 20px;
+      z-index: 4;
+      bottom: 4px;
+      left: 0;
+
+      &:hover {
+        background-color: gray;
+      }
+    }
+  }
+
+  .shop {
+    width: 1130px;
+    height: 33px;
+    font-size: 40px;
+    font-weight: 300;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .categorycontainer {
+    display: flex;
+    width: 1170px;
+    height: 362.688;
+    margin: 0 auto;
+    justify-content: space-between;
+    .main-categorys {
+      width: 1120px;
+      display: flex;
+      margin: 0 auto;
+      justify-content: space-between;
+
+      .main-categorycontainer {
+        // margin-left: 30px;
+        .main-categoryimg {
+          width: 272.5px;
+          height: 272.5px;
+        }
+        .main-categorytext {
+          font-size: 24px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .main-diy {
+    display: flex;
+    width: 1170px;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-top: 80px;
+
+    .main-diyimg {
+      width: 552.98px;
+      height: 310.98px;
+    }
+
+    .main-diytext {
+      width: 555px;
+      font-size: 25px;
+      padding: 7px;
+
+      h1 {
+        display: inline-block;
+        margin-bottom: 30px;
+        font-size: 35px;
+
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
+      p {
+        display: block;
+        margin-bottom: 60px;
+        font-size: 20px;
+      }
+      .main-diybtn {
+        display: inline;
+        background-color: black;
+        padding: 10px;
+        color: white;
+        padding: 15px;
+        &:hover {
+          background-color: gray;
+        }
+      }
+    }
+  }
+
+  .stories-head {
+    width: 1130px;
+    height: 33px;
+    font-size: 40px;
+    font-weight: 300;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+  .main-stories {
+    width: 1170px;
+    display: flex;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+
+    .wrapstory {
+      width: auto;
+      height: auto;
+      display: flex;
+      // transition: all 0.5s ease-out;
+      
+      .main-storiesbox {
+        .storyimg {
+          width: 283px;
+          height: 97.5px;
+          margin-right: 10px;
+        }
+        .story-name {
+          padding: 4px;
+          margin-bottom: 30px;
+          font-size: 16px;
+          width: 273px;
+          top: 0;
+          &:hover {
+            background-color: black;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .next {
+      position: absolute;
+      right: 5px;
+      top: 50px;
+      color: white;
+    }
+    .prev {
+      position: absolute;
+      left: 5px;
+      top: 50px;
+      color: white;
+    }
+  }
+}
