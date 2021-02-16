@@ -1,0 +1,67 @@
+.user_login_form{
+  margin-top: 0em;
+  
+  .user_login_container{
+    border-top: 1px solid #ECECEC;
+    padding: 20px;
+
+    .form_login_item{
+      margin-bottom: 20px;
+
+      label{
+        display: block;
+        color:#000;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: default;
+      }
+
+      input{
+        background: none;
+        border: none;
+        border-bottom: solid 2px #000;
+        padding: 0 0 5px 0;
+        transition: border 0.1s;
+      }
+    }
+
+    .form_action{
+      position: relative;
+
+      .person_icon{
+        font-weight: bold;
+        font-size: 25px;
+        position: absolute;
+        z-index: 0;
+        color: white;
+        margin: 6px 6px;
+      }
+
+      input{
+        background-color: black;
+        border: medium none;
+        border-radius: 0;
+        color:#fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.25px;
+        margin-right: 10px;
+        text-transform: uppercase;
+        padding: 12px 20px 10px 35px;
+      }
+    }
+
+    .form_link{
+      margin-top: 10px;
+      .link_text{
+        text-decoration: none;
+        color: black;
+        background: #ADC088;
+        padding: 5px;
+      }
+
+    }
+    
+  }
+}
