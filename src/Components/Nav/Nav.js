@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import SignUp from '../../Pages/SignUp/SignUp';
-import Login from '../../Pages/Login/Login';
 
 class Nav extends Component {
   render() {
-    return <Login />;
+    return <h1>nav</h1>;
   }
 }
 
