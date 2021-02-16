@@ -3,6 +3,26 @@ import { MdPerson } from 'react-icons/md';
 import './Signup.scss';
 
 class SignUp extends Component {
+  state = {
+    name: '',
+    email: '',
+    password: '',
+    passwordConfirm: '',
+    alertMessage: '',
+    color: 'black',
+  };
+
+  handleInputValue = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleValidation = e => {
+    this.state.password === this.state.passwordConfirm
+      ? this.setState({ alertMessage: ' Match', color: 'blue' })
+      : this.setState({ alertMessage: ' Not Match', color: 'red' });
+  };
   render() {
     return (
       <form className="signup_form">
@@ -15,7 +35,7 @@ class SignUp extends Component {
             <h1>WECOME TO THE D-FAMILY</h1>
             <div className="form_signup_item_container">
               <div className="form_signup_item login_name">
-                <label for="edit_name">
+                <label htmlFor="edit_name">
                   Username
                   <span
                     className="form_required"
@@ -31,10 +51,11 @@ class SignUp extends Component {
                   size="40"
                   maxLength="60"
                   className="form-text required"
+                  onKeyPress={this.handleInputValue}
                 />
               </div>
               <div className="form_signup_item login_name">
-                <label for="edit_name">
+                <label htmlFor="edit_email">
                   E-mail address
                   <span
                     className="form_required"
@@ -45,16 +66,18 @@ class SignUp extends Component {
                 </label>
                 <input
                   type="text"
-                  id="edit_name"
-                  name="name"
+                  id="edit_email"
+                  name="email"
                   size="40"
                   maxLength="60"
                   className="form-text required"
+                  onKeyPress={this.handleInputValue}
+                  onChange={this.handleValidation}
                 />
               </div>
               <div className="form_signup_item login_name">
-                <label for="edit_name">
-                  Confirm e-mail address
+                <label htmlFor="edit_password">
+                  Password
                   <span
                     className="form_required"
                     title="This field is required"
@@ -64,11 +87,35 @@ class SignUp extends Component {
                 </label>
                 <input
                   type="text"
-                  id="edit_name"
-                  name="name"
+                  id="edit_password"
+                  name="password"
                   size="40"
                   maxLength="60"
                   className="form-text required"
+                  onKeyPress={this.handleInputValue}
+                  onChange={this.handleValidation}
+                />
+              </div>
+              <div className="form_signup_item login_name">
+                <label htmlFor="edit_password_confirm">
+                  Password Confirm
+                  <span
+                    style={{ color: this.state.color }}
+                    className="form_required"
+                    title="This field is required"
+                  >
+                    {!this.state.alertMessage ? '*' : this.state.alertMessage}
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  id="edit_password_confirm"
+                  name="passwordConfirm"
+                  size="40"
+                  maxLength="60"
+                  className="form-text required"
+                  onKeyPress={this.handleInputValue}
+                  onChange={this.handleValidation}
                 />
               </div>
             </div>
@@ -83,8 +130,7 @@ class SignUp extends Component {
           <input
             type="submit"
             id="edit_submit"
-            name="op"
-            value="CREATE D-PROFILE"
+            defaultValue="CREATE D-PROFILE"
             className="form_submit"
           />
         </div>

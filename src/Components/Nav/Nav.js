@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import SignUp from '../../Pages/SignUp/SignUp';
 
 class Nav extends Component {
   render() {
-    return <h1>nav</h1>;
+    return <SignUp />;
   }
 }
 
