@@ -1,39 +1,84 @@
-
- .headlogos {
-    position: fixed;
-    display: flex;
-    z-index: 10;
-    .top-logo {
-      width: 150px;
-      height: 50px;
-      background-color: black;
-      // font-weight: 400;
-      font-size: 23px;
-      color: white;
-      text-align: center;
-      padding-top: 12px;
-    }
-    .listicon {
-      width: 50px;
-      height: 50px;
-      background-color: black;
-      background: rgba(0, 0, 0, 0.4);
-    }
-    .bellicon {
-      width: 50px;
-      height: 50px;
-      background-color: black;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 5px;
-    }
-    .carticon {
-      width: 50px;
-      height: 50px;
-      background-color: black;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 5px;
-    }
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-200px);
+    transform: translateX(-200px);
   }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+
+.headlogos {
+  position: fixed;
+  display: flex;
+  z-index: 10;
+  font-family: 'Archivo Black', sans-serif;
+  .top-logo {
+    width: 150px;
+    height: 50px;
+    background-color: black;
+    // font-weight: 400;
+    font-size: 23px;
+    color: white;
+    text-align: center;
+    padding: 12px 5px 0 5px;
+  }
+
+  .listicon {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .bellicon {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px;
+    animation: wobble-hor-bottom 0.8s both;
+  }
+
+  .carticon {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px;
+  }
+}
 
 .modaloutside {
   position: fixed;
@@ -42,6 +87,7 @@
   background: rgba(0, 0, 0, 0.4);
   z-index: 8;
 }
+
 .modalNavcontainer {
   position: fixed;
   overflow: auto;
@@ -54,13 +100,12 @@
   font-size: 23px;
   text-align: left;
   animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-
+  font-family: 'Archivo Black', sans-serif;
   li {
     height: 50px;
     border-bottom: rgb(231, 231, 231) solid 1px;
     padding-left: 5px;
-
-    // padding-top: 5px;
+    padding-top: 5px;
 
     & :hover {
       color: gray;
@@ -71,27 +116,34 @@
     justify-content: space-between;
     align-content: center;
     padding: 10px;
+
     .ko {
       width: 23px;
       height: 18px;
     }
+
     div {
-      margin-right: 25px;
+      margin-right: 2px;
     }
+
   }
   .searchstores {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  .searchstores li {
-    border-left: rgb(231, 231, 231) solid 1px;
-    width: 150px;
-    height: 50px;
-    display: block;
+    height: 65px;
+    border-bottom: rgb(231, 231, 231) solid 1px;
 
-    // padding: 10px 0 5px 10px;
+    div {
+      width: 50%;
+      height: 65px;
+      padding-top: 20px;
+      border-right: rgb(231, 231, 231) solid 1px;
+      padding-left: 10px;
+    }
+
   }
+
   .shopcate {
     animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     li {
@@ -100,10 +152,12 @@
       height: 40px;
       font-weight: 400;
     }
+
     .bags_list {
       span {
         margin-left: 5px;
       }
+
       display: flex;
       justify-content: space-between;
       padding: 5px;
@@ -112,6 +166,7 @@
         height: 20px;
       }
     }
+
     .bags_lists li {
       font-size: 12px;
       color: gray;
@@ -120,20 +175,45 @@
       animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
   }
+
   .navlist {
     .shop_list {
       display: flex;
       justify-content: space-between;
       height: 50px;
+
       .shoparrow {
         width: 20px;
         height: 20px;
       }
     }
+
     li {
       display: block;
       margin-top: 15px;
       padding-left: 10px;
+    }
+  }
+  
+  .navbottomicons {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 65px;
+    padding: 10px;
+    
+    .nav_bottom_iconscontainer {
+      display: flex;
+      justify-content: space-between;
+      width: 39%;
+      font-size: 13px;
+      padding: 10px;
+    }
+
+    .nav_bottom_dienstagmark {
+      width: 55%;
+      margin-top: 10px;
+      font-size: 15px;
     }
   }
 }
