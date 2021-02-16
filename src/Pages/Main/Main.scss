@@ -52,6 +52,7 @@
       justify-content: space-between;
 
       .main-categorycontainer {
+        text-decoration: none;
         // margin-left: 30px;
         .main-categoryimg {
           width: 272.5px;
@@ -60,6 +61,7 @@
         .main-categorytext {
           font-size: 24px;
           font-weight: 400;
+          color: black;
         }
       }
     }
