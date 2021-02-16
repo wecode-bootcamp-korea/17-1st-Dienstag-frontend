@@ -86,7 +86,7 @@ class SignUp extends Component {
                   </span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   id="edit_password"
                   name="password"
                   size="40"
@@ -108,7 +108,7 @@ class SignUp extends Component {
                   </span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   id="edit_password_confirm"
                   name="passwordConfirm"
                   size="40"
