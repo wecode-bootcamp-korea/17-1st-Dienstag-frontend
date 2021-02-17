@@ -49,7 +49,6 @@ class SignUp extends Component {
                   </span>
                   <input
                     type="text"
-                    id="editName"
                     name="name"
                     size="40"
                     maxLength="60"
