@@ -1,13 +1,16 @@
 .signupForm{
   padding:20px 15px;
   margin: 30px;
+
   .signupContainer{
     border: 1px solid #DEDEDE;
     margin-bottom: 15px;
+
     .signupHeader{
       background-color: #DEDEDE;
       display: flex;
-      height: 40x;
+      height: 40px;
+
       .textGeneral{
         background: #ADC088;
         padding: 0 8px;
@@ -16,9 +19,11 @@
     }
     .sigupContent{
       padding: 15px;
+
       h1{
         font-size: 50px;
       }
+      
       .formSignupItemContainer{
         margin: 35px 0;
 
