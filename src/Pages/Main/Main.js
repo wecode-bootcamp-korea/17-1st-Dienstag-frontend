@@ -29,14 +29,14 @@ class Main extends Component {
 
     return (
       <div className="Main">
-        <div className="videologo-continer">
-          <video loop autoPlay muted className="mainvideo">
+        <div className="videoLogoContiner">
+          <video loop autoPlay muted className="mainVideo">
             <source
               src="https://www.freitag.ch/sites/default/files/neo_content_video/210127_frbr_teaser_master_brompton_desktop-startseite.mp4"
               type="video/mp4"
             />
           </video>
-          <span className="unfolding-logo">UNFOLDING SOON</span>
+          <span className="unfoldingLogo">UNFOLDING SOON</span>
         </div>
         <MainCategory />
         <MainDiy />

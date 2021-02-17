@@ -52,11 +52,11 @@ class FnavModal extends Component {
       <div>
         {!isnavopen && (
           <>
-            <div className="modaloutside" onClick={openNav}></div>
-            <div className="modalNavcontainer">
+            <div className="modalOutside" onClick={openNav}></div>
+            <div className="modalNavContainer">
               <ul>
                 <li></li>
-                <li className="loginen">
+                <li className="loginEn">
                   <span>
                     <RiUser3Line size={20} /> LOGIN
                   </span>
@@ -65,7 +65,7 @@ class FnavModal extends Component {
                     <span> KO</span>
                   </div>
                 </li>
-                <ul className="searchstores">
+                <ul className="searchStores">
                   <div>
                     <AiOutlineSearch size={20} /> SEARCH
                   </div>
@@ -74,7 +74,7 @@ class FnavModal extends Component {
                   </div>
                 </ul>
                 <div className="navlist">
-                  <li onClick={this.shopOpen} className="shop_list">
+                  <li onClick={this.shopOpen} className="shopList">
                     <span>
                       <CgShoppingCart size={20} /> SHOP
                     </span>
@@ -86,11 +86,11 @@ class FnavModal extends Component {
                     </div>
                   </li>
                   {!openShop && (
-                    <ul className="shopcate">
+                    <ul className="shopCate">
                       <li>BESTSELLERES</li>
                       <li>ONLINE SPECIALS</li>
 
-                      <li onClick={this.bagsOpen} className="bags_list">
+                      <li onClick={this.bagsOpen} className="bagsList">
                         <span>BAGS</span>
                         <div
                           className="bagsArrow"
@@ -100,7 +100,7 @@ class FnavModal extends Component {
                         </div>
                       </li>
                       {!openbags && (
-                        <div className="bags_lists">
+                        <div className="bagsLists">
                           <li>ALL MODELS</li>
                           <li>BACK PACKS</li>
                           <li>MESSENGER</li>
@@ -133,13 +133,13 @@ class FnavModal extends Component {
                     <IoIosInformationCircleOutline size={20} /> CONNECT
                   </li>
 
-                  <div className="navbottomicons">
-                    <div className="nav_bottom_iconscontainer">
+                  <div className="navBottomIcons">
+                    <div className="navBottomIconscontainer">
                       <RiNewspaperLine size={20} />
                       <RiInstagramLine size={20} />
                       <FaFacebookF size={20} />
                     </div>
-                    <div className="nav_bottom_dienstagmark">
+                    <div className="navBottomDienstagmark">
                       <MdCopyright size={15} />
                       <span> DIENSTAG 2021</span>
                     </div>

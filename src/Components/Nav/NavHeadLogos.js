@@ -6,16 +6,16 @@ import './Nav.scss';
 class Headlogos extends Component {
   render() {
     return (
-      <div className="headlogos">
-        <div className="top-logo">DIENSTAG</div>
+      <div className="headLogos">
+        <div className="topLogo">DIENSTAG</div>
 
-        <div className="listicon" onClick={this.props.openNav}>
+        <div className="listIcon" onClick={this.props.openNav}>
           <BsList size={45} />
         </div>
-        <div className="bellicon">
+        <div className="bellIcon">
           <BsBell size={35} />
         </div>
-        <div className="carticon">
+        <div className="cartIcon">
           <CgShoppingCart size={37} />
           <span></span>
         </div>
