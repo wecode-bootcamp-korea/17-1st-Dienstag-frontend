@@ -1,0 +1,59 @@
+.furydesccontainer {
+    
+    top: 130px;
+  width: 1680px;
+  height: 549px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .furydescbox {
+    display: flex;
+    width: 1130px;
+    height: 509px;
+    // margin: auto auto;
+    background-color: white;
+
+    .furydescimg {
+      width: 452px;
+      height: 452px;
+    }
+
+    .furydesctext {
+      position: relative;
+      margin-top: 60px;
+      .descname {
+        font-size: 35px;
+      }
+      .descprice,
+      .descprice {
+        margin-top: 15px;
+        font-size: 25px;
+      }
+      .desctext {
+        font-size: 25px;
+        margin-top: 30px;
+      }
+      .cart-btn {
+        background-color: black;
+        padding: 10px;
+        color: white;
+        margin-top: 50px;
+        padding: 15px;
+        width: 340px;
+        text-align: center;
+        font-weight: 600;
+        &:hover {
+          background-color: gray;
+        }
+      }
+      .desc-closebtn{
+        position: absolute;
+     top : 0;
+        right : 30px;
+        font-size: 30px;
+        
+      }
+    }
+  }
+}
