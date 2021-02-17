@@ -28,17 +28,17 @@ class MainCategory extends Component {
         <div className="categorycontainer">
           {mainCategoryData.map(category => {
             return (
-              <div className="main-categorys">
-                <Link to={category.link} style={{ textDecoration: 'none' }}>
-                  <div className="main-categorycontainer">
+              <div key={category.id} className="mainCategorys">
+                <Link to={category.link}>
+                  <div className="mainCategorycontainer">
                     <div>
                       <img
                         alt="main-category"
                         src={category.src}
-                        className="main-categoryimg"
-                      ></img>
+                        className="mainCategoryimg"
+                      />
                     </div>
-                    <div className="main-categorytext">{category.name}</div>
+                    <div className="mainCategorytext">{category.name}</div>
                   </div>
                 </Link>
               </div>

@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { MdKeyboardArrowDown } from 'react-icons/md';
+import { IoIosInformationCircleOutline } from 'react-icons/io';
+import { FaFacebookF } from 'react-icons/fa';
 import { CgShoppingCart } from 'react-icons/cg';
 import { GrChat } from 'react-icons/gr';
-import { MdLocationCity } from 'react-icons/md';
-import { RiHeartAddLine } from 'react-icons/ri';
-import { IoIosInformationCircleOutline } from 'react-icons/io';
-import { RiUser3Line } from 'react-icons/ri';
-import { MdStoreMallDirectory } from 'react-icons/md';
-import { RiInstagramLine } from 'react-icons/ri';
-import { FaFacebookF } from 'react-icons/fa';
-import { RiNewspaperLine } from 'react-icons/ri';
-import { MdCopyright } from 'react-icons/md';
+import {
+  MdKeyboardArrowDown,
+  MdLocationCity,
+  MdStoreMallDirectory,
+  MdCopyright,
+} from 'react-icons/md';
+import {
+  RiHeartAddLine,
+  RiUser3Line,
+  RiInstagramLine,
+  RiNewspaperLine,
+} from 'react-icons/ri';
 import './Nav.scss';
 
 class FnavModal extends Component {
@@ -19,30 +23,30 @@ class FnavModal extends Component {
     super();
     this.state = {
       openShop: true,
-      bagsclick: false,
-      shopsclick: false,
+      isbagsclick: false,
+      isShopsclick: false,
       openbags: true,
     };
   }
   shopOpen = () => {
-    const { openShop, shopsclick } = this.state;
+    const { openShop, isShopsclick } = this.state;
     this.setState({
       openShop: !openShop,
-      shopsclick: !shopsclick,
+      isShopsclick: !isShopsclick,
     });
   };
 
   bagsOpen = () => {
-    const { bagsclick, openbags } = this.state;
+    const { isbagsclick, openbags } = this.state;
     this.setState({
-      bagsclick: !bagsclick,
+      isbagsclick: !isbagsclick,
       openbags: !openbags,
     });
   };
 
   render() {
     const { isnavopen, openNav } = this.props;
-    const { bagsclick, shopsclick, openbags, openShop } = this.state;
+    const { isbagsclick, isShopsclick, openbags, openShop } = this.state;
     return (
       <div>
         {!isnavopen && (
@@ -78,8 +82,8 @@ class FnavModal extends Component {
                       <CgShoppingCart size={20} /> SHOP
                     </span>
                     <div
-                      className="shoparrow"
-                      style={{ transform: shopsclick && 'rotate(180deg)' }}
+                      className="shopArrow"
+                      style={{ transform: isShopsclick && 'rotate(180deg)' }}
                     >
                       <MdKeyboardArrowDown size={20} />
                     </div>
@@ -92,8 +96,8 @@ class FnavModal extends Component {
                       <li onClick={this.bagsOpen} className="bags_list">
                         <span>BAGS</span>
                         <div
-                          className="bagsarrow"
-                          style={{ transform: bagsclick && 'rotate(180deg)' }}
+                          className="bagsArrow"
+                          style={{ transform: isbagsclick && 'rotate(180deg)' }}
                         >
                           <MdKeyboardArrowDown size={20} />
                         </div>
@@ -131,16 +135,17 @@ class FnavModal extends Component {
                   <li>
                     <IoIosInformationCircleOutline size={20} /> CONNECT
                   </li>
-                </div>
-                <div className="navbottomicons">
-                  <div className="nav_bottom_iconscontainer">
-                    <RiNewspaperLine size={20} />
-                    <RiInstagramLine size={20} />
-                    <FaFacebookF size={20} />
-                  </div>
-                  <div className="nav_bottom_dienstagmark">
-                    <MdCopyright size={15} />
-                    <span> DIENSTAG 2021</span>
+
+                  <div className="navbottomicons">
+                    <div className="nav_bottom_iconscontainer">
+                      <RiNewspaperLine size={20} />
+                      <RiInstagramLine size={20} />
+                      <FaFacebookF size={20} />
+                    </div>
+                    <div className="nav_bottom_dienstagmark">
+                      <MdCopyright size={15} />
+                      <span> DIENSTAG 2021</span>
+                    </div>
                   </div>
                 </div>
               </ul>

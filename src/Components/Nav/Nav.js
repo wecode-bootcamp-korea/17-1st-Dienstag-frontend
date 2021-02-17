@@ -15,7 +15,7 @@ class Nav extends Component {
   render() {
     const { isNavOpen } = this.state;
     return (
-      <div>
+      <div className="Nav">
         <NavHeadLogos isNavOpen={isNavOpen} openNav={this.openNav} />
         {isNavOpen && <Navmodal openNav={this.openNav} />}
       </div>

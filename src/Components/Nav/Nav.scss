@@ -39,199 +39,205 @@
   }
 }
 
-.headlogos {
-  position: fixed;
-  display: flex;
-  z-index: 10;
-  font-family: 'Archivo Black', sans-serif;
-
-  .top-logo {
-    width: 150px;
-    height: 50px;
-    background-color: black;
-    font-size: 22px;
-    color: white;
-    text-align: center;
-    padding: 12px 5px 0 5px;
-  }
-
-  .listicon {
-    width: 50px;
-    height: 50px;
-    background-color: black;
-    background: rgba(0, 0, 0, 0.4);
-  }
-
-  .bellicon {
-    width: 50px;
-    height: 50px;
-    background-color: black;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 5px;
-    animation: wobble-hor-bottom 0.8s both;
-  }
-
-  .carticon {
-    width: 50px;
-    height: 50px;
-    background-color: black;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 5px;
-  }
-}
-
-.modaloutside {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 8;
-}
-
-.modalNavcontainer {
-  position: fixed;
-  overflow: auto;
-  left: 0;
-  top: 0;
-  background-color: white;
-  width: 300px;
-  height: 100vh;
-  z-index: 8;
-  font-size: 23px;
-  text-align: left;
-  cursor: pointer;
-  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  font-family: 'Archivo Black', sans-serif;
-
-  li {
-    height: 50px;
-    border-bottom: rgb(231, 231, 231) solid 1px;
-    padding-left: 5px;
-    padding-top: 5px;
-
-    & :hover {
-      color: rgb(83, 83, 83);
-    }
-  }
-  .loginen {
+.Nav {
+  .headlogos {
+    position: fixed;
     display: flex;
-    justify-content: space-between;
-    align-content: center;
-    padding: 10px;
-    & :hover {
-      color: rgb(83, 83, 83);
-    }
+    z-index: 10;
 
-    .ko {
-      width: 23px;
-      height: 18px;
-    }
-
-    div {
-      margin-right: 2px;
-    }
-  }
-  .searchstores {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 65px;
-    border-bottom: rgb(231, 231, 231) solid 1px;
-    & :hover {
-      color: rgb(83, 83, 83);
-    }
-
-    div {
-      width: 50%;
-      height: 65px;
-      padding-top: 20px;
-      border-right: rgb(231, 231, 231) solid 1px;
-      padding-left: 10px;
-    }
-  }
-
-  .shopcate {
-    animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    & :hover {
-      color: rgb(83, 83, 83);
-    }
-
-    li {
-      font-size: 15px;
-      color: black;
-      height: 40px;
-      font-weight: 400;
-    }
-
-    .bags_list {
-      display: flex;
-      justify-content: space-between;
-      padding: 5px;
-
-      span {
-        margin-left: 5px;
-      }
-
-      .bagsarrow {
-        width: 20px;
-        height: 20px;
-      }
-    }
-
-    .bags_lists li {
-      height: 40px;
-      font-weight: 400;
-      color: black;
-      font-family: 'Archivo Narrow', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    }
-  }
-
-  .navlist {
-    height: 300px;
-    & :hover {
-      color: rgb(83, 83, 83);
-    }
-
-    .shop_list {
-      display: flex;
-      justify-content: space-between;
+    .top-logo {
+      width: 150px;
       height: 50px;
-
-      .shoparrow {
-        width: 20px;
-        height: 20px;
-      }
+      background-color: black;
+      font-size: 22px;
+      color: white;
+      text-align: center;
+      padding: 12px 5px 0 5px;
     }
 
-    li {
-      display: block;
-      margin-top: 15px;
-      padding-left: 10px;
+    .listicon {
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .bellicon {
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 5px;
+      animation: wobble-hor-bottom 0.8s both;
+    }
+
+    .carticon {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 5px;
+      span {
+        position: absolute;
+        right: 5px;
+        top: 30px;
+      }
     }
   }
 
-  .navbottomicons {
-    display: flex;
-    justify-content: space-between;
-    width: 300px;
-    height: 65px;
-    padding: 10px;
+  .modaloutside {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 8;
+  }
 
-    .nav_bottom_iconscontainer {
+  .modalNavcontainer {
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    background-color: white;
+    width: 300px;
+    height: 100vh;
+    z-index: 8;
+    font-size: 23px;
+    text-align: left;
+    cursor: pointer;
+    animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+    li {
+      height: 50px;
+      border-bottom: rgb(231, 231, 231) solid 1px;
+      padding-left: 5px;
+      padding-top: 5px;
+
+      & :hover {
+        color: rgb(83, 83, 83);
+      }
+    }
+    .loginen {
       display: flex;
       justify-content: space-between;
-      width: 39%;
-      font-size: 13px;
+      align-content: center;
       padding: 10px;
+      & :hover {
+        color: rgb(83, 83, 83);
+      }
+
+      .ko {
+        width: 23px;
+        height: 18px;
+      }
+
+      div {
+        margin-right: 2px;
+      }
+    }
+    .searchstores {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 65px;
+      border-bottom: rgb(231, 231, 231) solid 1px;
+      & :hover {
+        color: rgb(83, 83, 83);
+      }
+
+      div {
+        width: 50%;
+        height: 65px;
+        padding-top: 20px;
+        border-right: rgb(231, 231, 231) solid 1px;
+        padding-left: 10px;
+      }
     }
 
-    .nav_bottom_dienstagmark {
-      width: 55%;
-      margin-top: 10px;
-      font-size: 15px;
+    .shopcate {
+      animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      & :hover {
+        color: rgb(83, 83, 83);
+      }
+
+      li {
+        font-size: 15px;
+        color: black;
+        height: 40px;
+        font-weight: 400;
+      }
+
+      .bags_list {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+
+        span {
+          margin-left: 5px;
+        }
+
+        .bagsArrow {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .bags_lists li {
+        height: 40px;
+        font-weight: 400;
+        color: black;
+        font-family: 'Archivo Narrow', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+    }
+
+    .navlist {
+      height: 300px;
+      & :hover {
+        color: rgb(83, 83, 83);
+      }
+
+      .shop_list {
+        display: flex;
+        justify-content: space-between;
+        height: 50px;
+
+        .shopArrow {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      li {
+        display: block;
+        margin-top: 15px;
+        padding-left: 10px;
+      }
+    }
+
+    .navbottomicons {
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+      height: 65px;
+      padding: 10px;
+
+      .nav_bottom_iconscontainer {
+        display: flex;
+        justify-content: space-between;
+        width: 39%;
+        font-size: 13px;
+        padding: 10px;
+      }
+
+      .nav_bottom_dienstagmark {
+        width: 55%;
+        margin-top: 10px;
+        font-size: 15px;
+      }
     }
   }
 }

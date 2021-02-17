@@ -37,55 +37,58 @@
     margin-top: 30px;
     margin-bottom: 40px;
   }
+
   .categorycontainer {
     display: flex;
     width: 1170px;
     height: 362.688;
     margin: 0 auto;
     justify-content: space-between;
-    .main-categorys {
+
+    .mainCategorys {
       width: 1120px;
       display: flex;
       margin: 0 auto;
       justify-content: space-between;
+      a {
+        text-decoration-line: none;
 
-      .main-categorycontainer {
-        text-decoration: none;
+        .mainCategorycontainer {
+          div {
+            overflow: hidden;
 
-        div {
-          overflow: hidden;
+            .mainCategoryimg {
+              width: 272.5px;
+              height: 272.5px;
 
-          .main-categoryimg {
-            width: 272.5px;
-            height: 272.5px;
-
-            &:hover {
-              transform: scale(1.1);
-              transition: all 0.3s ease-in-out;
+              &:hover {
+                transform: scale(1.1);
+                transition: all 0.3s ease-in-out;
+              }
             }
           }
-        }
-        .main-categorytext {
-          font-size: 24px;
-          font-weight: 400;
-          color: black;
+          .mainCategorytext {
+            font-size: 24px;
+            font-weight: 400;
+            color: black;
+          }
         }
       }
     }
   }
-  .main-diy {
+  .mainDiy {
     display: flex;
     width: 1170px;
     margin: 0 auto;
     justify-content: space-between;
     margin-top: 80px;
 
-    .main-diyimg {
+    .mainDiyimg {
       width: 552.98px;
       height: 310.98px;
     }
 
-    .main-diytext {
+    .mainDiytext {
       width: 555px;
       font-size: 25px;
       padding: 7px;
@@ -105,7 +108,7 @@
         margin-bottom: 60px;
         font-size: 20px;
       }
-      .main-diybtn {
+      .mainDiybtn {
         display: inline;
         background-color: black;
         padding: 10px;
@@ -118,7 +121,7 @@
     }
   }
 
-  .stories-head {
+  .storiesHead {
     width: 1130px;
     height: 33px;
     font-size: 40px;
@@ -127,26 +130,27 @@
     margin-top: 50px;
     margin-bottom: 40px;
   }
-  .main-stories {
+  .mainStories {
     width: 1170px;
     display: flex;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
 
-    .wrapstory {
+    .wrapStory {
       width: auto;
       height: auto;
       display: flex;
       // transition: all 0.5s ease-out;
 
-      .main-storiesbox {
-        .storyimg {
+      .mainStoriesbox {
+        .storyImg {
           width: 283px;
           height: 97.5px;
           margin-right: 10px;
         }
-        .story-name {
+
+        .storyName {
           padding: 4px;
           margin-bottom: 30px;
           font-size: 16px;
@@ -171,6 +175,9 @@
       left: 5px;
       top: 50px;
       color: white;
+    }
+    .none {
+      display: none;
     }
   }
 }

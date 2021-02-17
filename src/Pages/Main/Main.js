@@ -11,9 +11,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/mainStoriesData.json', {
-      method: 'GET',
-    })
+    fetch('/data/mainStoriesData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -21,11 +19,14 @@ class Main extends Component {
         });
       });
   }
+
   openNav = () => {
     this.setState({ isNavOpen: !this.state.isNavOpen });
   };
+
   render() {
     const { MainStoriesdata } = this.state;
+
     return (
       <div className="Main">
         <div className="videologo-continer">

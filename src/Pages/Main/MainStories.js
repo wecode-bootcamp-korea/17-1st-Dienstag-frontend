@@ -6,7 +6,6 @@ class MainStories extends Component {
   constructor() {
     super();
     this.state = {
-      right: true,
       slidewidth: 2264,
       curwidth: '',
       nextbtn: true,
@@ -37,10 +36,10 @@ class MainStories extends Component {
     const { curwidth, nextbtn, prevbtn } = this.state;
     return (
       <>
-        <div className="stories-head">STORIES FROM FREITAG</div>
-        <div className="main-stories">
+        <div className="storiesHead">STORIES FROM FREITAG</div>
+        <div className="mainStories">
           <div
-            className="wrapstory"
+            className="wrapStory"
             style={{
               transform: `translate3d(${curwidth}px,0,0)`,
               transition: ` 0.5s ease-in `,
@@ -48,25 +47,17 @@ class MainStories extends Component {
           >
             {storydata.map(story => {
               return (
-                <div className="main-storiesbox">
-                  <img alt="story" src={story.img} className="storyimg"></img>
-                  <div className="story-name">{story.name}</div>
+                <div key={story.id} className="mainStoriesbox">
+                  <img alt="story" src={story.img} className="storyImg"></img>
+                  <div className="storyName">{story.name}</div>
                 </div>
               );
             })}
           </div>
-          <span
-            onClick={this.slideRight}
-            className="next"
-            style={{ display: !nextbtn && 'none' }}
-          >
+          <span onClick={this.slideRight} className={nextbtn ? 'next' : 'none'}>
             <FaArrowCircleRight />
           </span>
-          <span
-            onClick={this.slideLeft}
-            className="prev"
-            style={{ display: !prevbtn && 'none' }}
-          >
+          <span onClick={this.slideLeft} className={prevbtn ? 'prev' : 'none'}>
             <FaArrowCircleLeft />
           </span>
         </div>
