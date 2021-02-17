@@ -19,23 +19,27 @@ class SignUp extends Component {
   };
 
   handleValidation = e => {
-    this.state.password === this.state.passwordConfirm
-      ? this.setState({ alertMessage: ' Match', color: 'blue' })
-      : this.setState({ alertMessage: ' Not Match', color: 'red' });
+    const { password, passwordConfirm } = this.state;
+    //this.state.password === this.state.passwordConfirm
+    this.setState({
+      alertMessage: password === passwordConfirm ? 'Match' : 'Not Match',
+      color: password === passwordConfirm ? 'blue' : 'red',
+    });
   };
   render() {
+    const { alertMessage, color } = this.state;
     return (
-      <form className="signup_form">
-        <div className="signup_container">
-          <div className="signup_header">
-            <span className="text_general">General</span>
+      <form className="signupForm">
+        <div className="signupContainer">
+          <div className="signupHeader">
+            <span className="textGeneral">General</span>
             <span></span>
           </div>
-          <div className="sigup_content">
+          <div className="sigupContent">
             <h1>WECOME TO THE D-FAMILY</h1>
-            <div className="form_signup_item_container">
-              <div className="form_signup_item login_name">
-                <label htmlFor="edit_name">
+            <div className="formSignupItemContainer">
+              <div className="formSignupItem loginName">
+                <label className="editName">
                   Username
                   <span
                     className="form_required"
@@ -43,95 +47,85 @@ class SignUp extends Component {
                   >
                     *
                   </span>
+                  <input
+                    type="text"
+                    id="editName"
+                    name="name"
+                    size="40"
+                    maxLength="60"
+                    className="formText required"
+                    onKeyPress={this.handleInputValue}
+                  />
                 </label>
-                <input
-                  type="text"
-                  id="edit_name"
-                  name="name"
-                  size="40"
-                  maxLength="60"
-                  className="form-text required"
-                  onKeyPress={this.handleInputValue}
-                />
               </div>
-              <div className="form_signup_item login_name">
-                <label htmlFor="edit_email">
+              <div className="formSignupItem loginName">
+                <label className="editEmail">
                   E-mail address
-                  <span
-                    className="form_required"
-                    title="This field is required"
-                  >
+                  <span className="formRequired" title="This field is required">
                     *
                   </span>
+                  <input
+                    type="text"
+                    name="email"
+                    size="40"
+                    maxLength="60"
+                    className="formText required"
+                    onKeyPress={this.handleInputValue}
+                    onChange={this.handleValidation}
+                  />
                 </label>
-                <input
-                  type="text"
-                  id="edit_email"
-                  name="email"
-                  size="40"
-                  maxLength="60"
-                  className="form-text required"
-                  onKeyPress={this.handleInputValue}
-                  onChange={this.handleValidation}
-                />
               </div>
-              <div className="form_signup_item login_name">
-                <label htmlFor="edit_password">
+              <div className="formSignupItem loginName">
+                <label className="editPassword">
                   Password
-                  <span
-                    className="form_required"
-                    title="This field is required"
-                  >
+                  <span className="formRequired" title="This field is required">
                     *
                   </span>
+                  <input
+                    type="password"
+                    name="password"
+                    size="40"
+                    maxLength="60"
+                    className="formText required"
+                    onKeyPress={this.handleInputValue}
+                    onChange={this.handleValidation}
+                  />
                 </label>
-                <input
-                  type="password"
-                  id="edit_password"
-                  name="password"
-                  size="40"
-                  maxLength="60"
-                  className="form-text required"
-                  onKeyPress={this.handleInputValue}
-                  onChange={this.handleValidation}
-                />
               </div>
-              <div className="form_signup_item login_name">
-                <label htmlFor="edit_password_confirm">
+              <div className="formSignupItem loginName">
+                <label className="editPasswordConfirm">
                   Password Confirm
                   <span
-                    style={{ color: this.state.color }}
-                    className="form_required"
+                    style={{ color: color }}
+                    className="formRequired"
                     title="This field is required"
                   >
-                    {!this.state.alertMessage ? '*' : this.state.alertMessage}
+                    {!alertMessage ? '*' : alertMessage}
                   </span>
+                  <input
+                    type="password"
+                    name="passwordConfirm"
+                    size="40"
+                    maxLength="60"
+                    className="formText required"
+                    onKeyPress={this.handleInputValue}
+                    onChange={this.handleValidation}
+                  />
                 </label>
-                <input
-                  type="password"
-                  id="edit_password_confirm"
-                  name="passwordConfirm"
-                  size="40"
-                  maxLength="60"
-                  className="form-text required"
-                  onKeyPress={this.handleInputValue}
-                  onChange={this.handleValidation}
-                />
               </div>
             </div>
-            <span className="info_text">
+            <span className="infoText">
               You will be able to set your password after you've confirmed your
               email address.
             </span>
           </div>
         </div>
-        <div className="form_action" id="edit-action">
-          <MdPerson className="person_icon" />
+        <div className="formAction">
+          <MdPerson className="personIcon" />
           <input
             type="submit"
-            id="edit_submit"
             defaultValue="CREATE D-PROFILE"
-            className="form_submit"
+            className="formSubmit"
           />
         </div>
       </form>

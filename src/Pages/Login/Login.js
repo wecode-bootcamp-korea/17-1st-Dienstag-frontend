@@ -6,52 +6,49 @@ import './Login.scss';
 class Login extends Component {
   render() {
     return (
-      <form className="user_login_form" id="uesr-login">
-        <div className="user_login_container">
-          <div className="form_login_item login_name">
-            <label for="edit_name">
+      <form className="userLoginForm">
+        <div className="userLoginContainer">
+          <div className="formLoginItem loginName">
+            <label className="editName">
               Username or e-mail address
-              <span className="form_required" title="This field is required">
+              <span className="formRequired" title="This field is required">
                 *
               </span>
+              <input
+                type="text"
+                name="name"
+                size="40"
+                maxLength="60"
+                className="formText required"
+              />
             </label>
-            <input
-              type="text"
-              id="edit_name"
-              name="name"
-              size="40"
-              maxLength="60"
-              className="form-text required"
-            />
           </div>
-          <div className="form_login_item login_password">
-            <label className="edit_pass">
+          <div className="formLoginItem loginPassword">
+            <label className="editPass">
               Password
-              <span className="form_required" title="This field is required">
+              <span className="formRequired" title="This field is required">
                 *
               </span>
+              <input
+                type="password"
+                name="pass"
+                size="40"
+                maxLength="128"
+                className="formText required"
+              />
             </label>
-            <input
-              type="password"
-              id="edit_pass"
-              name="pass"
-              size="40"
-              maxLength="128"
-              className="form-text required"
-            />
           </div>
-          <div className="form_action" id="edit-action">
-            <MdPerson className="person_icon" />
+          <div className="formAction">
+            <MdPerson className="personIcon" />
             <input
               type="submit"
-              id="edit_submit"
-              name="op"
+              name="submit"
               value="Log in"
-              className="form_submit"
+              className="formSubmit"
             />
           </div>
-          <div className="form_link">
-            <Link to="/signup" className="link_text">
+          <div className="formLink">
+            <Link to="/signup" className="linkText">
               Create new account
             </Link>
           </div>

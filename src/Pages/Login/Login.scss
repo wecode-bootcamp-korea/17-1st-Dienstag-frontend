@@ -1,34 +1,43 @@
-.user_login_form{
+.userLoginForm{
   margin-top: 0em;
   
-  .user_login_container{
+  .userLoginContainer{
     border-top: 1px solid #ECECEC;
     padding: 20px;
 
-    .form_login_item{
+    .formLoginItem{
       margin-bottom: 20px;
 
       label{
         display: block;
+        flex-direction: column;
         color:#000;
         font-size: 14px;
         font-weight: bold;
         cursor: default;
+        
+        span{
+          display:inline;
+        }
+
+        input{
+          display: block;
+          background: none;
+          border: none;
+          border-bottom: solid 2px #000;
+          padding: 0 0 5px 0;
+          transition: border 0.1s;
+          justify-self: center;
+        }
       }
 
-      input{
-        background: none;
-        border: none;
-        border-bottom: solid 2px #000;
-        padding: 0 0 5px 0;
-        transition: border 0.1s;
-      }
+      
     }
 
-    .form_action{
+    .formAction{
       position: relative;
 
-      .person_icon{
+      .personIcon{
         font-weight: bold;
         font-size: 25px;
         position: absolute;
@@ -52,9 +61,9 @@
       }
     }
 
-    .form_link{
+    .formLink{
       margin-top: 10px;
-      .link_text{
+      .linkText{
         text-decoration: none;
         color: black;
         background: #ADC088;

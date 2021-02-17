@@ -1,61 +1,68 @@
-.signup_form{
+.signupForm{
   padding:20px 15px;
   margin: 30px;
-  .signup_container{
+  .signupContainer{
     border: 1px solid #DEDEDE;
     margin-bottom: 15px;
-    .signup_header{
+    .signupHeader{
       background-color: #DEDEDE;
       display: flex;
       height: 40x;
-      .text_general{
+      .textGeneral{
         background: #ADC088;
         padding: 0 8px;
         line-height: 40px;
       }
     }
-    .sigup_content{
+    .sigupContent{
       padding: 15px;
       h1{
         font-size: 50px;
       }
-      .form_signup_item_container{
+      .formSignupItemContainer{
         margin: 35px 0;
 
-        .form_signup_item{
+        .formSignupItem{
           margin-bottom: 20px;
 
           label{
-            display: block;
+            display:block;
             color:#000;
             font-size: 14px;
             font-weight: bold;
             cursor: default;
-          }
-          input{
-            background: none;
-            border: none;
-            border-bottom: solid 2px #000;
-            padding: 0 0 5px 0;
-            transition: border 0.1s;
-            &:hover{
-              border-color: #ADC088;
+
+            span{
+              display: inline;
+            }
+           
+            input{
+              display: block;
+              background: none;
+              border: none;
+              border-bottom: solid 2px #000;
+              padding: 0 0 5px 0;
+              transition: border 0.1s;
+              
+              &:hover{
+                border-color: #ADC088;
+              }
             }
           }
         }
 
       }
-      .info_text{
+      .infoText{
         color: #B2B6BB;
         font-size: 15px;
 
       }
     }
   }
-  .form_action{
+  .formAction{
     position: relative;
 
-    .person_icon{
+    .personIcon{
       font-weight: bold;
       font-size: 25px;
       position: absolute;
@@ -78,5 +85,4 @@
       padding: 12px 20px 10px 35px;
     }
   }
-  
 }
