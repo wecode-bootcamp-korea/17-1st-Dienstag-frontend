@@ -7,6 +7,7 @@
     position: relative;
     width: 100%;
     height: auto;
+
     .mainvideo {
       position: relative;
       width: 100%;
@@ -14,13 +15,13 @@
     }
     .unfolding-logo {
       position: absolute;
-      background-color: black;
-      color: white;
+      left: 0;
+      bottom: 4px;
       padding: 20px;
+      color: white;
+      background-color: black;
       font-size: 20px;
       z-index: 4;
-      bottom: 4px;
-      left: 0;
 
       &:hover {
         background-color: gray;
@@ -31,11 +32,11 @@
   .shop {
     width: 1130px;
     height: 33px;
-    font-size: 40px;
-    font-weight: 300;
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 300;
   }
 
   .categorycontainer {
@@ -46,10 +47,11 @@
     justify-content: space-between;
 
     .mainCategorys {
-      width: 1120px;
       display: flex;
+      width: 1120px;
       margin: 0 auto;
       justify-content: space-between;
+
       a {
         text-decoration-line: none;
 
@@ -68,20 +70,20 @@
             }
           }
           .mainCategorytext {
+            color: black;
             font-size: 24px;
             font-weight: 400;
-            color: black;
           }
         }
       }
     }
   }
+
   .mainDiy {
     display: flex;
     width: 1170px;
-    margin: 0 auto;
+    margin: 80px auto 0;
     justify-content: space-between;
-    margin-top: 80px;
 
     .mainDiyimg {
       width: 552.98px;
@@ -90,8 +92,8 @@
 
     .mainDiytext {
       width: 555px;
-      font-size: 25px;
       padding: 7px;
+      font-size: 25px;
 
       h1 {
         display: inline-block;
@@ -110,10 +112,10 @@
       }
       .mainDiybtn {
         display: inline;
-        background-color: black;
-        padding: 10px;
-        color: white;
         padding: 15px;
+        background-color: black;
+        color: white;
+
         &:hover {
           background-color: gray;
         }
@@ -124,24 +126,21 @@
   .storiesHead {
     width: 1130px;
     height: 33px;
+    margin: 50px auto 40px;
     font-size: 40px;
     font-weight: 300;
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 40px;
   }
+
   .mainStories {
+    position: relative;
     width: 1170px;
-    display: flex;
     margin: 0 auto;
     overflow: hidden;
-    position: relative;
 
     .wrapStory {
+      display: flex;
       width: auto;
       height: auto;
-      display: flex;
-      // transition: all 0.5s ease-out;
 
       .mainStoriesbox {
         .storyImg {
@@ -151,11 +150,12 @@
         }
 
         .storyName {
+          top: 0;
+          width: 273px;
           padding: 4px;
           margin-bottom: 30px;
           font-size: 16px;
-          width: 273px;
-          top: 0;
+
           &:hover {
             background-color: black;
             color: white;
@@ -166,7 +166,7 @@
 
     .next {
       position: absolute;
-      right: 5px;
+      right: 10px;
       top: 50px;
       color: white;
     }
