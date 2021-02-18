@@ -1,0 +1,246 @@
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-200px);
+    transform: translateX(-200px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+
+.Nav {
+  .headLogos {
+    position: fixed;
+    display: flex;
+    z-index: 10;
+
+    .topLogo {
+      width: 150px;
+      height: 50px;
+      padding: 12px 5px 0 5px;
+      background-color: black;
+      font-size: 22px;
+      color: white;
+      text-align: center;
+    }
+
+    .listIcon {
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .bellIcon {
+      width: 50px;
+      height: 50px;
+      padding: 5px;
+      background-color: black;
+      background: rgba(0, 0, 0, 0.4);
+      animation: wobble-hor-bottom 0.8s both;
+    }
+
+    .cartIcon {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      padding: 5px;
+      background-color: black;
+      background: rgba(0, 0, 0, 0.4);
+
+      span {
+        position: absolute;
+        right: 5px;
+        top: 30px;
+      }
+    }
+  }
+
+  .modalOutside {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 8;
+  }
+
+  .modalNavContainer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    font-size: 23px;
+    text-align: left;
+    cursor: pointer;
+    z-index: 8;
+    overflow: auto;
+    animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+    li {
+      height: 50px;
+      padding: 5px 0 0 5px;
+      border-bottom: rgb(231, 231, 231) solid 1px;
+
+      & :hover {
+        color: rgb(83, 83, 83);
+      }
+    }
+
+    .loginEn {
+      display: flex;
+      padding: 10px;
+      justify-content: space-between;
+      align-content: center;
+
+      & :hover {
+        color: rgb(83, 83, 83);
+      }
+
+      .ko {
+        width: 23px;
+        height: 18px;
+      }
+
+      div {
+        margin-right: 2px;
+      }
+    }
+
+    .searchStores {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 65px;
+      border-bottom: rgb(231, 231, 231) solid 1px;
+
+      & :hover {
+        color: rgb(83, 83, 83);
+      }
+
+      div {
+        width: 50%;
+        height: 65px;
+        padding: 20px 0 0 10px;
+        border-right: rgb(231, 231, 231) solid 1px;
+      }
+    }
+
+    .shopCate {
+      animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      & :hover {
+        color: rgb(83, 83, 83);
+      }
+
+      li {
+        height: 40px;
+        font-weight: 400;
+        font-size: 15px;
+        color: black;
+      }
+
+      .bagsList {
+        display: flex;
+        padding: 5px;
+        justify-content: space-between;
+
+        span {
+          margin-left: 5px;
+        }
+
+        .bagsArrow {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .bagsLists li {
+        height: 40px;
+        color: black;
+        font-family: 'Archivo Narrow', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        font-weight: 400;
+        animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+    }
+
+    .navlist {
+      height: 300px;
+      & :hover {
+        color: rgb(83, 83, 83);
+      }
+
+      .shopList {
+        display: flex;
+        height: 50px;
+        justify-content: space-between;
+
+        .shopArrow {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      li {
+        display: block;
+        margin-top: 15px;
+        padding-left: 10px;
+      }
+    }
+
+    .navBottomIcons {
+      display: flex;
+      width: 300px;
+      height: 65px;
+      padding: 10px;
+      justify-content: space-between;
+
+      .navBottomIconscontainer {
+        display: flex;
+        width: 39%;
+        padding: 10px;
+        justify-content: space-between;
+        font-size: 13px;
+      }
+
+      .navBottomDienstagmark {
+        width: 55%;
+        margin-top: 10px;
+        font-size: 15px;
+      }
+    }
+  }
+}
