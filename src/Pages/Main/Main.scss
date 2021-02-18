@@ -1,0 +1,183 @@
+.Main {
+  position: relative;
+  width: auto;
+  height: auto;
+
+  .videLogoContiner {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    .mainVideo {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+    .unfoldingLogo {
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      padding: 20px;
+      color: white;
+      background-color: black;
+      font-size: 20px;
+      z-index: 4;
+
+      &:hover {
+        background-color: gray;
+      }
+    }
+  }
+
+  .shop {
+    width: 1130px;
+    height: 33px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  .categoryContainer {
+    display: flex;
+    width: 1170px;
+    height: 362.688;
+    margin: 0 auto;
+    justify-content: space-between;
+
+    .mainCategorys {
+      display: flex;
+      width: 1120px;
+      margin: 0 auto;
+      justify-content: space-between;
+
+      a {
+        text-decoration-line: none;
+
+        .mainCategoryContainer {
+          div {
+            overflow: hidden;
+
+            .mainCategoryImg {
+              width: 272.5px;
+              height: 272.5px;
+
+              &:hover {
+                transform: scale(1.1);
+                transition: all 0.3s ease-in-out;
+              }
+            }
+          }
+          .mainCategoryText {
+            color: black;
+            font-size: 24px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+
+  .mainDiy {
+    display: flex;
+    width: 1170px;
+    margin: 80px auto 0;
+    justify-content: space-between;
+
+    .mainDiyImg {
+      width: 552.98px;
+      height: 310.98px;
+    }
+
+    .mainDiyText {
+      width: 555px;
+      padding: 7px;
+      font-size: 25px;
+
+      h1 {
+        display: inline-block;
+        margin-bottom: 30px;
+        font-size: 35px;
+
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
+      p {
+        display: block;
+        margin-bottom: 60px;
+        font-size: 20px;
+      }
+      .mainDiyBtn {
+        display: inline;
+        padding: 15px;
+        background-color: black;
+        color: white;
+
+        &:hover {
+          background-color: gray;
+        }
+      }
+    }
+  }
+
+  .storiesHead {
+    width: 1130px;
+    height: 33px;
+    margin: 50px auto 40px;
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  .mainStories {
+    position: relative;
+    width: 1170px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    .wrapStory {
+      display: flex;
+      width: auto;
+      height: auto;
+
+      .mainStoriesbox {
+        .storyImg {
+          width: 283px;
+          height: 97.5px;
+          margin-right: 10px;
+        }
+
+        .storyName {
+          top: 0;
+          width: 273px;
+          padding: 4px;
+          margin-bottom: 30px;
+          font-size: 16px;
+
+          &:hover {
+            background-color: black;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .next {
+      position: absolute;
+      right: 10px;
+      top: 50px;
+      color: white;
+    }
+    .prev {
+      position: absolute;
+      left: 5px;
+      top: 50px;
+      color: white;
+    }
+    .none {
+      display: none;
+    }
+  }
+}

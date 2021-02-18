@@ -1,5 +1,6 @@
 .userLoginForm{
   margin-top: 0em;
+  font-size: 12px;
   
   .userLoginContainer{
     border-top: 1px solid #ECECEC;
@@ -21,13 +22,15 @@
         }
 
         input{
-          display: block;
-          background: none;
+          width: 80%;
           border: none;
+          size: 10px;
           border-bottom: solid 2px #000;
           padding: 0 0 5px 0;
           transition: border 0.1s;
           justify-self: center;
+          outline: none;
+          
         }
       }
     }
