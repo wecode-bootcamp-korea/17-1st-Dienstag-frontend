@@ -1,15 +1,15 @@
-.userLoginForm{
+.userLoginForm {
   margin-top: 0em;
   font-size: 12px;
   
-  .userLoginContainer{
-    border-top: 1px solid #ECECEC;
+  .userLoginContainer {
     padding: 20px;
+    border-top: 1px solid #ECECEC;
 
-    .formLoginItem{
+    .formLoginItem {
       margin-bottom: 20px;
 
-      label{
+      label {
         display: block;
         flex-direction: column;
         color:#000;
@@ -17,20 +17,18 @@
         font-weight: bold;
         cursor: default;
         
-        span{
+        span {
           display:inline;
         }
 
-        input{
-          width: 80%;
-          border: none;
-          size: 10px;
-          border-bottom: solid 2px #000;
-          padding: 0 0 5px 0;
-          transition: border 0.1s;
+        input {
           justify-self: center;
+          width: 80%;
+          padding: 0 0 5px 0;
+          border: none;
+          border-bottom: solid 2px #000;
+          transition: border 0.1s;
           outline: none;
-          
         }
       }
     }
@@ -39,36 +37,35 @@
       position: relative;
 
       .personIcon{
+        position: absolute;
+        margin: 6px 6px;
         font-weight: bold;
         font-size: 25px;
-        position: absolute;
-        z-index: 0;
         color: white;
-        margin: 6px 6px;
       }
 
       input{
-        background-color: black;
+        padding: 12px 20px 10px 35px;
+        margin-right: 10px;
         border: medium none;
         border-radius: 0;
-        color:#fff;
-        cursor: pointer;
         font-size: 16px;
         font-weight: 600;
         letter-spacing: 0.25px;
-        margin-right: 10px;
         text-transform: uppercase;
-        padding: 12px 20px 10px 35px;
+        background-color: black;
+        color:#fff;
+        cursor: pointer;
       }
     }
 
     .formLink{
       margin-top: 10px;
       .linkText{
-        text-decoration: none;
-        color: black;
-        background: #ADC088;
         padding: 5px;
+        text-decoration: none;
+        background: #ADC088;
+        color: black;
       }
     }
   }

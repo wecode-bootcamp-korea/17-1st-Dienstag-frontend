@@ -10,23 +10,29 @@ class SignUp extends Component {
     passwordConfirm: '',
     alertMessage: '',
     color: 'black',
+    pwdMessage: '',
   };
 
   handleInputValue = e => {
+    const { name, value } = e.target;
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
   handleValidation = e => {
     const { password, passwordConfirm } = this.state;
+    const validatePassword = password === passwordConfirm;
+    const pwdLength = password.length >= 7;
     this.setState({
-      alertMessage: password === passwordConfirm ? 'Match' : 'Not Match',
-      color: password === passwordConfirm ? 'blue' : 'red',
+      pwdMessage: pwdLength || '8자리 이상 입력하세요. ',
+      alertMessage: validatePassword || '입력한 비밀번호가 다릅니다.',
+      color: validatePassword || 'red',
     });
   };
+
   render() {
-    const { alertMessage, color } = this.state;
+    const { alertMessage, color, pwdMessage } = this.state;
     return (
       <form className="signupForm">
         <div className="signupContainer">
@@ -35,7 +41,7 @@ class SignUp extends Component {
             <span></span>
           </div>
           <div className="sigupContent">
-            <h1>WECOME TO THE D-FAMILY</h1>
+            <h1>WELCOME TO THE D-FAMILY</h1>
             <div className="formSignupItemContainer">
               <div className="formSignupItem loginName">
                 <label className="editName">
@@ -76,8 +82,11 @@ class SignUp extends Component {
               <div className="formSignupItem loginName">
                 <label className="editPassword">
                   Password
-                  <span className="formRequired" title="This field is required">
-                    *
+                  <span
+                    className="formRequired pwdMessage"
+                    title="This field is required"
+                  >
+                    {pwdMessage}
                   </span>
                   <input
                     type="password"
