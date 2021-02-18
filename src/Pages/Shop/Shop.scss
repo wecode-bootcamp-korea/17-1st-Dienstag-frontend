@@ -1,6 +1,52 @@
+.store-bags-minihead {
+  margin: 200px auto 0;
+  font-size: 15px;
+  width: 1130px;
+  height: 28px;
+}
+.bagpacks-furybighead {
+  font-size: 60px;
+  width: 1130px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+.priceandfilter {
+  display: flex;
+  justify-content: space-between;
+  width: 1130px;
+  margin: 40px auto;
+}
+
+.furycontainer {
+  width: 1130px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  .furyimg {
+    width: 141.25px;
+    height: 141.25px;
+  }
+}
+
+.product-btn {
+  // display: inline-block;
+  background-color: black;
+  padding: 10px;
+  color: white;
+  margin-left: 260px;
+  margin-top: 70px;
+  padding: 15px;
+  width: 240px;
+  &:hover {
+    background-color: gray;
+  }
+}
+
 .furydesccontainer {
-    
-    top: 130px;
+  top: 130px;
   width: 1680px;
   height: 549px;
   background-color: black;
@@ -47,12 +93,11 @@
           background-color: gray;
         }
       }
-      .desc-closebtn{
+      .desc-closebtn {
         position: absolute;
-     top : 0;
-        right : 30px;
+        top: 0;
+        right: 30px;
         font-size: 30px;
-        
       }
     }
   }
