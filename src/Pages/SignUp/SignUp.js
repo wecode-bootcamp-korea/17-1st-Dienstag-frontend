@@ -20,7 +20,6 @@ class SignUp extends Component {
 
   handleValidation = e => {
     const { password, passwordConfirm } = this.state;
-    //this.state.password === this.state.passwordConfirm
     this.setState({
       alertMessage: password === passwordConfirm ? 'Match' : 'Not Match',
       color: password === passwordConfirm ? 'blue' : 'red',

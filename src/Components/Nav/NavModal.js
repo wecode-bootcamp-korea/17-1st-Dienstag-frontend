@@ -28,6 +28,7 @@ class FnavModal extends Component {
       isbagsclick: false,
       isShopsclick: false,
       openbags: true,
+      isLoginClick: false,
     };
   }
   shopOpen = () => {
@@ -45,10 +46,19 @@ class FnavModal extends Component {
       openbags: !openbags,
     });
   };
+  handleShowLogin = () => {
+    this.setState({ isLoginClick: !this.state.isLoginClick });
+  };
 
   render() {
     const { isnavopen, openNav } = this.props;
-    const { isbagsclick, isShopsclick, openbags, openShop } = this.state;
+    const {
+      isbagsclick,
+      isShopsclick,
+      openbags,
+      openShop,
+      isLoginClick,
+    } = this.state;
     return (
       <div>
         {!isnavopen && (
@@ -66,7 +76,11 @@ class FnavModal extends Component {
                     <span> KO</span>
                   </div>
                 </li>
-                <li className="loginForm">
+                <li
+                  className={
+                    'loginForm ' + (isLoginClick ? 'openLogin' : 'showLogin')
+                  }
+                >
                   <Login />
                 </li>
                 <ul className="searchStores">

@@ -3,6 +3,7 @@
 .nav{
   display: flex;
   flex-direction: column;
+  
   .nav_columns{
     width: 300px;
     height: 60px;
@@ -62,9 +63,10 @@
 
 .Nav {
   .headLogos {
-    position: fixed;
+    position: fixed; 
     display: flex;
     z-index: 10;
+    top:0;
 
     .topLogo {
       width: 150px;
@@ -132,6 +134,9 @@
     .loginForm{
       height: 240px;
       padding: 0;
+    }
+    .showLogin{
+      display: none;
     }
 
     li {
