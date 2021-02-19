@@ -76,11 +76,7 @@ class FnavModal extends Component {
                     <span> KO</span>
                   </div>
                 </li>
-                <li
-                  className={
-                    'loginForm ' + (isLoginClick ? 'openLogin' : 'showLogin')
-                  }
-                >
+                <li className={'loginForm ' + (!isLoginClick && 'showLogin')}>
                   <Login />
                 </li>
                 <ul className="searchStores">

@@ -7,6 +7,7 @@
     border-top: 1px solid #ECECEC;
 
     .formLoginItem {
+      margin-top: 10px;
       margin-bottom: 20px;
 
       label {
@@ -33,10 +34,10 @@
       }
     }
 
-    .formAction{
+    .formAction {
       position: relative;
 
-      .personIcon{
+      .personIcon {
         position: absolute;
         margin: 6px 6px;
         font-weight: bold;
@@ -44,7 +45,7 @@
         color: white;
       }
 
-      input{
+      input {
         padding: 12px 20px 10px 35px;
         margin-right: 10px;
         border: medium none;
@@ -59,9 +60,10 @@
       }
     }
 
-    .formLink{
-      margin-top: 10px;
-      .linkText{
+    .formLink {
+      margin-top: 20px;
+      
+      .linkText {
         padding: 5px;
         text-decoration: none;
         background: #ADC088;

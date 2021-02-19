@@ -39,20 +39,26 @@
 
             span {
               display: inline;
+              margin-left: 8px;
             }
 
-            .pwdMessage{
-              color:red;
+            .NonePwdMsg{
+              display: none;
+            }
+            .showPwdMsg{
+              display: inline;
+              color: red;
             }
            
             input {
               display: block;
-              padding: 0 0 5px 0;
+              padding: 10px 0 5px 0;
               border: none;
               border-bottom: solid 2px #000;
               transition: border 0.1s;
               outline: none;
               background: none;
+              width: 340px;
               
               &:hover {
                 border-color: #ADC088;
