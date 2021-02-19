@@ -46,7 +46,7 @@ class RecommendAcc extends Component {
           >
             {recommendAccdata.map(acc => {
               return (
-                <div className="accBox">
+                <div className="accBox" key={acc.id}>
                   <img alt="acc" className="accImg" src={acc.img}></img>
                   <span>{acc.name}</span>
                 </div>

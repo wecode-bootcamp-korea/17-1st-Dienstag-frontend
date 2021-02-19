@@ -1,0 +1,74 @@
+.userLoginForm {
+  margin-top: 0em;
+  font-size: 12px;
+  
+  .userLoginContainer {
+    padding: 20px;
+    border-top: 1px solid #ECECEC;
+
+    .formLoginItem {
+      margin-top: 10px;
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        flex-direction: column;
+        color:#000;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: default;
+        
+        span {
+          display:inline;
+        }
+
+        input {
+          justify-self: center;
+          width: 80%;
+          padding: 0 0 5px 0;
+          border: none;
+          border-bottom: solid 2px #000;
+          transition: border 0.1s;
+          outline: none;
+        }
+      }
+    }
+
+    .formAction {
+      position: relative;
+
+      .personIcon {
+        position: absolute;
+        margin: 6px 6px;
+        font-weight: bold;
+        font-size: 25px;
+        color: white;
+      }
+
+      input {
+        padding: 12px 20px 10px 35px;
+        margin-right: 10px;
+        border: medium none;
+        border-radius: 0;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.25px;
+        text-transform: uppercase;
+        background-color: black;
+        color:#fff;
+        cursor: pointer;
+      }
+    }
+
+    .formLink {
+      margin-top: 20px;
+      
+      .linkText {
+        padding: 5px;
+        text-decoration: none;
+        background: #ADC088;
+        color: black;
+      }
+    }
+  }
+}

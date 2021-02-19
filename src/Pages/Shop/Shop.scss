@@ -1,12 +1,13 @@
 .listCategoryHead {
   width: 1130px;
   height: 28px;
-  margin: 200px auto 0;
-  font-size: 15px;
+  margin: 200px auto 10px;
+  font-size: 19px;
+  padding: 6px;
 }
 .baglistName {
   width: 1130px;
-  margin: 0 auto;
+  margin: 100px auto 0;
   font-weight: 300;
   font-size: 60px;
 }
@@ -32,13 +33,25 @@
   }
 }
 
+.categoryHead{
+  width: 1130px;
+  font-size:80px;
+  margin: 30px auto 80px;
+}
+.miniDesc{
+  width: 1130px;
+  font-size:20px;
+  margin: 30px auto 80px;
+}
+
 .productBtn {
   width: 240px;
   margin: 70px 0 50px 260px;
   padding: 15px;
+  text-align: center;
   background-color: black;
   color: white;
-
+ 
   &:hover {
     background-color: gray;
   }

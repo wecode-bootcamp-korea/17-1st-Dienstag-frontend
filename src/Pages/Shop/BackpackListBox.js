@@ -7,6 +7,7 @@ import './Shop.scss';
 
 export default class BackpackListbox extends Component {
   constructor() {
+    window.scrollTo({ top: 0 });
     super();
     this.state = {
       backpackdata: [],
@@ -32,15 +33,21 @@ export default class BackpackListbox extends Component {
           recommendAccdata: data,
         });
       });
+    window.addEventListener('scroll', this.show);
   }
 
+  show = () => {
+    const a = window.scrollY;
+
+    console.log(a);
+  };
   showDesc = e => {
     if (0 < e && e < 9) {
-      window.scrollTo({ top: 242, behavior: 'smooth' });
-    } else if (8 < e && e < 17) {
       window.scrollTo({ top: 400, behavior: 'smooth' });
+    } else if (8 < e && e < 17) {
+      window.scrollTo({ top: 550, behavior: 'smooth' });
     } else {
-      window.scrollTo({ top: 558, behavior: 'smooth' });
+      window.scrollTo({ top: 690, behavior: 'smooth' });
     }
 
     const backpackdesc = this.state.backpackdata.filter(bag => {
@@ -74,9 +81,10 @@ export default class BackpackListbox extends Component {
           </span>
         </div>
 
-        {range.map(list => {
+        {range.map((list, inx) => {
           return (
             <BackpackList
+              key={inx}
               backpackdata={backpackdata}
               backdescdata={backdescdata}
               showDesc={this.showDesc}
@@ -92,7 +100,10 @@ export default class BackpackListbox extends Component {
         <ListDetail />
         <div className="recommendAceesoriesHead">완벽한 동반자</div>
 
-        <RecommendAcc recommendAccdata={recommendAccdata} />
+        <RecommendAcc
+          key={recommendAccdata.id}
+          recommendAccdata={recommendAccdata}
+        />
       </>
     );
   }

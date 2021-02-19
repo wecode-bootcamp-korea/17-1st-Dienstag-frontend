@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import BagViewListBox from './BagViewListBox';
 import './Shop.scss';
 
 class BagCategoryView extends Component {
@@ -25,30 +26,18 @@ class BagCategoryView extends Component {
     return (
       <>
         <div className="listCategoryHead">STORES - BAGS </div>
+        <div className="categoryHead">BACKPACK</div>
         <div className="baglistName">MIAMI</div>
+        <div className="miniDesc">A BLAST FROM THE PAST CHF 241.40 </div>
 
         <Link to={'/backpacklistbox'}>
-          <div className="listContainer">
-            {bagView.map(bag => {
-              return (
-                <>{<img alt="bag" src={bag.image_url} className="listImg" />}</>
-              );
-            })}
-          </div>
-          <div className="productBtn">나만의 MIAMI 선택하기</div>
+          <BagViewListBox bagView={bagView} />
         </Link>
 
-        <div className="listCategoryHead">STORES - BAGS </div>
         <div className="baglistName">FURY</div>
+        <div className="miniDesc">A BLAST FROM THE PAST CHF 269.25 </div>
         <Link to={'/backpacklistbox'}>
-          <div className="listContainer">
-            {bagView.map(bag => {
-              return (
-                <>{<img alt="bag" src={bag.image_url} className="listImg" />}</>
-              );
-            })}
-          </div>
-          <div className="productBtn">나만의 FURY 선택하기</div>
+          <BagViewListBox bagView={bagView} />
         </Link>
       </>
     );

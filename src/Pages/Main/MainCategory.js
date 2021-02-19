@@ -25,20 +25,20 @@ class MainCategory extends Component {
     return (
       <>
         <div className="shop">SHOP</div>
-        <div className="categorycontainer">
+        <div className="categoryContainer">
           {mainCategoryData.map(category => {
             return (
               <div key={category.id} className="mainCategorys">
                 <Link to={category.link}>
-                  <div className="mainCategorycontainer">
+                  <div className="mainCategoryContainer">
                     <div>
                       <img
                         alt="main-category"
                         src={category.src}
-                        className="mainCategoryimg"
+                        className="mainCategoryImg"
                       />
                     </div>
-                    <div className="mainCategorytext">{category.name}</div>
+                    <div className="mainCategoryText">{category.name}</div>
                   </div>
                 </Link>
               </div>

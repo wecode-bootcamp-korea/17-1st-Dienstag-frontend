@@ -24,9 +24,8 @@ class ListDetail extends Component {
       <>
         <div className="bagDetail">
           {bagDetailboxdata.map(box => (
-            <div className="bagFeature">
+            <div className="bagFeature" key={box.id}>
               <img className="star" alt="star" src={box.img} />
-
               <h1>{box.name}</h1>
               <p>{box.detail}</p>
             </div>
@@ -54,7 +53,7 @@ class ListDetail extends Component {
         </div>
         <div className="recommendOtherbag">
           <img
-            src="https://thumb2.photo.mybox.naver.com/3472444049047398685?type=m3&setidc=2&filelink=mhIvdesLshFn+aERHKsoWq+bjXvhlOr1UHtJUxihlmtv3G2IGwH6lazQFemv3dH0U408GjBZodmf5Wfr82lrUAM=&authtoken=hQieb4KIQdv47b7RFVtx7QI="
+            src="https://thumb1.photo.mybox.naver.com/3472444049047398685?type=m1280_1280_2&nocache=1801101902"
             alt="img"
           />
           <div className="recommendBagtext">

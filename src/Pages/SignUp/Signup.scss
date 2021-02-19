@@ -1,0 +1,101 @@
+.signupForm {
+  padding:20px 15px;
+  margin: 80px;
+
+  .signupContainer {
+    margin-bottom: 15px;
+    border: 1px solid #DEDEDE;
+
+    .signupHeader {
+      display: flex;
+      height: 40px;
+      background-color: #DEDEDE;
+
+      .textGeneral {
+        padding: 0 8px;
+        line-height: 40px;
+        background: #ADC088;
+      }
+    }
+    .sigupContent {
+      padding: 15px;
+
+      h1 {
+        font-size: 50px;
+      }
+
+      .formSignupItemContainer {
+        margin: 35px 0;
+
+        .formSignupItem {
+          margin-bottom: 20px;
+
+          label {
+            display:block;
+            font-size: 14px;
+            font-weight: bold;
+            color:#000;
+            cursor: default;
+
+            span {
+              display: inline;
+              margin-left: 8px;
+            }
+
+            .NonePwdMsg{
+              display: none;
+            }
+            .showPwdMsg{
+              display: inline;
+              color: red;
+            }
+           
+            input {
+              display: block;
+              padding: 10px 0 5px 0;
+              border: none;
+              border-bottom: solid 2px #000;
+              transition: border 0.1s;
+              outline: none;
+              background: none;
+              width: 340px;
+              
+              &:hover {
+                border-color: #ADC088;
+              }
+            }
+          }
+        }
+      }
+      .infoText {
+        font-size: 15px;
+        color: #B2B6BB;
+      }
+    }
+  }
+  .formAction {
+    position: relative;
+
+    .personIcon {
+      position: absolute;
+      margin: 6px 6px;
+      font-weight: bold;
+      font-size: 25px;
+      color: white;
+    }
+    
+    input {
+      padding: 12px 20px 10px 35px;
+      margin-right: 10px;
+      border: medium none;
+      border-radius: 0;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.25px;
+      text-transform: uppercase;
+      background-color: black;
+      color:#fff;
+      cursor: pointer;
+    }
+  }
+}

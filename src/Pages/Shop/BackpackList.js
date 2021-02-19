@@ -25,7 +25,7 @@ class BackpackList extends Component {
     return (
       <div>
         <div className="listContainer">
-          {backpackdata.map(bag => {
+          {backpackdata.map((bag, inx) => {
             return (
               <>
                 {rangenumone < bag.id && bag.id < rangenumtwo && (
@@ -34,17 +34,18 @@ class BackpackList extends Component {
                     src={bag.image_url}
                     className="listImg"
                     onClick={() => showDesc(bag.id)}
+                    key={inx}
                   />
                 )}
               </>
             );
           })}
         </div>
-        {backdescdata.map(bag => {
+        {backdescdata.map((bag, inx) => {
           return (
             <>
               {isdescOpen && bag.id > rangenumone && bag.id < rangenumtwo && (
-                <div className="listDescContainer">
+                <div className="listDescContainer" key={inx}>
                   <div className="listDescBox">
                     <img
                       alt="bag"

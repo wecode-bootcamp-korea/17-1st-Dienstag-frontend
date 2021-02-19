@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
+import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
 
 class MainStories extends Component {
   constructor() {
@@ -15,8 +15,8 @@ class MainStories extends Component {
   slideRight = () => {
     const { curwidth } = this.state;
     this.setState({
-      curwidth: curwidth >= -849 && curwidth - 283,
-      nextbtn: curwidth === -849 ? false : true,
+      curwidth: curwidth >= -1172 && curwidth - 293,
+      nextbtn: curwidth === -879 ? false : true,
       prevbtn: true,
     });
   };
@@ -24,8 +24,8 @@ class MainStories extends Component {
   slideLeft = () => {
     const { curwidth } = this.state;
     this.setState({
-      curwidth: curwidth !== 0 && curwidth + 283,
-      prevbtn: curwidth === -283 ? false : true,
+      curwidth: curwidth !== 0 && curwidth + 293,
+      prevbtn: curwidth === -293 ? false : true,
       nextbtn: true,
     });
   };
