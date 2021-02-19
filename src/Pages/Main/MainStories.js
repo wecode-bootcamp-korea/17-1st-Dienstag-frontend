@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { FaArrowCircleLeft } from 'react-icons/fa';
-import { FaArrowCircleRight } from 'react-icons/fa';
+import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
 
 class MainStories extends Component {
   constructor() {

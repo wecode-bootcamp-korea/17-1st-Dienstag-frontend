@@ -1,0 +1,25 @@
+[{
+    "id": 1,
+    "img" : "https://www.freitag.ch/sites/default/files/styles/neo_square_thumbnail/public/features.png?itok=o4mHk1Tf",
+    "name" : "특징",
+    "detail" : "프릴이나 안감, 쿠션 없이 재활용 트럭 타폴린과 자전거 튜브, 안전벨트로 제작된 클래식 디자인"
+},
+{
+    "id": 2,
+    "img" : "https://www.freitag.ch/sites/default/files/styles/neo_square_thumbnail/public/dimensions.png?itok=6po-LRgV",
+    "name" : "사이즈",
+    "detail" : "270 x 130 x 350mm / 외부 450mm (가로x세로x높이) 11리터 외부 16리터"
+},
+{
+    "id": 3,
+    "img" : "https://www.freitag.ch/sites/default/files/styles/neo_square_thumbnail/public/quality.png?itok=9OjKmi-F",
+    "name" : "퀄리티",
+    "detail" : "트럭은 견고합니다. 그렇기 때문에 FREITAG의 모든 제품은 강력한 내구성을 자랑합니다. 하지만 입에 넣지는 마세요. 아시다시피 트럭의 맛이 그리 좋지는 않으니까요."
+},
+{
+    "id": 4,
+    "img" : "https://www.freitag.ch/sites/default/files/styles/neo_square_thumbnail/public/fabric2_texture.png?itok=3nLjtwVj",
+    "name" : "소재",
+    "detail" : "재활용 트럭 타폴린 (PVC로 코팅된 폴리에스테르 섬유) 재활용 안전벨트(폴리에스테르)"
+}
+]

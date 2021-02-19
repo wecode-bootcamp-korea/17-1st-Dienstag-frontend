@@ -1,104 +1,259 @@
-.store-bags-minihead {
-  margin: 200px auto 0;
-  font-size: 15px;
+.listCategoryHead {
   width: 1130px;
   height: 28px;
+  margin: 200px auto 0;
+  font-size: 15px;
 }
-.bagpacks-furybighead {
-  font-size: 60px;
+.baglistName {
   width: 1130px;
   margin: 0 auto;
   font-weight: 300;
+  font-size: 60px;
 }
-.priceandfilter {
+
+.priceandFilter {
   display: flex;
   justify-content: space-between;
   width: 1130px;
   margin: 40px auto;
 }
 
-.furycontainer {
-  width: 1130px;
-  height: auto;
+.listContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 auto;
+  width: 1130px;
+  height: auto;
 
-  .furyimg {
+  .listImg {
     width: 141.25px;
     height: 141.25px;
   }
 }
 
-.product-btn {
-  // display: inline-block;
-  background-color: black;
-  padding: 10px;
-  color: white;
-  margin-left: 260px;
-  margin-top: 70px;
-  padding: 15px;
+.productBtn {
   width: 240px;
+  margin: 70px 0 50px 260px;
+  padding: 15px;
+  background-color: black;
+  color: white;
+
   &:hover {
     background-color: gray;
   }
 }
 
-.furydesccontainer {
+.listDescContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 130px;
   width: 1680px;
   height: 549px;
   background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .furydescbox {
+  border-bottom: 1px solid black;
+
+  .listDescBox {
     display: flex;
     width: 1130px;
     height: 509px;
-    // margin: auto auto;
     background-color: white;
 
-    .furydescimg {
+    .descImg {
       width: 452px;
       height: 452px;
     }
 
-    .furydesctext {
+    .descText {
       position: relative;
       margin-top: 60px;
-      .descname {
+
+      .descName {
         font-size: 35px;
       }
-      .descprice,
-      .descprice {
+
+      .descPrice {
         margin-top: 15px;
         font-size: 25px;
       }
-      .desctext {
+
+      .descText {
         font-size: 25px;
         margin-top: 30px;
       }
-      .cart-btn {
-        background-color: black;
-        padding: 10px;
-        color: white;
+
+      .cartBtn {
+        width: 340px;
         margin-top: 50px;
         padding: 15px;
-        width: 340px;
         text-align: center;
         font-weight: 600;
+        background-color: black;
+        color: white;
+
         &:hover {
           background-color: gray;
         }
       }
-      .desc-closebtn {
+
+      .descClosebtn {
         position: absolute;
         top: 0;
         right: 30px;
         font-size: 30px;
       }
     }
+  }
+}
+
+.bagDetail {
+  display: flex;
+  width: 1130px;
+  height: 200px;
+  margin: 70px auto 0;
+  padding: 20px;
+  border-top: 1px solid black;
+
+  .bagFeature {
+    width: 282.5px;
+    height: 148px;
+    padding: 10px;
+
+    .star {
+      width: 36px;
+      height: 36px;
+    }
+
+    h1 {
+      margin-top: 5px;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    p {
+      margin-top: 20px;
+    }
+  }
+}
+
+.bigDetailimg {
+  display: flex;
+  width: 1130px;
+  height: auto;
+  margin: 60px auto 60px;
+}
+
+.featureBox {
+  display: flex;
+  justify-content: space-between;
+  margin: 90px auto;
+  width: 1130px;
+  height: auto;
+
+  .featureTextBox {
+    h1 {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    p {
+      margin-top: 30px;
+      font-size: 20px;
+    }
+  }
+
+  .featureImg {
+    width: 360.63px;
+    height: 360.63px;
+  }
+}
+.recommendOtherbag {
+  display: flex;
+  justify-content: space-between;
+  width: 1130px;
+  height: auto;
+  margin: 90px auto;
+
+  img {
+    width: 452.97px;
+    height: 452.97px;
+  }
+
+  .recommendBagtext {
+    width: 50%;
+    margin-top: 90px;
+    font-size: 40px;
+
+    .recommendBtn {
+      width: 200.81px;
+      height: 44px;
+      padding: 10px;
+      margin-top: 40px;
+      text-align: center;
+      font-size: 15px;
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+.recommendAceesoriesHead {
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 1130px;
+  height: 33px;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.recommendAceesoriesBox {
+  position: relative;
+  display: flex;
+  width: 1130px;
+  height: 362.688px;
+  margin: 0 auto;
+  background-color: white;
+  overflow: hidden;
+
+  .wrapProduct {
+    display: flex;
+    height: auto;
+    width: auto;
+
+    .accBox {
+      width: 272.5px;
+      height: 362.688px;
+      margin-right: 12px;
+
+      img {
+        width: 272.5px;
+        height: 272.5px;
+      }
+
+      span {
+        display: block;
+        font-size: 35px;
+      }
+    }
+  }
+
+  .next {
+    position: absolute;
+    right: 0px;
+    top: 100px;
+    color: black;
+  }
+
+  .prev {
+    position: absolute;
+    left: 0;
+    top: 100px;
+    color: black;
+  }
+
+  .none {
+    display: none;
   }
 }

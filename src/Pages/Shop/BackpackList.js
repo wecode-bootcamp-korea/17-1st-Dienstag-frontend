@@ -5,7 +5,7 @@ class BackpackList extends Component {
     super();
     this.state = {
       backpackdata: [],
-      isdescOpen: false,
+      isdescOpen: true,
       backdescdata: [],
       isdescClose: true,
     };
@@ -24,7 +24,7 @@ class BackpackList extends Component {
 
     return (
       <div>
-        <div className="furycontainer">
+        <div className="listContainer">
           {backpackdata.map(bag => {
             return (
               <>
@@ -32,7 +32,7 @@ class BackpackList extends Component {
                   <img
                     alt="bag"
                     src={bag.image_url}
-                    className="furyimg"
+                    className="listImg"
                     onClick={() => showDesc(bag.id)}
                   />
                 )}
@@ -44,24 +44,24 @@ class BackpackList extends Component {
           return (
             <>
               {isdescOpen && bag.id > rangenumone && bag.id < rangenumtwo && (
-                <div className="furydesccontainer">
-                  <div className="furydescbox">
+                <div className="listDescContainer">
+                  <div className="listDescBox">
                     <img
                       alt="bag"
-                      className="furydescimg"
+                      className="descImg"
                       src={bag.image_url}
                     ></img>
-                    <div className="furydesctext">
-                      <div className="descname">{bag.model_number}</div>
-                      <div className="descprice">
+                    <div className="descText">
+                      <div className="descName">{bag.model_number}</div>
+                      <div className="descPrice">
                         A Blast from the Past, {bag.price}
                       </div>
-                      <div className="desccolor">COLOR : {bag.color_name}</div>
-                      <div className="desctext">- {bag.description[0]}</div>
-                      <div className="desctext">- {bag.description[1]}</div>
-                      <div className="desctext">- {bag.description[2]}</div>
-                      <div className="cart-btn">장바구니에 추가</div>
-                      <span className="desc-closebtn" onClick={descClose}>
+                      <div className="descColor">COLOR : {bag.color_name}</div>
+                      <div className="descText">- {bag.description[0]}</div>
+                      <div className="descText">- {bag.description[1]}</div>
+                      <div className="descText">- {bag.description[2]}</div>
+                      <div className="cartBtn">장바구니에 추가</div>
+                      <span className="descClosebtn" onClick={descClose}>
                         X
                       </span>
                     </div>

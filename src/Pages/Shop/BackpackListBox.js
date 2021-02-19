@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 import BackpackList from './BackpackList';
+import ListDetail from './ListDetail';
+import RecommendAcc from './RecommendAcc';
 import './Shop.scss';
 
 export default class BackpackListbox extends Component {
@@ -8,9 +10,10 @@ export default class BackpackListbox extends Component {
     super();
     this.state = {
       backpackdata: [],
-      isdescOpen: false,
+      isdescOpen: true,
       backdescdata: [],
       isdescClose: true,
+      recommendAccdata: [],
     };
   }
 
@@ -22,6 +25,13 @@ export default class BackpackListbox extends Component {
           backpackdata: data,
         });
       });
+    fetch('/data/recommendAcc.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          recommendAccdata: data,
+        });
+      });
   }
 
   showDesc = e => {
@@ -30,7 +40,7 @@ export default class BackpackListbox extends Component {
     } else if (8 < e && e < 17) {
       window.scrollTo({ top: 400, behavior: 'smooth' });
     } else {
-      window.scrollTo({ top: 422, behavior: 'smooth' });
+      window.scrollTo({ top: 558, behavior: 'smooth' });
     }
 
     const backpackdesc = this.state.backpackdata.filter(bag => {
@@ -38,7 +48,6 @@ export default class BackpackListbox extends Component {
     });
 
     this.setState({ backdescdata: backpackdesc, isdescOpen: true });
-    console.log(backpackdesc);
   };
 
   descClose = () => {
@@ -46,14 +55,21 @@ export default class BackpackListbox extends Component {
   };
 
   render() {
-    const { backpackdata, backdescdata, isdescOpen, isdescClose } = this.state;
+    const {
+      backpackdata,
+      backdescdata,
+      isdescOpen,
+      isdescClose,
+      recommendAccdata,
+    } = this.state;
+
     return (
       <>
-        <div className="store-bags-minihead">STORES - BAGS </div>
-        <div className="bagpacks-furybighead">F132 bag</div>
-        <div className="priceandfilter">
-          <span className="f132-price">A BLAST FROM THE PAST, $346</span>
-          <span className="filterlogo">
+        <div className="listCategoryHead">STORES - BAGS </div>
+        <div className="baglistName">MIAMI</div>
+        <div className="priceandFilter">
+          <span className="price">A BLAST FROM THE PAST, $346</span>
+          <span className="filterLogo">
             <RiFilterLine size={20} /> filter
           </span>
         </div>
@@ -73,7 +89,10 @@ export default class BackpackListbox extends Component {
           );
         })}
 
-        <div className="product-btn">나만의 F132 FURY 선택하기</div>
+        <ListDetail />
+        <div className="recommendAceesoriesHead">완벽한 동반자</div>
+
+        <RecommendAcc recommendAccdata={recommendAccdata} />
       </>
     );
   }
