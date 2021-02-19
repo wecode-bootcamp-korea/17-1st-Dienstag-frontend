@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import { Link } from 'react-router-dom';
 import './MapAPI.scss';
 
 class MapAPI extends Component {
@@ -55,8 +56,8 @@ class MapAPI extends Component {
   };
   render() {
     const mapStyles = {
-      width: '80%',
-      height: '80%',
+      width: '100%',
+      height: '100%',
     };
     const backstyle = [
       {

@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
-import MapAPI from '../../Map/MapAPI';
+import NavHeadLogos from './NavHeadLogos';
+import Navmodal from './NavModal';
+import './Nav.scss';
 
 class Nav extends Component {
+  constructor() {
+    super();
+    this.state = { MainStoriesdata: [], isNavOpen: false };
+  }
+
+  openNav = () => {
+    this.setState({ isNavOpen: !this.state.isNavOpen });
+  };
   render() {
+    const { isNavOpen } = this.state;
     return (
-      <div>
-        <MapAPI />
+      <div className="Nav">
+        <NavHeadLogos isNavOpen={isNavOpen} openNav={this.openNav} />
+        {isNavOpen && <Navmodal openNav={this.openNav} />}
       </div>
     );
   }
