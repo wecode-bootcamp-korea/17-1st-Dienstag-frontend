@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MdPerson } from 'react-icons/md';
+import { FcCheckmark } from 'react-icons/fc';
 import './Signup.scss';
 
 class SignUp extends Component {
@@ -8,26 +9,33 @@ class SignUp extends Component {
     email: '',
     password: '',
     passwordConfirm: '',
-    alertMessage: '',
-    color: 'black',
+    isLength: false,
+    isConfirm: false,
+    isShowingMsg: false,
   };
 
   handleInputValue = e => {
+    const { name, value } = e.target;
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
+    });
+    const { password, passwordConfirm } = this.state;
+    const validatePassword = password === passwordConfirm;
+    const pwdLength = password.length >= 7;
+
+    this.setState({
+      isLength: pwdLength && true,
+      isConfirm: validatePassword && true,
+    });
+  };
+  handleValidationText = e => {
+    this.setState({
+      isShowingMsg: true,
     });
   };
 
-  handleValidation = e => {
-    const { password, passwordConfirm } = this.state;
-    //this.state.password === this.state.passwordConfirm
-    this.setState({
-      alertMessage: password === passwordConfirm ? 'Match' : 'Not Match',
-      color: password === passwordConfirm ? 'blue' : 'red',
-    });
-  };
   render() {
-    const { alertMessage, color } = this.state;
+    const { isConfirm, isLength, isShowingMsg } = this.state;
     return (
       <form className="signupForm">
         <div className="signupContainer">
@@ -36,7 +44,7 @@ class SignUp extends Component {
             <span></span>
           </div>
           <div className="sigupContent">
-            <h1>WECOME TO THE D-FAMILY</h1>
+            <h1>WELCOME TO THE D-FAMILY</h1>
             <div className="formSignupItemContainer">
               <div className="formSignupItem loginName">
                 <label className="editName">
@@ -50,10 +58,8 @@ class SignUp extends Component {
                   <input
                     type="text"
                     name="name"
-                    size="40"
-                    maxLength="60"
                     className="formText required"
-                    onKeyPress={this.handleInputValue}
+                    onChange={this.handleInputValue}
                   />
                 </label>
               </div>
@@ -66,49 +72,47 @@ class SignUp extends Component {
                   <input
                     type="text"
                     name="email"
-                    size="40"
-                    maxLength="60"
                     className="formText required"
-                    onKeyPress={this.handleInputValue}
-                    onChange={this.handleValidation}
+                    onChange={this.handleInputValue}
                   />
                 </label>
               </div>
               <div className="formSignupItem loginName">
                 <label className="editPassword">
-                  Password
-                  <span className="formRequired" title="This field is required">
-                    *
+                  Password *
+                  <span
+                    className={'NonePwdMsg ' + (isShowingMsg && 'showPwdMsg')}
+                    title="This field is required"
+                  >
+                    {isLength ? <FcCheckmark /> : '8개 이상 입력하세요.'}
                   </span>
                   <input
                     type="password"
                     name="password"
-                    size="40"
-                    maxLength="60"
                     className="formText required"
-                    onKeyPress={this.handleInputValue}
-                    onChange={this.handleValidation}
+                    onChange={this.handleInputValue}
+                    onKeyPress={this.handleValidationText}
                   />
                 </label>
               </div>
               <div className="formSignupItem loginName">
                 <label className="editPasswordConfirm">
-                  Password Confirm
+                  Password Confirm *
                   <span
-                    style={{ color: color }}
-                    className="formRequired"
+                    className={
+                      'NonePwdMsg ' +
+                      (this.state.passwordConfirm.length >= 1 && 'showPwdMsg')
+                    }
                     title="This field is required"
                   >
-                    {!alertMessage ? '*' : alertMessage}
+                    {isConfirm ? <FcCheckmark /> : '일치하지 않습니다. '}
                   </span>
                   <input
                     type="password"
                     name="passwordConfirm"
-                    size="40"
-                    maxLength="60"
                     className="formText required"
-                    onKeyPress={this.handleInputValue}
-                    onChange={this.handleValidation}
+                    onChange={this.handleInputValue}
+                    onKeyPress={this.handleValidationText}
                   />
                 </label>
               </div>

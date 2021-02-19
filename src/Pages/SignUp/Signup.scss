@@ -1,91 +1,101 @@
-.signupForm{
+.signupForm {
   padding:20px 15px;
-  margin: 30px;
+  margin: 80px;
 
-  .signupContainer{
-    border: 1px solid #DEDEDE;
+  .signupContainer {
     margin-bottom: 15px;
+    border: 1px solid #DEDEDE;
 
-    .signupHeader{
-      background-color: #DEDEDE;
+    .signupHeader {
       display: flex;
       height: 40px;
+      background-color: #DEDEDE;
 
-      .textGeneral{
-        background: #ADC088;
+      .textGeneral {
         padding: 0 8px;
         line-height: 40px;
+        background: #ADC088;
       }
     }
-    .sigupContent{
+    .sigupContent {
       padding: 15px;
 
-      h1{
+      h1 {
         font-size: 50px;
       }
 
-      .formSignupItemContainer{
+      .formSignupItemContainer {
         margin: 35px 0;
 
-        .formSignupItem{
+        .formSignupItem {
           margin-bottom: 20px;
 
-          label{
+          label {
             display:block;
-            color:#000;
             font-size: 14px;
             font-weight: bold;
+            color:#000;
             cursor: default;
 
-            span{
+            span {
               display: inline;
+              margin-left: 8px;
+            }
+
+            .NonePwdMsg{
+              display: none;
+            }
+            .showPwdMsg{
+              display: inline;
+              color: red;
             }
            
-            input{
+            input {
               display: block;
-              background: none;
+              padding: 10px 0 5px 0;
               border: none;
               border-bottom: solid 2px #000;
-              padding: 0 0 5px 0;
               transition: border 0.1s;
+              outline: none;
+              background: none;
+              width: 340px;
               
-              &:hover{
+              &:hover {
                 border-color: #ADC088;
               }
             }
           }
         }
       }
-      .infoText{
-        color: #B2B6BB;
+      .infoText {
         font-size: 15px;
+        color: #B2B6BB;
       }
     }
   }
-  .formAction{
+  .formAction {
     position: relative;
 
-    .personIcon{
+    .personIcon {
+      position: absolute;
+      margin: 6px 6px;
       font-weight: bold;
       font-size: 25px;
-      position: absolute;
-      z-index: 0;
       color: white;
-      margin: 6px 6px;
     }
     
-    input{
-      background-color: black;
+    input {
+      padding: 12px 20px 10px 35px;
+      margin-right: 10px;
       border: medium none;
       border-radius: 0;
-      color:#fff;
-      cursor: pointer;
       font-size: 16px;
       font-weight: 600;
       letter-spacing: 0.25px;
-      margin-right: 10px;
       text-transform: uppercase;
-      padding: 12px 20px 10px 35px;
+      background-color: black;
+      color:#fff;
+      cursor: pointer;
     }
   }
 }
