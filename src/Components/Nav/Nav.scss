@@ -1,3 +1,4 @@
+@import '../../Styles/common.scss';
 @keyframes slide-right {
   0% {
     -webkit-transform: translateX(-200px);
@@ -41,9 +42,10 @@
 
 .Nav {
   .headLogos {
-    position: fixed;
+    position: fixed; 
     display: flex;
     z-index: 10;
+    top:0;
 
     .topLogo {
       width: 150px;
@@ -108,6 +110,13 @@
     z-index: 8;
     overflow: auto;
     animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    .loginForm{
+      height: 240px;
+      padding: 0;
+    }
+    .showLogin{
+      display: none;
+    }
 
     li {
       height: 50px;
@@ -244,3 +253,4 @@
     }
   }
 }
+

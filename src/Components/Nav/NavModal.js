@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Login from '../../Pages/Login/Login';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { IoIosInformationCircleOutline } from 'react-icons/io';
 import { FaFacebookF } from 'react-icons/fa';
@@ -27,6 +28,7 @@ class FnavModal extends Component {
       isbagsclick: false,
       isShopsclick: false,
       openbags: true,
+      isLoginClick: false,
     };
   }
   shopOpen = () => {
@@ -44,10 +46,19 @@ class FnavModal extends Component {
       openbags: !openbags,
     });
   };
+  handleShowLogin = () => {
+    this.setState({ isLoginClick: !this.state.isLoginClick });
+  };
 
   render() {
     const { isnavopen, openNav } = this.props;
-    const { isbagsclick, isShopsclick, openbags, openShop } = this.state;
+    const {
+      isbagsclick,
+      isShopsclick,
+      openbags,
+      openShop,
+      isLoginClick,
+    } = this.state;
     return (
       <div>
         {!isnavopen && (
@@ -57,13 +68,16 @@ class FnavModal extends Component {
               <ul>
                 <li></li>
                 <li className="loginEn">
-                  <span>
+                  <span onClick={this.handleShowLogin}>
                     <RiUser3Line size={20} /> LOGIN
                   </span>
                   <div>
                     <img alt="korea" className="ko" src={korea} />
                     <span> KO</span>
                   </div>
+                </li>
+                <li className={'loginForm ' + (!isLoginClick && 'showLogin')}>
+                  <Login />
                 </li>
                 <ul className="searchStores">
                   <div>
