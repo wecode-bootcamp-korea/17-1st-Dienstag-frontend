@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { MdColorLens } from 'react-icons/md';
+import { GiResize } from 'react-icons/gi';
 
 export default class BackpackList extends Component {
   render() {
@@ -47,11 +49,14 @@ export default class BackpackList extends Component {
                       <div className="descPrice">
                         A Blast from the Past, {bag.price}
                       </div>
-                      <div className="descColor">COLOR : {bag.color_name}</div>
+                      <div className="descColor">
+                        <MdColorLens size={20} /> COLOR : {bag.color_name}
+                        , <GiResize size={20} /> size : {bag.size_name}
+                      </div>
                       <div className="descText">- {bag.description[0]}</div>
                       <div className="descText">- {bag.description[1]}</div>
                       <div className="descText">- {bag.description[2]}</div>
-                      <div className="descText">- {bag.description[3]}</div>
+                      <div className="descTextlast">- {bag.description[3]}</div>
                       <div className="cartBtn">장바구니에 추가</div>
                       <span className="descClosebtn" onClick={descClose}>
                         X

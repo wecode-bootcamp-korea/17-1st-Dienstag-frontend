@@ -33,14 +33,14 @@
   }
 }
 
-.categoryHead{
+.categoryHead {
   width: 1130px;
-  font-size:80px;
+  font-size: 80px;
   margin: 30px auto 80px;
 }
-.miniDesc{
+.miniDesc {
   width: 1130px;
-  font-size:20px;
+  font-size: 20px;
   margin: 30px auto 80px;
 }
 
@@ -51,7 +51,7 @@
   text-align: center;
   background-color: black;
   color: white;
- 
+
   &:hover {
     background-color: gray;
   }
@@ -80,7 +80,8 @@
 
     .descText {
       position: relative;
-      margin-top: 60px;
+      width: 90%;
+      margin-top: 30px;
 
       .descName {
         font-size: 35px;
@@ -92,8 +93,14 @@
       }
 
       .descText {
-        font-size: 25px;
+        font-size: 24px;
         margin-top: 30px;
+      }
+
+      .descTextlast {
+        margin-top: 30px;
+        font-weight: 800;
+        font-size: 24px;
       }
 
       .cartBtn {
