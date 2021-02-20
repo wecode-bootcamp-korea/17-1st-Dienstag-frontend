@@ -9,9 +9,34 @@ class SignUp extends Component {
     email: '',
     password: '',
     passwordConfirm: '',
+    phone: '',
     isLength: false,
     isConfirm: false,
     isShowingMsg: false,
+    isAnonymous: false,
+  };
+  handleSubmit = e => {
+    console.log('aaaaa');
+    const { name, email, password, phone, isAnonymous } = this.state;
+    fetch('http://192.168.200.192:8000/user/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: name,
+        is_anonymous: isAnonymous,
+        email: email,
+        password: password,
+        phone_number: phone,
+      }),
+    })
+      .then(response => response.json())
+      .catch(error => console.error(error))
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          this.props.history.push('/');
+        } else {
+          alert('회원가입이 안되었습니다.');
+        }
+      });
   };
 
   handleInputValue = e => {
@@ -90,7 +115,7 @@ class SignUp extends Component {
                     type="password"
                     name="password"
                     className="formText required"
-                    onChange={this.handleInputValue}
+                    onInputCapture={this.handleInputValue}
                     onKeyPress={this.handleValidationText}
                   />
                 </label>
@@ -111,8 +136,22 @@ class SignUp extends Component {
                     type="password"
                     name="passwordConfirm"
                     className="formText required"
-                    onChange={this.handleInputValue}
+                    onInputCapture={this.handleInputValue}
                     onKeyPress={this.handleValidationText}
+                  />
+                </label>
+              </div>
+              <div className="formSignupItem loginName">
+                <label className="editEmail">
+                  PHONE NUMBER
+                  <span className="formRequired" title="This field is required">
+                    *
+                  </span>
+                  <input
+                    type="text"
+                    name="phone"
+                    className="formText required"
+                    onChange={this.handleInputValue}
                   />
                 </label>
               </div>
@@ -126,9 +165,9 @@ class SignUp extends Component {
         <div className="formAction">
           <MdPerson className="personIcon" />
           <input
-            type="submit"
             defaultValue="CREATE D-PROFILE"
             className="formSubmit"
+            onClick={this.handleSubmit}
           />
         </div>
       </form>

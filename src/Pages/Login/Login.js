@@ -4,6 +4,43 @@ import { MdPerson } from 'react-icons/md';
 import './Login.scss';
 
 class Login extends Component {
+  state = {
+    email: '',
+    password: '',
+  };
+
+  handleInput = e => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSubmit = e => {
+    const { email, password } = this.state;
+    fetch('http://192.168.200.192:8000/user/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          localStorage.setItem('token', result.access_token);
+          console.log(result.access_token);
+          this.props.history.push('/');
+        } else {
+          alert('invalid user');
+          this.props.history.push('/signup');
+        }
+      });
+  };
+
   render() {
     return (
       <form className="userLoginForm">
@@ -16,10 +53,9 @@ class Login extends Component {
               </span>
               <input
                 type="text"
-                name="name"
-                size="40"
-                maxLength="60"
+                name="email"
                 className="formText required"
+                onChange={this.handleInput}
               />
             </label>
           </div>
@@ -31,19 +67,18 @@ class Login extends Component {
               </span>
               <input
                 type="password"
-                name="pass"
-                size="40"
-                maxLength="128"
+                name="password"
                 className="formText required"
+                onChange={this.handleInput}
               />
             </label>
           </div>
           <div className="formAction">
             <MdPerson className="personIcon" />
             <input
-              type="submit"
+              onClick={this.handleSubmit}
               name="submit"
-              value="Log in"
+              defaultValue="Log in"
               className="formSubmit"
             />
           </div>
