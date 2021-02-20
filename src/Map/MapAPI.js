@@ -21,7 +21,7 @@ class MapAPI extends Component {
       ],
     };
   }
-  displayMarkers = () => {
+  showMarker = () => {
     const img =
       'https://www.freitag.ch/profiles/freitag_neo/themes/neocortex/images/f-square-152x152.png';
 
@@ -231,7 +231,7 @@ class MapAPI extends Component {
         initialCenter={{ lat: 47.444, lng: -122.176 }}
         styles={backstyle}
       >
-        {this.displayMarkers()}
+        {this.showMarker()}
       </Map>
     );
   }
