@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
 
-class BackpackList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      backpackdata: [],
-      isdescOpen: true,
-      backdescdata: [],
-      isdescClose: true,
-    };
-  }
-
+export default class BackpackList extends Component {
   render() {
     const {
       backpackdata,
@@ -61,6 +51,7 @@ class BackpackList extends Component {
                       <div className="descText">- {bag.description[0]}</div>
                       <div className="descText">- {bag.description[1]}</div>
                       <div className="descText">- {bag.description[2]}</div>
+                      <div className="descText">- {bag.description[3]}</div>
                       <div className="cartBtn">장바구니에 추가</div>
                       <span className="descClosebtn" onClick={descClose}>
                         X
@@ -76,5 +67,3 @@ class BackpackList extends Component {
     );
   }
 }
-
-export default BackpackList;

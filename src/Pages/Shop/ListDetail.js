@@ -53,7 +53,7 @@ class ListDetail extends Component {
         </div>
         <div className="recommendOtherbag">
           <img
-            src="https://thumb1.photo.mybox.naver.com/3472444049047398685?type=m1280_1280_2&nocache=1801101902"
+            src="https://postfiles.pstatic.net/MjAyMTAyMjBfMzUg/MDAxNjEzODAwMTMxMDIx.p95DQ58guv4ZGmo3RtW7lIY0Kubc3GV_yY-FlQ1zR5sg.6zRrucmXTiz3UUZKBig88Gzd4fCY0NABgshTrttZjPQg.PNG.route15/shopper1_blue.png?type=w580"
             alt="img"
           />
           <div className="recommendBagtext">

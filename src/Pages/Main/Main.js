@@ -8,6 +8,7 @@ class Main extends Component {
   constructor() {
     super();
     this.state = { MainStoriesdata: [], isNavOpen: false };
+    window.scrollTo({ top: 0 });
   }
 
   componentDidMount() {

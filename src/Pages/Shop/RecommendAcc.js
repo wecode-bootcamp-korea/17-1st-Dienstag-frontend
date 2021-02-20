@@ -33,7 +33,6 @@ class RecommendAcc extends Component {
   render() {
     const { recommendAccdata } = this.props;
     const { curwidth, nextbtn, prevbtn } = this.state;
-    console.log(curwidth);
     return (
       <>
         <div className="recommendAceesoriesBox">

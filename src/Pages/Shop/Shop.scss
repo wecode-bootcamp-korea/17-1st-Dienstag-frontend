@@ -104,6 +104,7 @@
         font-weight: 600;
         background-color: black;
         color: white;
+        cursor: pointer;
 
         &:hover {
           background-color: gray;
@@ -115,6 +116,7 @@
         top: 0;
         right: 30px;
         font-size: 30px;
+        cursor: pointer;
       }
     }
   }
@@ -257,6 +259,7 @@
     right: 0px;
     top: 100px;
     color: black;
+    cursor: pointer;
   }
 
   .prev {
@@ -264,6 +267,7 @@
     left: 0;
     top: 100px;
     color: black;
+    cursor: pointer;
   }
 
   .none {
