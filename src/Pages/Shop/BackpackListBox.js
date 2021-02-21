@@ -26,7 +26,8 @@ export default class BackpackListbox extends Component {
       .then(data => {
         this.setState({
           backpackdata: data.message,
-          // recommendAccdata: data.meesage[1],
+          //backpackdata : data.meesage[0],
+          // recommendAccdata: data.meesage[1]
         });
         console.log(data.message);
       });
