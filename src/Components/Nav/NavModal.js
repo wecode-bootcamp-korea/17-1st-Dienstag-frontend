@@ -139,9 +139,11 @@ export default class FnavModal extends Component {
                   <li>
                     <MdLocationCity size={20} /> CITY GUIDE LINES
                   </li>
-                  <li>
-                    <RiHeartAddLine size={20} /> S.W.A.P
-                  </li>
+                  <Link to="newsletter">
+                    <li>
+                      <RiHeartAddLine size={20} /> S.W.A.P
+                    </li>
+                  </Link>
                   <li>
                     <IoIosInformationCircleOutline size={20} /> CONNECT
                   </li>
