@@ -25,21 +25,20 @@ export default class BackpackListbox extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          backpackdata: data.message,
-          //backpackdata : data.meesage[0],
-          // recommendAccdata: data.meesage[1]
+          backpackdata: data.message[0],
+          recommendAccdata: data.message[1],
         });
-        console.log(data.message);
+        console.log(data.message[0]);
       });
 
-    fetch('/data/recommendAcc.json')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          recommendAccdata: data,
-        });
-        // console.log(data);
-      });
+    // fetch('/data/recommendAcc.json')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       recommendAccdata: data,
+    //     });
+    //     // console.log(data);
+    //   });
     window.addEventListener('scroll', this.show);
   }
 
