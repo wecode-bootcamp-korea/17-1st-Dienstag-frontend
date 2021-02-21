@@ -24,7 +24,7 @@ class MapAPI extends Component {
   handleInfo = () => {
     console.log('hello world');
   };
-  displayMarkers = () => {
+  showMarker = () => {
     const img =
       'https://www.freitag.ch/profiles/freitag_neo/themes/neocortex/images/f-square-152x152.png';
 
@@ -235,7 +235,7 @@ class MapAPI extends Component {
         styles={backstyle}
         onClick={this.handleInfo}
       >
-        {this.displayMarkers()}
+        {this.showMarker()}
       </Map>
     );
   }
