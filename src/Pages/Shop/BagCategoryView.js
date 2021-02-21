@@ -27,7 +27,6 @@ class BagCategoryView extends Component {
 
   render() {
     const { bagView } = this.state;
-    console.log(bagView);
     return (
       <>
         <div className="listCategoryHead">STORES - BAGS </div>
