@@ -11,10 +11,10 @@ class Nav extends Component {
   }
 
   openNav = () => {
-    this.setState({ isNavOpen: !this.state.isNavOpen });
+    this.setState({ isNavOpen: !this.state.isNavOpen, isFilteropen: false });
   };
   openFilter = () => {
-    this.setState({ isFilteropen: !this.state.isFilteropen });
+    this.setState({ isFilteropen: !this.state.isFilteropen, isNavOpen: false });
   };
   render() {
     const { isNavOpen, isFilteropen } = this.state;
