@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { RiFilterLine } from 'react-icons/ri';
-import BackpackList from './BackpackList';
-import ListDetail from './ListDetail';
-import RecommendAcc from './RecommendAcc';
-import './Shop.scss';
+import BackpackList from '../Shop/BackpackList';
+import RecommendAcc from '../Shop/RecommendAcc';
+import ListDetail from '../Shop/ListDetail';
+import '../Shop/Shop.scss';
 
-export default class BackpackListbox extends Component {
+class FilterView extends Component {
   constructor() {
     window.scrollTo({ top: 0 });
 
@@ -69,17 +68,10 @@ export default class BackpackListbox extends Component {
       isdescOpen,
       recommendAccdata,
     } = this.state;
-
     return (
       <>
         <div className="listCategoryHead">STORES - BAGS </div>
-        <div className="baglistName">MIAMI</div>
-        <div className="priceandFilter">
-          <span className="price">A BLAST FROM THE PAST, $346</span>
-          <span className="filterLogo">
-            <RiFilterLine size={20} /> filter
-          </span>
-        </div>
+        <div className="baglistName">DID YOU FIND THIS?</div>
 
         {range.map((list, inx) => {
           return (
@@ -107,6 +99,8 @@ export default class BackpackListbox extends Component {
     );
   }
 }
+
+export default FilterView;
 
 const range = [
   { rangenumone: 0, rangenumtwo: 9 },
