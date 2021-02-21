@@ -7,24 +7,26 @@ import './Shop.scss';
 class BagCategoryView extends Component {
   constructor() {
     super();
-    this.state = { bagView: [] };
+    this.state = { bagView: [], bagoneView: [], bagtwoView: [] };
   }
 
   componentDidMount() {
-    fetch('/data/backpackdata.json', {
+    fetch('http://172.20.10.3:8000/product/backpacks', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          bagView: data,
+          bagoneView: data.message[0],
+          bagtwoView: data.message[1],
         });
+        console.log(this.state.bagoneView);
       });
   }
 
   render() {
-    const { bagView } = this.state;
-    console.log(bagView);
+    const { bagoneView, bagtwoView } = this.state;
+
     return (
       <>
         <div className="listCategoryHead">STORES - BAGS </div>
@@ -38,7 +40,7 @@ class BagCategoryView extends Component {
           </span>
         </div>
         <Link to={'/backpacklistbox'}>
-          <BagViewListBox bagView={bagView} />
+          <BagViewListBox bagView={bagoneView} />
         </Link>
 
         <div className="baglistName">FURY</div>
@@ -50,7 +52,7 @@ class BagCategoryView extends Component {
           </span>
         </div>
         <Link to={'/backpacklistbox'}>
-          <BagViewListBox bagView={bagView} />
+          <BagViewListBox bagView={bagtwoView} />
         </Link>
       </>
     );

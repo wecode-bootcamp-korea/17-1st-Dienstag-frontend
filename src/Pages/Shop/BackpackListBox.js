@@ -19,7 +19,7 @@ export default class BackpackListbox extends Component {
   }
 
   componentDidMount() {
-    fetch('http://192.168.200.188:8000/product/models', {
+    fetch('http://172.20.10.3:8000/product/models', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -28,7 +28,7 @@ export default class BackpackListbox extends Component {
           backpackdata: data.message,
           // recommendAccdata: data.meesage[1],
         });
-        console.log(data);
+        console.log(data.message);
       });
 
     fetch('/data/recommendAcc.json')
@@ -37,7 +37,7 @@ export default class BackpackListbox extends Component {
         this.setState({
           recommendAccdata: data,
         });
-        console.log(data);
+        // console.log(data);
       });
     window.addEventListener('scroll', this.show);
   }
