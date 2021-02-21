@@ -6,7 +6,7 @@ import { GiResize } from 'react-icons/gi';
 class FilterModal extends Component {
   constructor() {
     super();
-    this.state = { iscoloropen: false, issizeopen: false };
+    this.state = { iscoloropen: false, issizeopen: false, chooseColor: '' };
   }
 
   openColorList = () => {
@@ -15,6 +15,10 @@ class FilterModal extends Component {
 
   openSizeList = () => {
     this.setState({ issizeopen: !this.state.issizeopen });
+  };
+
+  redClick = () => {
+    this.setState({ chooseColor: 'red' });
   };
 
   render() {
@@ -40,7 +44,7 @@ class FilterModal extends Component {
             {iscoloropen && (
               <Link to="/filterview">
                 <div className="colorList">
-                  <li>RED</li>
+                  <li onClick={this.redClick}>RED</li>
                   <li>GREEN</li>
                   <li>YELLOW</li>
                   <li>BLUE</li>
