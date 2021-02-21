@@ -115,7 +115,7 @@ class SignUp extends Component {
                     type="password"
                     name="password"
                     className="formText required"
-                    onInputCapture={this.handleInputValue}
+                    onChange={this.handleInputValue}
                     onKeyPress={this.handleValidationText}
                   />
                 </label>
@@ -136,7 +136,7 @@ class SignUp extends Component {
                     type="password"
                     name="passwordConfirm"
                     className="formText required"
-                    onInputCapture={this.handleInputValue}
+                    onChange={this.handleInputValue}
                     onKeyPress={this.handleValidationText}
                   />
                 </label>
