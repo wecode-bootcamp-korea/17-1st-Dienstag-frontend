@@ -15,6 +15,7 @@ class SignUp extends Component {
     isShowingMsg: false,
     isAnonymous: false,
   };
+
   handleSubmit = e => {
     console.log('aaaaa');
     const { name, email, password, phone, isAnonymous } = this.state;
@@ -45,8 +46,11 @@ class SignUp extends Component {
       {
         [name]: value,
       },
-      () => console.log(this.state.passwordConfirm)
+      () => this.handlePWValidation()
     );
+  };
+
+  handlePWValidation = () => {
     const { password, passwordConfirm } = this.state;
     const validatePassword = password === passwordConfirm;
     const pwdLength = password.length >= 7;
@@ -59,6 +63,7 @@ class SignUp extends Component {
       () => console.log(this.state)
     );
   };
+
   handleValidationText = e => {
     this.setState(
       {
@@ -125,7 +130,6 @@ class SignUp extends Component {
                     name="password"
                     className="formText required"
                     onChange={this.handleInputValue}
-                    onKeyPress={this.handleValidationText}
                   />
                 </label>
               </div>
@@ -146,7 +150,6 @@ class SignUp extends Component {
                     name="passwordConfirm"
                     className="formText required"
                     onChange={this.handleInputValue}
-                    onKeyPress={this.handleValidationText}
                   />
                 </label>
               </div>
