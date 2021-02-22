@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import BagViewListBox from './BagViewListBox';
+import './BagCategoryView.scss';
 import './Shop.scss';
 
 class BagCategoryView extends Component {
   constructor() {
     super();
-    this.state = { bagView: [], onfilter: false };
+    this.state = {
+      bagView: [],
+      puryData: [],
+      jonanzaData: [],
+      onfilter: false,
+    };
   }
 
   componentDidMount() {
-    fetch('/data/backpackdata.json', {
+    fetch('http://10.58.2.113:8000/product/backpacks', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          bagView: data,
+          puryData: data.PuryList,
+          jonanzaData: data.JonanzaList,
         });
       });
   }
@@ -26,24 +33,25 @@ class BagCategoryView extends Component {
   };
 
   render() {
-    const { bagView } = this.state;
+    const { puryData, jonanzaData } = this.state;
+
     return (
-      <>
+      <div className="BagCategoryView">
         <div className="listCategoryHead">STORES - BAGS </div>
         <div className="categoryHead">BACKPACK</div>
         <div className="baglistName">MIAMI</div>
         <div className="miniDesc">A BLAST FROM THE PAST CHF 241.40 </div>
         <Link to={'/backpacklistbox'}>
-          <BagViewListBox bagView={bagView} />
+          <BagViewListBox bagView={puryData} />
         </Link>
 
         <div className="baglistName">FURY</div>
         <div className="miniDesc">A BLAST FROM THE PAST CHF 269.25 </div>
 
         <Link to={'/backpacklistbox'}>
-          <BagViewListBox bagView={bagView} />
+          <BagViewListBox bagView={jonanzaData} />
         </Link>
-      </>
+      </div>
     );
   }
 }

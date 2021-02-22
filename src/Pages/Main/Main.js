@@ -8,7 +8,6 @@ class Main extends Component {
   constructor() {
     super();
     this.state = { MainStoriesdata: [], isNavOpen: false };
-    window.scrollTo({ top: 0 });
   }
 
   componentDidMount() {
@@ -19,6 +18,7 @@ class Main extends Component {
           MainStoriesdata: data,
         });
       });
+    window.scrollTo({ top: 0 });
   }
 
   openNav = () => {

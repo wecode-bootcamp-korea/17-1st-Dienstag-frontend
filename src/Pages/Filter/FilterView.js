@@ -4,6 +4,7 @@ import RecommendAcc from '../Shop/RecommendAcc';
 import ListDetail from '../Shop/ListDetail';
 // import '../Shop/Shop.scss';
 import './FilterView.scss';
+import { ProductConsumer } from '../../context';
 
 class FilterView extends Component {
   constructor() {
@@ -11,7 +12,6 @@ class FilterView extends Component {
 
     super();
     this.state = {
-      backpackdata: [],
       isdescOpen: true,
       backdescdata: [],
       recommendAccdata: [],
@@ -19,16 +19,16 @@ class FilterView extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/backpackdata.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          backpackdata: data,
-          // recommendAccdata: data.meesage[1],
-        });
-      });
+    // fetch('/data/backpackdata.json', {
+    //   method: 'GET',
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       backpackdata: data,
+    //       // recommendAccdata: data.meesage[1],
+    //     });
+    //   });
 
     fetch('/data/recommendAcc.json')
       .then(res => res.json())
@@ -36,12 +36,11 @@ class FilterView extends Component {
         this.setState({
           recommendAccdata: data,
         });
-        console.log(data);
       });
     window.addEventListener('scroll', this.show);
   }
 
-  showDesc = e => {
+  showDesc = (e, backpackdata) => {
     if (0 < e && e < 9) {
       window.scrollTo({ top: 400, behavior: 'smooth' });
     } else if (8 < e && e < 17) {
@@ -50,7 +49,7 @@ class FilterView extends Component {
       window.scrollTo({ top: 690, behavior: 'smooth' });
     }
 
-    const backpackdesc = this.state.backpackdata.filter(bag => {
+    const backpackdesc = backpackdata.filter(bag => {
       return bag.id === e;
     });
 
@@ -62,39 +61,42 @@ class FilterView extends Component {
   };
 
   render() {
-    const {
-      backpackdata,
-      backdescdata,
-      isdescOpen,
-      recommendAccdata,
-    } = this.state;
+    const { backdescdata, isdescOpen, recommendAccdata } = this.state;
     return (
       <>
         <div className="listCategoryHead">STORES - BAGS </div>
         <div className="baglistName">WHAT ARE YOU LOOKING FOR?</div>
+        <ProductConsumer>
+          {value => {
+            console.log(value.backpackdata);
+            return (
+              <>
+                {range.map((list, inx) => {
+                  return (
+                    <BackpackList
+                      key={inx}
+                      backpackdata={value.backpackdata}
+                      backdescdata={backdescdata}
+                      showDesc={this.showDesc}
+                      descClose={this.descClose}
+                      isdescOpen={isdescOpen}
+                      firstrange={list.rangenumone}
+                      lastrange={list.rangenumtwo}
+                    />
+                  );
+                })}
 
-        {range.map((list, inx) => {
-          return (
-            <BackpackList
-              key={inx}
-              backpackdata={backpackdata}
-              backdescdata={backdescdata}
-              showDesc={this.showDesc}
-              descClose={this.descClose}
-              isdescOpen={isdescOpen}
-              rangenumone={list.rangenumone}
-              rangenumtwo={list.rangenumtwo}
-            />
-          );
-        })}
+                <ListDetail />
 
-        <ListDetail />
-
-        <div className="recommendAceesoriesHead">완벽한 동반자</div>
-        <RecommendAcc
-          key={recommendAccdata.id}
-          recommendAccdata={recommendAccdata}
-        />
+                <div className="recommendAceesoriesHead">완벽한 동반자</div>
+                <RecommendAcc
+                  key={recommendAccdata.id}
+                  recommendAccdata={recommendAccdata}
+                />
+              </>
+            );
+          }}
+        </ProductConsumer>
       </>
     );
   }

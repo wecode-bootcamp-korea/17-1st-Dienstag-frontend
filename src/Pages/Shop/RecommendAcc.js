@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
+import './RecommendAcc.scss';
 
 class RecommendAcc extends Component {
   constructor() {
@@ -34,7 +35,7 @@ class RecommendAcc extends Component {
     const { recommendAccdata } = this.props;
     const { curwidth, nextbtn, prevbtn } = this.state;
     return (
-      <>
+      <div className="RecommendAcc">
         <div className="recommendAceesoriesBox">
           <div
             className="wrapProduct"
@@ -46,8 +47,8 @@ class RecommendAcc extends Component {
             {recommendAccdata.map(acc => {
               return (
                 <div className="accBox" key={acc.id}>
-                  <img alt="acc" className="accImg" src={acc.img}></img>
-                  <span>{acc.name}</span>
+                  <img alt="acc" className="accImg" src={acc.image_url}></img>
+                  <span>{acc.model_name}</span>
                 </div>
               );
             })}
@@ -60,7 +61,7 @@ class RecommendAcc extends Component {
             <FaArrowCircleLeft size={40} />
           </span>
         </div>
-      </>
+      </div>
     );
   }
 }

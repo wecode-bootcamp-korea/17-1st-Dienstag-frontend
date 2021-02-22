@@ -8,16 +8,9 @@ class BagViewListBox extends Component {
         <div className="listContainer">
           {bagView.map(bag => {
             return (
-              <>
-                {
-                  <img
-                    alt="bag"
-                    src={bag.image_url}
-                    className="listImg"
-                    key={bag.id}
-                  />
-                }
-              </>
+              <div key={bag.id}>
+                {<img alt="bag" src={bag.image_url} className="listImg" />}
+              </div>
             );
           })}
         </div>

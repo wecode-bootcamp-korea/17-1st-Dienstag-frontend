@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ListDetail.scss';
 
 class ListDetail extends Component {
   constructor() {
@@ -21,7 +22,7 @@ class ListDetail extends Component {
   render() {
     const { bagDetailboxdata } = this.state;
     return (
-      <>
+      <div className="ListDetail">
         <div className="bagDetail">
           {bagDetailboxdata.map(box => (
             <div className="bagFeature" key={box.id}>
@@ -61,7 +62,7 @@ class ListDetail extends Component {
             <div className="recommendBtn">SHOP F133 BONANZA</div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

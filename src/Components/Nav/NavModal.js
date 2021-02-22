@@ -20,6 +20,7 @@ import {
 } from 'react-icons/ri';
 import './Nav.scss';
 import { korea } from './imageList';
+import { ProductConsumer } from '../../context';
 
 export default class FnavModal extends Component {
   constructor() {
@@ -64,7 +65,14 @@ export default class FnavModal extends Component {
       <div>
         {!isnavopen && (
           <>
-            <div className="modalOutside" onClick={openNav}></div>
+            <ProductConsumer>
+              {value => {
+                return (
+                  <div className="modalOutside" onClick={value.openNav}></div>
+                );
+              }}
+            </ProductConsumer>
+
             <div className="modalNavContainer">
               <ul>
                 <li></li>
@@ -119,7 +127,9 @@ export default class FnavModal extends Component {
                           {bagLists.map(list => {
                             return (
                               <Link to={list.link}>
-                                <li>{list.categoryName}</li>
+                                <li key={list.categoryName}>
+                                  {list.categoryName}
+                                </li>
                               </Link>
                             );
                           })}

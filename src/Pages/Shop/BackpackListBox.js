@@ -3,12 +3,10 @@ import { RiFilterLine } from 'react-icons/ri';
 import BackpackList from './BackpackList';
 import ListDetail from './ListDetail';
 import RecommendAcc from './RecommendAcc';
-import './Shop.scss';
+import './BackpackListbox.scss';
 
 export default class BackpackListbox extends Component {
   constructor() {
-    window.scrollTo({ top: 0 });
-
     super();
     this.state = {
       backpackdata: [],
@@ -19,27 +17,18 @@ export default class BackpackListbox extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/backpackdata.json', {
+    fetch('http://10.58.2.113:8000/product/models', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          backpackdata: data,
-          // recommendAccdata: data.meesage[1],
+          backpackdata: data.ModelList,
+          recommendAccdata: data.RecommendationList,
         });
-        console.log(data);
       });
 
-    fetch('/data/recommendAcc.json')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          recommendAccdata: data,
-        });
-        console.log(data);
-      });
-    window.addEventListener('scroll', this.show);
+    window.scrollTo({ top: 0 });
   }
 
   showDesc = e => {
@@ -71,7 +60,7 @@ export default class BackpackListbox extends Component {
     } = this.state;
 
     return (
-      <>
+      <div className="BackpackListbox">
         <div className="listCategoryHead">STORES - BAGS </div>
         <div className="baglistName">MIAMI</div>
         <div className="priceandFilter">
@@ -90,8 +79,8 @@ export default class BackpackListbox extends Component {
               showDesc={this.showDesc}
               descClose={this.descClose}
               isdescOpen={isdescOpen}
-              rangenumone={list.rangenumone}
-              rangenumtwo={list.rangenumtwo}
+              firstrange={list.firstrange}
+              lastrange={list.lastrange}
             />
           );
         })}
@@ -103,13 +92,13 @@ export default class BackpackListbox extends Component {
           key={recommendAccdata.id}
           recommendAccdata={recommendAccdata}
         />
-      </>
+      </div>
     );
   }
 }
 
 const range = [
-  { rangenumone: 0, rangenumtwo: 9 },
-  { rangenumone: 8, rangenumtwo: 17 },
-  { rangenumone: 16, rangenumtwo: 25 },
+  { firstrange: 0, lastrange: 9 },
+  { firstrange: 8, lastrange: 17 },
+  { firstrange: 16, lastrange: 25 },
 ];

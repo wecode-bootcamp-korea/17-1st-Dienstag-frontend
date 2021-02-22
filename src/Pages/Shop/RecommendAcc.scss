@@ -1,0 +1,64 @@
+.RecommendAcc {
+  .recommendAceesoriesHead {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    width: 1130px;
+    height: 33px;
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  .recommendAceesoriesBox {
+    position: relative;
+    display: flex;
+    width: 1130px;
+    height: 362.688px;
+    margin: 0 auto;
+    background-color: white;
+    overflow: hidden;
+
+    .wrapProduct {
+      display: flex;
+      height: auto;
+      width: auto;
+
+      .accBox {
+        width: 272.5px;
+        height: 362.688px;
+        margin-right: 12px;
+
+        img {
+          width: 272.5px;
+          height: 272.5px;
+        }
+
+        span {
+          display: block;
+          text-align: center;
+          font-size: 35px;
+        }
+      }
+    }
+
+    .next {
+      position: absolute;
+      right: 0px;
+      top: 100px;
+      color: black;
+      cursor: pointer;
+    }
+
+    .prev {
+      position: absolute;
+      left: 0;
+      top: 100px;
+      color: black;
+      cursor: pointer;
+    }
+
+    .none {
+      display: none;
+    }
+  }
+}

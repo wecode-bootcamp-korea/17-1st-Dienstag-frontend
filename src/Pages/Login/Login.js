@@ -1,9 +1,47 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { MdPerson } from 'react-icons/md';
 import './Login.scss';
 
 class Login extends Component {
+  state = {
+    email: '',
+    password: '',
+  };
+
+  handleInput = e => {
+    const { name, value } = e.target;
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => console.log(this.state)
+    );
+  };
+
+  handleSubmit = () => {
+    const { email, password } = this.state;
+    fetch('http://10.58.2.91:8000/user/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          localStorage.setItem('token', result.access_token);
+          this.props.history.push('/');
+        } else {
+          alert('맞지 않습니다.');
+        }
+      });
+  };
+
   render() {
     return (
       <form className="userLoginForm">
@@ -16,10 +54,9 @@ class Login extends Component {
               </span>
               <input
                 type="text"
-                name="name"
-                size="40"
-                maxLength="60"
+                name="email"
                 className="formText required"
+                onChange={this.handleInput}
               />
             </label>
           </div>
@@ -31,19 +68,18 @@ class Login extends Component {
               </span>
               <input
                 type="password"
-                name="pass"
-                size="40"
-                maxLength="128"
+                name="password"
                 className="formText required"
+                onChange={this.handleInput}
               />
             </label>
           </div>
           <div className="formAction">
             <MdPerson className="personIcon" />
             <input
-              type="submit"
+              onClick={this.handleSubmit}
               name="submit"
-              value="Log in"
+              defaultValue="Log in"
               className="formSubmit"
             />
           </div>
@@ -58,4 +94,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

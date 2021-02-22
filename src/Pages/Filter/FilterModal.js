@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MdColorLens, MdKeyboardArrowDown } from 'react-icons/md';
 import { GiResize } from 'react-icons/gi';
 import './FilterModal.scss';
+import { ProductConsumer } from '../../context';
 
 class FilterModal extends Component {
   constructor() {
@@ -25,58 +26,64 @@ class FilterModal extends Component {
   render() {
     const { iscoloropen, issizeopen } = this.state;
     return (
-      <>
-        <div className="modalOutside" onClick={this.props.openFilter}></div>
-        <div className="modalNavContainer">
-          <ul>
-            <li></li>
-            <li onClick={this.openColorList} className="colorsList">
-              <span>
-                <MdColorLens /> PRIMARY COLOR
-              </span>
-              <span
-                className="bagsArrow"
-                style={{ transform: iscoloropen && 'rotate(180deg)' }}
-              >
-                <MdKeyboardArrowDown size={20} />
-              </span>
-            </li>
+      <ProductConsumer>
+        {value => {
+          return (
+            <>
+              <div className="modalOutside" onClick={value.openFilter}></div>
+              <div className="modalNavContainer">
+                <ul>
+                  <li></li>
+                  <li onClick={this.openColorList} className="colorsList">
+                    <span>
+                      <MdColorLens /> PRIMARY COLOR
+                    </span>
+                    <span
+                      className="bagsArrow"
+                      style={{ transform: iscoloropen && 'rotate(180deg)' }}
+                    >
+                      <MdKeyboardArrowDown size={20} />
+                    </span>
+                  </li>
 
-            {iscoloropen && (
-              <Link to="/filterview">
-                <div className="colorList">
-                  <li onClick={this.redClick}>RED</li>
-                  <li>GREEN</li>
-                  <li>YELLOW</li>
-                  <li>BLUE</li>
-                </div>
-              </Link>
-            )}
+                  {iscoloropen && (
+                    <Link to="/filterview">
+                      <div className="colorList">
+                        <li onClick={this.redClick}>RED</li>
+                        <li>GREEN</li>
+                        <li>YELLOW</li>
+                        <li>BLUE</li>
+                      </div>
+                    </Link>
+                  )}
 
-            <li onClick={this.openSizeList} className="sizeLists">
-              <span>
-                <GiResize /> BAG SIZE
-              </span>
-              <span
-                className="bagsArrow"
-                style={{ transform: iscoloropen && 'rotate(180deg)' }}
-              >
-                <MdKeyboardArrowDown size={20} />
-              </span>
-            </li>
-            {issizeopen && (
-              <Link to="/filterview">
-                <div className="sizeList">
-                  <li>SMALL</li>
-                  <li>MEDIUM</li>
-                  <li>LARGE</li>
-                </div>
-              </Link>
-            )}
-          </ul>
-          <div></div>
-        </div>
-      </>
+                  <li onClick={this.openSizeList} className="sizeLists">
+                    <span>
+                      <GiResize /> BAG SIZE
+                    </span>
+                    <span
+                      className="bagsArrow"
+                      style={{ transform: iscoloropen && 'rotate(180deg)' }}
+                    >
+                      <MdKeyboardArrowDown size={20} />
+                    </span>
+                  </li>
+                  {issizeopen && (
+                    <Link to="/filterview">
+                      <div className="sizeList">
+                        <li>SMALL</li>
+                        <li>MEDIUM</li>
+                        <li>LARGE</li>
+                      </div>
+                    </Link>
+                  )}
+                </ul>
+                <div></div>
+              </div>
+            </>
+          );
+        }}
+      </ProductConsumer>
     );
   }
 }
