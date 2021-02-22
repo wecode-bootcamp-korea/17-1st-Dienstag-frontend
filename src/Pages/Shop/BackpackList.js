@@ -67,7 +67,6 @@ export default class BackpackList extends Component {
                               onClick={() => {
                                 const token = value.getToken();
                                 if (token) {
-                                  //비회원 구현 예정
                                   value.addCart(bag.id, token);
                                 } else {
                                   value.noneUserAddCart(bag.id);
