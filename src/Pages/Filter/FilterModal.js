@@ -19,10 +19,6 @@ class FilterModal extends Component {
     this.setState({ issizeopen: !this.state.issizeopen });
   };
 
-  redClick = () => {
-    this.setState({ chooseColor: 'red' });
-  };
-
   render() {
     const { iscoloropen, issizeopen } = this.state;
     return (
@@ -47,14 +43,21 @@ class FilterModal extends Component {
                   </li>
 
                   {iscoloropen && (
-                    <Link to="/filterview">
-                      <div className="colorList">
-                        <li onClick={this.redClick}>RED</li>
-                        <li>GREEN</li>
-                        <li>YELLOW</li>
-                        <li>BLUE</li>
-                      </div>
-                    </Link>
+                    <div className="colorList">
+                      {colors.map(color => {
+                        return (
+                          <Link to="/filterview">
+                            <li
+                              id={color.id}
+                              key={color.id}
+                              onClick={() => value.handleClick(color.id)}
+                            >
+                              {color.name}
+                            </li>
+                          </Link>
+                        );
+                      })}
+                    </div>
                   )}
 
                   <li onClick={this.openSizeList} className="sizeLists">
@@ -69,13 +72,20 @@ class FilterModal extends Component {
                     </span>
                   </li>
                   {issizeopen && (
-                    <Link to="/filterview">
-                      <div className="sizeList">
-                        <li>SMALL</li>
-                        <li>MEDIUM</li>
-                        <li>LARGE</li>
-                      </div>
-                    </Link>
+                    <div className="sizeList">
+                      <Link to="/filterview">
+                        {sizes.map(size => {
+                          return (
+                            <li
+                              key={size.id}
+                              onClick={() => value.handleClick(size.id)}
+                            >
+                              {size.name}
+                            </li>
+                          );
+                        })}
+                      </Link>
+                    </div>
                   )}
                 </ul>
                 <div></div>
@@ -89,3 +99,14 @@ class FilterModal extends Component {
 }
 
 export default FilterModal;
+const colors = [
+  { name: 'RED', id: '1' },
+  { name: 'GREEN', id: '2' },
+  { name: 'BLUE', id: '3' },
+  { name: 'YELLOW', id: '4' },
+];
+const sizes = [
+  { name: 'SMALL', id: '5' },
+  { name: 'MEDIUM', id: '6' },
+  { name: 'LARGE', id: '7' },
+];

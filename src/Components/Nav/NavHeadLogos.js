@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BsList } from 'react-icons/bs';
 import { CgShoppingCart } from 'react-icons/cg';
 import { FiFilter } from 'react-icons/fi';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ProductConsumer } from '../../context';
 import './Nav.scss';
 
@@ -13,7 +13,9 @@ class Headlogos extends Component {
         {value => {
           return (
             <div className="headLogos">
-              <div className="topLogo">DIENSTAG</div>
+              <Link to="/">
+                <div className="topLogo">DIENSTAG</div>
+              </Link>
               <div className="listIcon" onClick={value.openNav}>
                 <BsList size={45} />
               </div>

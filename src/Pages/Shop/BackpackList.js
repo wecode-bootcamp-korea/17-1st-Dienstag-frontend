@@ -13,14 +13,11 @@ export default class BackpackList extends Component {
       firstrange,
       lastrange,
     } = this.props;
-    console.log(backpackdata);
+
     return (
       <div>
         <div className="listContainer">
           {backpackdata.map((bag, inx) => {
-            console.log(firstrange, bag.id);
-            console.log(bag.id, lastrange);
-
             return (
               <>
                 {firstrange < bag.id && bag.id < lastrange && (

@@ -68,7 +68,6 @@ class FilterView extends Component {
         <div className="baglistName">WHAT ARE YOU LOOKING FOR?</div>
         <ProductConsumer>
           {value => {
-            console.log(value.backpackdata);
             return (
               <>
                 {range.map((list, inx) => {

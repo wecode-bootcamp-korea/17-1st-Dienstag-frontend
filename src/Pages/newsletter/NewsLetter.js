@@ -24,28 +24,28 @@ class NewsLetter extends Component {
   checkValid = () => {
     const { emailvalid, firstName, lastvalid } = this.state;
 
-    if (!emailvalid.includes('@') || !emailvalid.includes('.')) {
-      this.setState({
-        valid: true,
-      });
-    } else {
-      fetch('http://10.58.1.95:8000/user/login', {
-        method: 'POST',
-        body: JSON.stringify({
-          email: emailvalid,
-          name: firstName,
-        }),
-      })
-        .then(res => res.json())
-        .then(result => {
-          if (result.message === 'SUCCESS') {
-            this.props.history.push('/');
-            console.log(result.message);
-          } else {
-            console.log(result.message);
-          }
-        });
-    }
+    // if (!emailvalid.includes('@') || !emailvalid.includes('.')) {
+    //   this.setState({
+    //     valid: true,
+    //   });
+    // } else {
+    //   fetch('http://10.58.1.95:8000/user/login', {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //       email: emailvalid,
+    //       name: firstName,
+    //     }),
+    //   })
+    //     .then(res => res.json())
+    //     .then(result => {
+    //       if (result.message === 'SUCCESS') {
+    //         this.props.history.push('/');
+    //         console.log(result.message);
+    //       } else {
+    //         console.log(result.message);
+    //       }
+    //     });
+    // }
   };
 
   render() {
