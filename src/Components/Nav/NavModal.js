@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Login from '../../Pages/Login/Login';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { IoIosInformationCircleOutline } from 'react-icons/io';
@@ -20,7 +21,7 @@ import {
 import './Nav.scss';
 import { korea } from './imageList';
 
-class FnavModal extends Component {
+export default class FnavModal extends Component {
   constructor() {
     super();
     this.state = {
@@ -115,15 +116,15 @@ class FnavModal extends Component {
                       </li>
                       {!openbags && (
                         <div className="bagsLists">
-                          <li>ALL MODELS</li>
-                          <li>BACK PACKS</li>
-                          <li>MESSENGER</li>
-                          <li>SHOPPER</li>
-                          <li>SHOULDER BAGS</li>
-                          <li>TOTE BAGS</li>
-                          <li>LAPTOP BAGS</li>
-                          <li>TRAVEL BAGS</li>
-                          <li>SPORTS BAGS</li>
+                          {bagLists.map(list => {
+                            return (
+                              <Link to={list.link}>
+                                <li key={list.categoryName}>
+                                  {list.categoryName}
+                                </li>
+                              </Link>
+                            );
+                          })}
                         </div>
                       )}
                       <li>ACCESSORIES</li>
@@ -168,4 +169,14 @@ class FnavModal extends Component {
   }
 }
 
-export default FnavModal;
+const bagLists = [
+  { categoryName: 'ALL MODELS', link: '/bagcategoryview' },
+  { categoryName: 'BACK PACKS', link: '/bagcategoryview' },
+  { categoryName: 'MESSENGER', link: '/bagcategoryview' },
+  { categoryName: 'SHOPPER', link: '/bagcategoryview' },
+  { categoryName: 'SHOULDER BAGS', link: '/bagcategoryview' },
+  { categoryName: 'TOTE BAGS', link: '/bagcategoryview' },
+  { categoryName: 'LAPTOP BAGS', link: '/bagcategoryview' },
+  { categoryName: 'TRAVEL BAGS', link: '/bagcategoryview' },
+  { categoryName: 'SPORTS BAGS', link: '/bagcategoryview' },
+];

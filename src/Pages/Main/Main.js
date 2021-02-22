@@ -18,6 +18,7 @@ class Main extends Component {
           MainStoriesdata: data,
         });
       });
+    window.scrollTo({ top: 0 });
   }
 
   openNav = () => {
@@ -32,7 +33,8 @@ class Main extends Component {
         <div className="videoLogoContiner">
           <video loop autoPlay muted className="mainVideo">
             <source
-              src="https://www.freitag.ch/sites/default/files/neo_content_video/210127_frbr_teaser_master_brompton_desktop-startseite.mp4"
+              src="https://www.freitag.ch/sites/default/files/neo_content_video/f601_malcolm_banner_1600x900.mp4
+              "
               type="video/mp4"
             />
           </video>
