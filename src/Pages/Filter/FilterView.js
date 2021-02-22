@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { RiFilterLine } from 'react-icons/ri';
-import BackpackList from './BackpackList';
-import ListDetail from './ListDetail';
-import RecommendAcc from './RecommendAcc';
-import './BackpackListbox.scss';
+import BackpackList from '../Shop/BackpackList';
+import RecommendAcc from '../Shop/RecommendAcc';
+import ListDetail from '../Shop/ListDetail';
+import '../Shop/Shop.scss';
 
-export default class BackpackListbox extends Component {
+class FilterView extends Component {
   constructor() {
+    window.scrollTo({ top: 0 });
+
     super();
     this.state = {
       backpackdata: [],
@@ -17,18 +18,27 @@ export default class BackpackListbox extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.2.113:8000/product/models', {
+    fetch('/data/backpackdata.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          backpackdata: data.ModelList,
-          recommendAccdata: data.RecommendationList,
+          backpackdata: data,
+          // recommendAccdata: data.meesage[1],
         });
+        console.log(data);
       });
 
-    window.scrollTo({ top: 0 });
+    fetch('/data/recommendAcc.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          recommendAccdata: data,
+        });
+        console.log(data);
+      });
+    window.addEventListener('scroll', this.show);
   }
 
   showDesc = e => {
@@ -58,17 +68,10 @@ export default class BackpackListbox extends Component {
       isdescOpen,
       recommendAccdata,
     } = this.state;
-
     return (
-      <div className="BackpackListbox">
+      <>
         <div className="listCategoryHead">STORES - BAGS </div>
-        <div className="baglistName">MIAMI</div>
-        <div className="priceandFilter">
-          <span className="price">A BLAST FROM THE PAST, $346</span>
-          <span className="filterLogo">
-            <RiFilterLine size={20} /> filter
-          </span>
-        </div>
+        <div className="baglistName">WHAT ARE YOU LOOKING FOR?</div>
 
         {range.map((list, inx) => {
           return (
@@ -79,8 +82,8 @@ export default class BackpackListbox extends Component {
               showDesc={this.showDesc}
               descClose={this.descClose}
               isdescOpen={isdescOpen}
-              firstrange={list.firstrange}
-              lastrange={list.lastrange}
+              rangenumone={list.rangenumone}
+              rangenumtwo={list.rangenumtwo}
             />
           );
         })}
@@ -92,13 +95,15 @@ export default class BackpackListbox extends Component {
           key={recommendAccdata.id}
           recommendAccdata={recommendAccdata}
         />
-      </div>
+      </>
     );
   }
 }
 
+export default FilterView;
+
 const range = [
-  { firstrange: 0, lastrange: 9 },
-  { firstrange: 8, lastrange: 17 },
-  { firstrange: 16, lastrange: 25 },
+  { rangenumone: 0, rangenumtwo: 9 },
+  { rangenumone: 8, rangenumtwo: 17 },
+  { rangenumone: 16, rangenumtwo: 25 },
 ];

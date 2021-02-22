@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
+import './RecommendAcc.scss';
 
 class RecommendAcc extends Component {
   constructor() {
@@ -34,7 +35,7 @@ class RecommendAcc extends Component {
     const { recommendAccdata } = this.props;
     const { curwidth, nextbtn, prevbtn } = this.state;
     return (
-      <>
+      <div className="RecommendAcc">
         <div className="recommendAceesoriesBox">
           <div
             className="wrapProduct"
@@ -60,7 +61,7 @@ class RecommendAcc extends Component {
             <FaArrowCircleLeft size={40} />
           </span>
         </div>
-      </>
+      </div>
     );
   }
 }

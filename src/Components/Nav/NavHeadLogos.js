@@ -8,7 +8,7 @@ class Headlogos extends Component {
   render() {
     return (
       <div className="headLogos">
-        <Link to={'/'}>
+        <Link to="/">
           <div className="topLogo">DIENSTAG</div>
         </Link>
 

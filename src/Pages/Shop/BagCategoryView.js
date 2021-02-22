@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import BagViewListBox from './BagViewListBox';
 import { RiFilterLine } from 'react-icons/ri';
-import './Shop.scss';
+import './BagCategoryView.scss';
 
 class BagCategoryView extends Component {
   constructor() {
     super();
-    this.state = { bagView: [], bagoneView: [], bagtwoView: [] };
+    this.state = { bagView: [], puryData: [], jonanzaData: [] };
   }
 
   componentDidMount() {
@@ -17,18 +17,17 @@ class BagCategoryView extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          bagoneView: data.PuryList,
-          bagtwoView: data.JonanzaList,
+          puryData: data.PuryList,
+          jonanzaData: data.JonanzaList,
         });
-        console.log(data);
       });
   }
 
   render() {
-    const { bagoneView, bagtwoView } = this.state;
+    const { puryData, jonanzaData } = this.state;
 
     return (
-      <>
+      <div className="BagCategoryView">
         <div className="listCategoryHead">STORES - BAGS </div>
         <div className="categoryHead">BACKPACK</div>
         <div className="baglistName">MIAMI</div>
@@ -40,7 +39,7 @@ class BagCategoryView extends Component {
           </span>
         </div>
         <Link to={'/backpacklistbox'}>
-          <BagViewListBox bagView={bagoneView} />
+          <BagViewListBox bagView={puryData} />
         </Link>
 
         <div className="baglistName">FURY</div>
@@ -52,9 +51,9 @@ class BagCategoryView extends Component {
           </span>
         </div>
         <Link to={'/backpacklistbox'}>
-          <BagViewListBox bagView={bagtwoView} />
+          <BagViewListBox bagView={jonanzaData} />
         </Link>
-      </>
+      </div>
     );
   }
 }

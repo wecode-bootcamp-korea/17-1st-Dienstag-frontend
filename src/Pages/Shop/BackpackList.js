@@ -10,8 +10,8 @@ export default class BackpackList extends Component {
       isdescOpen,
       showDesc,
       descClose,
-      rangenumone,
-      rangenumtwo,
+      firstrange,
+      lastrange,
     } = this.props;
 
     return (
@@ -20,14 +20,15 @@ export default class BackpackList extends Component {
           {backpackdata.map((bag, inx) => {
             return (
               <>
-                {rangenumone < bag.id && bag.id < rangenumtwo && (
-                  <img
-                    alt="bag"
-                    src={bag.image_url}
-                    className="listImg"
-                    onClick={() => showDesc(bag.id)}
-                    key={inx}
-                  />
+                {firstrange < bag.id && bag.id < lastrange && (
+                  <div key={inx}>
+                    <img
+                      alt="bag"
+                      src={bag.image_url}
+                      className="listImg"
+                      onClick={() => showDesc(bag.id)}
+                    />
+                  </div>
                 )}
               </>
             );
@@ -36,7 +37,7 @@ export default class BackpackList extends Component {
         {backdescdata.map((bag, inx) => {
           return (
             <>
-              {isdescOpen && bag.id > rangenumone && bag.id < rangenumtwo && (
+              {isdescOpen && bag.id > firstrange && bag.id < lastrange && (
                 <div className="listDescContainer" key={inx}>
                   <div className="listDescBox">
                     <img

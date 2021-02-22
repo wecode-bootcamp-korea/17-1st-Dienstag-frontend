@@ -119,7 +119,9 @@ export default class FnavModal extends Component {
                           {bagLists.map(list => {
                             return (
                               <Link to={list.link}>
-                                <li>{list.categoryName}</li>
+                                <li key={list.categoryName}>
+                                  {list.categoryName}
+                                </li>
                               </Link>
                             );
                           })}
