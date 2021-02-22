@@ -4,6 +4,7 @@ const ProductContext = React.createContext();
 const ProductConsumer = ProductContext.Consumer;
 
 class ProductProvider extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -17,6 +18,7 @@ class ProductProvider extends Component {
       totalPrice: 0,
     };
   }
+
   componentDidMount() {
     fetch(`http://10.58.2.91:8000/cart`, {
       method: 'GET',
@@ -29,6 +31,7 @@ class ProductProvider extends Component {
           total_price: totalPrice,
           total_products: totalProducts,
         } = data.data;
+
         this.setState(
           {
             cartList: cartList,
@@ -43,24 +46,24 @@ class ProductProvider extends Component {
   openNav = () => {
     this.setState({
       isNavOpen: !this.state.isNavOpen,
-      isCartOpen: this.state.isCartOpen && !this.state.isCartOpen,
+      isCartOpen: false,
     });
   };
+
   showCart = () => {
     this.setState({
       isCartOpen: !this.state.isCartOpen,
-      isNavOpen: this.state.isNavOpen && !this.state.isNavOpen,
+      isNavOpen: false,
     });
   };
 
   //cart
-  //장바구니 추가
   addCart = (bagId, token) => {
     fetch('http://10.58.2.91:8000/cart', {
       method: 'POST',
       headers: { Authorization: token },
       body: JSON.stringify({
-        product_id: 4,
+        product_id: bagId,
       }),
     })
       .then(response => response.json())
@@ -94,7 +97,7 @@ class ProductProvider extends Component {
 
   deleteCart = id => {
     const token = localStorage.getItem('token');
-    fetch(`http://10.58.2.91:8000/cart/${4}`, {
+    fetch(`http://10.58.2.91:8000/cart/${id}`, {
       method: 'DELETE',
       headers: { Authorization: token },
     })
