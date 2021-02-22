@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { MdColorLens, MdKeyboardArrowDown } from 'react-icons/md';
 import { GiResize } from 'react-icons/gi';
+import './FilterModal.scss';
 
 class FilterModal extends Component {
   constructor() {

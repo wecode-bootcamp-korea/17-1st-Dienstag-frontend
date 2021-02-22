@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import BackpackList from '../Shop/BackpackList';
 import RecommendAcc from '../Shop/RecommendAcc';
 import ListDetail from '../Shop/ListDetail';
-import '../Shop/Shop.scss';
+// import '../Shop/Shop.scss';
+import './FilterView.scss';
 
 class FilterView extends Component {
   constructor() {
@@ -27,7 +28,6 @@ class FilterView extends Component {
           backpackdata: data,
           // recommendAccdata: data.meesage[1],
         });
-        console.log(data);
       });
 
     fetch('/data/recommendAcc.json')

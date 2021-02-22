@@ -1,0 +1,124 @@
+.FilterView {
+  .listCategoryHead {
+    width: 1130px;
+    height: 28px;
+    margin: 200px auto 10px;
+    font-size: 19px;
+    padding: 6px;
+  }
+  .baglistName {
+    width: 1130px;
+    margin: 100px auto 0;
+    font-weight: 300;
+    font-size: 60px;
+  }
+
+  .priceandFilter {
+    display: flex;
+    justify-content: space-between;
+    width: 1130px;
+    margin: 40px auto;
+  }
+  .listContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 1130px;
+    height: auto;
+
+    .listImg {
+      width: 141.25px;
+      height: 141.25px;
+    }
+  }
+  .productBtn {
+    width: 240px;
+    margin: 70px 0 50px 260px;
+    padding: 15px;
+    text-align: center;
+    background-color: black;
+    color: white;
+
+    &:hover {
+      background-color: gray;
+    }
+  }
+  .listDescContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 130px;
+    width: 1680px;
+    height: 549px;
+    background-color: black;
+    border-bottom: 1px solid black;
+
+    .listDescBox {
+      display: flex;
+      width: 1130px;
+      height: 509px;
+      background-color: white;
+
+      .descImg {
+        width: 452px;
+        height: 452px;
+      }
+
+      .descText {
+        position: relative;
+        width: 90%;
+        margin-top: 30px;
+
+        .descName {
+          font-size: 35px;
+        }
+
+        .descPrice {
+          margin-top: 15px;
+          font-size: 25px;
+        }
+
+        .descText {
+          margin-top: 30px;
+          font-size: 24px;
+        }
+
+        .descTextlast {
+          margin-top: 30px;
+          font-weight: 800;
+          font-size: 24px;
+        }
+
+        .cartBtn {
+          width: 340px;
+          margin-top: 50px;
+          padding: 15px;
+          text-align: center;
+          font-weight: 600;
+          background-color: black;
+          color: white;
+          cursor: pointer;
+
+          &:hover {
+            background-color: gray;
+          }
+        }
+
+        .descClosebtn {
+          position: absolute;
+          top: 0;
+          right: 30px;
+          font-size: 30px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .recommendAceesoriesHead {
+    margin: 30px auto 40px;
+    width: 1130px;
+    height: 33px;
+    font-size: 40px;
+    font-weight: 300;
+  }
+}
