@@ -13,15 +13,17 @@ class ProductProvider extends Component {
       isNavOpen: false,
       isCartOpen: false,
       noneUserCart: [],
-      token: localStorage.getItem('token'),
       totalPrice: 0,
     };
   }
-
+  getToken = () => {
+    return localStorage.getItem('token');
+  }
   componentDidMount() {
+    const token = this.getToken();
     fetch(`http://10.58.2.91:8000/cart`, {
       method: 'GET',
-      headers: { Authorization: this.state.token },
+      headers: { Authorization: token },
     })
       .then(res => res.json())
       .then(data => {
@@ -75,9 +77,10 @@ class ProductProvider extends Component {
   };
 
   handleCartLsit = () => {
+    const token = this.getToken();
     fetch(`http://10.58.2.91:8000/cart`, {
       method: 'GET',
-      headers: { Authorization: this.state.token },
+      headers: { Authorization: token },
     })
       .then(res => res.json())
       .then(data => {
@@ -95,7 +98,7 @@ class ProductProvider extends Component {
   };
 
   deleteCart = id => {
-    const token = localStorage.getItem('token');
+    const token = this.getToken();
     fetch(`http://10.58.2.91:8000/cart/${id}`, {
       method: 'DELETE',
       headers: { Authorization: token },
