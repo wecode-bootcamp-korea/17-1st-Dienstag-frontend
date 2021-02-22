@@ -71,7 +71,7 @@ class FilterView extends Component {
     return (
       <>
         <div className="listCategoryHead">STORES - BAGS </div>
-        <div className="baglistName">DID YOU FIND THIS?</div>
+        <div className="baglistName">WHAT ARE YOU LOOKING FOR?</div>
 
         {range.map((list, inx) => {
           return (
