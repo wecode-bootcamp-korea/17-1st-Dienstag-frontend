@@ -41,22 +41,31 @@ class SignUp extends Component {
 
   handleInputValue = e => {
     const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    });
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => console.log(this.state.passwordConfirm)
+    );
     const { password, passwordConfirm } = this.state;
     const validatePassword = password === passwordConfirm;
     const pwdLength = password.length >= 7;
 
-    this.setState({
-      isLength: pwdLength && true,
-      isConfirm: validatePassword && true,
-    });
+    this.setState(
+      {
+        isLength: pwdLength && true,
+        isConfirm: validatePassword && true,
+      },
+      () => console.log(this.state)
+    );
   };
   handleValidationText = e => {
-    this.setState({
-      isShowingMsg: true,
-    });
+    this.setState(
+      {
+        isShowingMsg: true,
+      },
+      () => console.log(this.state.isShowingMsg)
+    );
   };
 
   render() {
