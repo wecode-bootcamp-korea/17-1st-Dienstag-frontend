@@ -19,16 +19,16 @@ export default class BackpackListbox extends Component {
   }
 
   componentDidMount() {
-    fetch('http://172.20.10.3:8000/product/models', {
+    fetch('http://10.58.2.113:8000/product/models', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          backpackdata: data.message[0],
-          recommendAccdata: data.message[1],
+          backpackdata: data.ModelList,
+          recommendAccdata: data.RecommendationList,
         });
-        console.log(data.message[0]);
+        // console.log(data.message[0]);
       });
 
     // fetch('/data/recommendAcc.json')
