@@ -9,33 +9,60 @@ class SignUp extends Component {
     email: '',
     password: '',
     passwordConfirm: '',
-    isLength: false,
-    isConfirm: false,
+    phone: '',
+    pwdLength: false,
+    pwdConfirm: false,
     isShowingMsg: false,
+    isAnonymous: false,
+  };
+
+  handleSubmit = e => {
+    const { name, email, password, phone, isAnonymous } = this.state;
+    fetch('http://10.58.2.91:8000/user/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: name,
+        is_anonymous: isAnonymous,
+        email: email,
+        password: password,
+        phone_number: phone,
+      }),
+    })
+      .then(response => response.json())
+      .catch(error => console.error(error))
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          this.props.history.push('/');
+        } else {
+          alert('회원가입이 안되었습니다.');
+        }
+      });
   };
 
   handleInputValue = e => {
     const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    });
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => this.handlePWValidation()
+    );
+  };
+
+  handlePWValidation = () => {
     const { password, passwordConfirm } = this.state;
     const validatePassword = password === passwordConfirm;
     const pwdLength = password.length >= 7;
+    const firstWriting = password.length >= 1;
 
     this.setState({
-      isLength: pwdLength && true,
-      isConfirm: validatePassword && true,
+      pwdLength: pwdLength && true,
+      pwdConfirm: validatePassword && true,
+      isShowingMsg: firstWriting && true,
     });
   };
-  handleValidationText = e => {
-    this.setState({
-      isShowingMsg: true,
-    });
-  };
-
   render() {
-    const { isConfirm, isLength, isShowingMsg } = this.state;
+    const { pwdConfirm, pwdLength, isShowingMsg } = this.state;
     return (
       <form className="signupForm">
         <div className="signupContainer">
@@ -84,14 +111,13 @@ class SignUp extends Component {
                     className={'NonePwdMsg ' + (isShowingMsg && 'showPwdMsg')}
                     title="This field is required"
                   >
-                    {isLength ? <FcCheckmark /> : '8개 이상 입력하세요.'}
+                    {pwdLength ? <FcCheckmark /> : '8개 이상 입력하세요.'}
                   </span>
                   <input
                     type="password"
                     name="password"
                     className="formText required"
                     onChange={this.handleInputValue}
-                    onKeyPress={this.handleValidationText}
                   />
                 </label>
               </div>
@@ -105,14 +131,27 @@ class SignUp extends Component {
                     }
                     title="This field is required"
                   >
-                    {isConfirm ? <FcCheckmark /> : '일치하지 않습니다. '}
+                    {pwdConfirm ? <FcCheckmark /> : '일치하지 않습니다. '}
                   </span>
                   <input
                     type="password"
                     name="passwordConfirm"
                     className="formText required"
                     onChange={this.handleInputValue}
-                    onKeyPress={this.handleValidationText}
+                  />
+                </label>
+              </div>
+              <div className="formSignupItem loginName">
+                <label className="editEmail">
+                  PHONE NUMBER
+                  <span className="formRequired" title="This field is required">
+                    *
+                  </span>
+                  <input
+                    type="text"
+                    name="phone"
+                    className="formText required"
+                    onChange={this.handleInputValue}
                   />
                 </label>
               </div>
@@ -126,9 +165,9 @@ class SignUp extends Component {
         <div className="formAction">
           <MdPerson className="personIcon" />
           <input
-            type="submit"
             defaultValue="CREATE D-PROFILE"
             className="formSubmit"
+            onClick={this.handleSubmit}
           />
         </div>
       </form>
