@@ -5,7 +5,14 @@ class NewsLetter extends Component {
   constructor() {
     window.scrollTo({ top: 0 });
     super();
-    this.state = { email: '', lastName: '', firstName: '', valid: false };
+    this.state = {
+      email: '',
+      lastName: '',
+      firstName: '',
+      emailvalid: false,
+      firstvalid: false,
+      lastvalid: false,
+    };
   }
 
   hadleInput = e => {
@@ -15,9 +22,9 @@ class NewsLetter extends Component {
   };
 
   checkValid = () => {
-    const { email, firstName } = this.state;
+    const { emailvalid, firstName, lastvalid } = this.state;
 
-    if (!email.includes('@') || !email.includes('.')) {
+    if (!emailvalid.includes('@') || !emailvalid.includes('.')) {
       this.setState({
         valid: true,
       });
@@ -25,7 +32,7 @@ class NewsLetter extends Component {
       fetch('http://10.58.1.95:8000/user/login', {
         method: 'POST',
         body: JSON.stringify({
-          email: email,
+          email: emailvalid,
           name: firstName,
         }),
       })
@@ -70,7 +77,7 @@ class NewsLetter extends Component {
         <div className="formsContainer">
           <div className="formtitle">
             Email Address
-            <span className={!this.state.valid ? 'valid' : 'invalid'}>
+            <span className={!this.state.emailvalid ? 'valid' : 'invalid'}>
               Check Your Email
             </span>
           </div>
@@ -81,14 +88,24 @@ class NewsLetter extends Component {
             onKeyup={this.checkValid}
             name="email"
           ></input>
-          <div className="formtitle">First Name</div>
+          <div className="formtitle">
+            First Name
+            <span className={!this.state.firstName ? 'valid' : 'invalid'}>
+              Check Your First Name
+            </span>
+          </div>
           <input
             type="text"
             className="input"
             onChange={this.hadleInput}
             name="lastName"
           ></input>
-          <div className="formtitle">Last Name</div>
+          <div className="formtitle">
+            Last Name
+            <span className={!this.state.lastvalid ? 'valid' : 'invalid'}>
+              Check Your Last Name
+            </span>
+          </div>
           <input
             type="text"
             className="input"
