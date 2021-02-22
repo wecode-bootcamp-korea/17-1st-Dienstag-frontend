@@ -79,7 +79,6 @@ export default class BackpackList extends Component {
                           );
                         }}
                       </ProductConsumer>
-                      <div className="cartBtn">장바구니에 추가</div>
                       <span className="descClosebtn" onClick={descClose}>
                         X
                       </span>

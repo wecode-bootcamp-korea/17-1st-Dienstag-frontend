@@ -4,7 +4,6 @@ const ProductContext = React.createContext();
 const ProductConsumer = ProductContext.Consumer;
 
 class ProductProvider extends Component {
-
   constructor() {
     super();
     this.state = {
