@@ -11,16 +11,16 @@ class BagCategoryView extends Component {
   }
 
   componentDidMount() {
-    fetch('http://172.20.10.3:8000/product/backpacks', {
+    fetch('/data/backpackdata.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          bagoneView: data.message[0],
-          bagtwoView: data.message[1],
+          bagoneView: data[0].list1,
+          bagtwoView: data[1].list2,
         });
-        console.log(this.state.bagoneView);
+        console.log(data);
       });
   }
 
