@@ -18,7 +18,7 @@ class SignUp extends Component {
   handleSubmit = e => {
     console.log('aaaaa');
     const { name, email, password, phone, isAnonymous } = this.state;
-    fetch('http://192.168.200.192:8000/user/signup', {
+    fetch('http://10.58.2.91:8000/user/signup', {
       method: 'POST',
       body: JSON.stringify({
         username: name,
