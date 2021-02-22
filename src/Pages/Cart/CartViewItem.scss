@@ -9,6 +9,11 @@
         display: flex;
         justify-content: flex-start;
         margin-top: 15px;
+
+        .productImg{
+          width: 40px;
+          height: 40px;
+        }
       }
 
       .productQuantity,

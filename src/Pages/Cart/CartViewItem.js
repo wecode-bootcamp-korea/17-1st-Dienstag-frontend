@@ -6,7 +6,13 @@ import { ProductConsumer } from '../../context';
 
 class CartViewItem extends Component {
   render() {
-    const { id, title, price, img, quantity } = this.props.product;
+    const {
+      product_id,
+      title,
+      price,
+      image_url,
+      quantity,
+    } = this.props.product;
     return (
       <ProductConsumer>
         {value => {
@@ -19,22 +25,24 @@ class CartViewItem extends Component {
                 <div className="productContainer">
                   <div className="imgContainer">
                     <Link>
-                      <img className="productImg" src={img} alt="product"></img>
+                      <img
+                        className="productImg"
+                        src={image_url}
+                        alt="product"
+                      ></img>
                     </Link>
                   </div>
                   <div className="productQuantity">
                     <span className="oneProduct">{quantity}</span>
-                    <span
-                      className="multiplecation"
-                      onClick={value.deleteCart(id)}
-                    >
-                      x
-                    </span>
+                    <span className="multiplecation">x</span>
                   </div>
                   <div className="productPrice">
                     <div className="displayPrice">{price}</div>
                   </div>
-                  <TiDelete className="deleteBtn" />
+                  <TiDelete
+                    className="deleteBtn"
+                    onClick={() => value.deleteCart(product_id)}
+                  />
                 </div>
               </li>
             </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MdColorLens } from 'react-icons/md';
 import { GiResize } from 'react-icons/gi';
+import { ProductConsumer } from '../../context';
 
 export default class BackpackList extends Component {
   render() {
@@ -58,6 +59,27 @@ export default class BackpackList extends Component {
                       <div className="descText">- {bag.description[1]}</div>
                       <div className="descText">- {bag.description[2]}</div>
                       <div className="descTextlast">- {bag.description[3]}</div>
+                      <ProductConsumer>
+                        {value => {
+                          return (
+                            <div
+                              className="cartBtn"
+                              onClick={() => {
+                                const token = value.getToken();
+                                if (token) {
+                                  //비회원 구현 예정
+                                  value.addCart(bag.id, token);
+                                } else {
+                                  value.noneUserAddCart(bag.id);
+                                }
+                              }}
+                            >
+                              장바구니에 추가
+                              <div></div>
+                            </div>
+                          );
+                        }}
+                      </ProductConsumer>
                       <div className="cartBtn">장바구니에 추가</div>
                       <span className="descClosebtn" onClick={descClose}>
                         X

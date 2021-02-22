@@ -11,6 +11,32 @@
     overflow: auto;
     animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     z-index: 8;
+
+    .formAction {
+        position: relative;
+    
+        .icon {
+          position: absolute;
+          margin: 6px 6px;
+          font-weight: bold;
+          font-size: 25px;
+          color: white;
+        }
+        
+        input {
+          padding: 12px 20px 10px 35px;
+          margin-right: 10px;
+          border: medium none;
+          border-radius: 0;
+          font-size: 16px;
+          font-weight: 600;
+          letter-spacing: 0.25px;
+          text-transform: uppercase;
+          background-color: black;
+          color:#fff;
+          cursor: pointer;
+        }
+      }
     
 
 }

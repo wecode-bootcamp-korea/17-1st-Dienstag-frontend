@@ -14,7 +14,6 @@ class ProductProvider extends Component {
       isCartOpen: false,
       noneUserCart: [],
       token: localStorage.getItem('token'),
-      isFilledCart: false,
       totalPrice: 0,
     };
   }
@@ -56,7 +55,7 @@ class ProductProvider extends Component {
 
   //cart
   //장바구니 추가
-  handleCart = (bagId, token) => {
+  addCart = (bagId, token) => {
     fetch('http://10.58.2.91:8000/cart', {
       method: 'POST',
       headers: { Authorization: token },
@@ -74,10 +73,9 @@ class ProductProvider extends Component {
   };
 
   handleCartLsit = () => {
-    const token = this.getToken();
     fetch(`http://10.58.2.91:8000/cart`, {
       method: 'GET',
-      headers: { Authorization: token },
+      headers: { Authorization: this.state.token },
     })
       .then(res => res.json())
       .then(data => {
@@ -113,7 +111,7 @@ class ProductProvider extends Component {
           ...this.state,
           openNav: this.openNav,
           showCart: this.showCart,
-          handleCart: this.handleCart,
+          addCart: this.addCart,
           handleCartLsit: this.handleCartLsit,
           deleteCart: this.deleteCart,
         }}
