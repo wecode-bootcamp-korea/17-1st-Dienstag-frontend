@@ -21,7 +21,7 @@ class Login extends Component {
 
   handleSubmit = e => {
     const { email, password } = this.state;
-    fetch('http://192.168.200.192:8000/user/signin', {
+    fetch('http://10.58.2.91:8000/user/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -36,7 +36,6 @@ class Login extends Component {
         if (result.message === 'SUCCESS') {
           localStorage.setItem('token', result.access_token);
           console.log(result.access_token);
-          this.props.history.push('/');
         } else {
           alert('invalid user');
           this.props.history.push('/signup');
