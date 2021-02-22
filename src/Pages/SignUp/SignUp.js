@@ -10,14 +10,13 @@ class SignUp extends Component {
     password: '',
     passwordConfirm: '',
     phone: '',
-    isLength: false,
-    isConfirm: false,
+    pwdLength: false,
+    pwdConfirm: false,
     isShowingMsg: false,
     isAnonymous: false,
   };
 
   handleSubmit = e => {
-    console.log('aaaaa');
     const { name, email, password, phone, isAnonymous } = this.state;
     fetch('http://10.58.2.91:8000/user/signup', {
       method: 'POST',
@@ -54,27 +53,16 @@ class SignUp extends Component {
     const { password, passwordConfirm } = this.state;
     const validatePassword = password === passwordConfirm;
     const pwdLength = password.length >= 7;
+    const firstWriting = password.length >= 1;
 
-    this.setState(
-      {
-        isLength: pwdLength && true,
-        isConfirm: validatePassword && true,
-      },
-      () => console.log(this.state)
-    );
+    this.setState({
+      pwdLength: pwdLength && true,
+      pwdConfirm: validatePassword && true,
+      isShowingMsg: firstWriting && true,
+    });
   };
-
-  handleValidationText = e => {
-    this.setState(
-      {
-        isShowingMsg: true,
-      },
-      () => console.log(this.state.isShowingMsg)
-    );
-  };
-
   render() {
-    const { isConfirm, isLength, isShowingMsg } = this.state;
+    const { pwdConfirm, pwdLength, isShowingMsg } = this.state;
     return (
       <form className="signupForm">
         <div className="signupContainer">
@@ -123,7 +111,7 @@ class SignUp extends Component {
                     className={'NonePwdMsg ' + (isShowingMsg && 'showPwdMsg')}
                     title="This field is required"
                   >
-                    {isLength ? <FcCheckmark /> : '8개 이상 입력하세요.'}
+                    {pwdLength ? <FcCheckmark /> : '8개 이상 입력하세요.'}
                   </span>
                   <input
                     type="password"
@@ -143,7 +131,7 @@ class SignUp extends Component {
                     }
                     title="This field is required"
                   >
-                    {isConfirm ? <FcCheckmark /> : '일치하지 않습니다. '}
+                    {pwdConfirm ? <FcCheckmark /> : '일치하지 않습니다. '}
                   </span>
                   <input
                     type="password"

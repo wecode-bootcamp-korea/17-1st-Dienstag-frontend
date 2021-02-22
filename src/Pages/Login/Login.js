@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { MdPerson } from 'react-icons/md';
 import './Login.scss';
 
@@ -19,7 +19,7 @@ class Login extends Component {
     );
   };
 
-  handleSubmit = e => {
+  handleSubmit = () => {
     const { email, password } = this.state;
     fetch('http://10.58.2.91:8000/user/signin', {
       method: 'POST',
@@ -35,10 +35,9 @@ class Login extends Component {
       .then(result => {
         if (result.message === 'SUCCESS') {
           localStorage.setItem('token', result.access_token);
-          console.log(result.access_token);
+          this.props.history.push('/');
         } else {
-          alert('invalid user');
-          this.props.history.push('/signup');
+          alert('맞지 않습니다.');
         }
       });
   };
@@ -95,4 +94,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
