@@ -6,6 +6,24 @@ import './Checkout.scss';
 
 class Checkout extends Component {
   state = {
+    email: '',
+    billingFirstName: '',
+    billingLastName: '',
+    billingStreetNumber: '',
+    billingAdditionalAddress: '',
+    billingDistrict: '',
+    billingCity: '',
+    billingPostalCode: '',
+    billingPhoneNumber: '',
+    billingCountry: '',
+    shippingCountry: '',
+    shippingFirstName: '',
+    shippingLastName: '',
+    shippingStreetNumber: '',
+    shippingAdditionalAddress: '',
+    shippingDistrict: '',
+    shippingCity: '',
+    shippingPostalCode: '',
     isInfoOpen: false,
   };
   gotoCartList = () => {
@@ -13,6 +31,13 @@ class Checkout extends Component {
   };
   openInfo = () => {
     this.setState({ isInfoOpen: !this.state.isInfoOpen });
+  };
+
+  handleInput = e => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
   };
 
   render() {
@@ -25,34 +50,53 @@ class Checkout extends Component {
           <div>
             <p>Continue as a guest</p>
             <label className="guestInputLabel">
-              E-mail address *<input className="guestInput"></input>
+              E-mail address *
+              <input
+                name="email "
+                className="guestInput"
+                onKeyPress={this.handleInput}
+              ></input>
             </label>
           </div>
           <div className="deliveryAddress">
             <p>BILLING INFORMATION</p>
             <label>
-              Country / Region *<input />
+              Country / Region *
+              <input name="billingCountry" onKeyPress={this.handleInput} />
             </label>
             <label>
-              First name *<input />
+              First name *
+              <input name="billingFirstName " onKeyPress={this.handleInput} />
             </label>
             <label>
-              Last name *<input />
+              Last name *
+              <input name="billingLastName " onKeyPress={this.handleInput} />
             </label>
             <label>
-              Street & No. *<input />
+              Street & No. *
+              <input name="billingStreetNumber" onKeyPress={this.handleInput} />
             </label>
             <label>
-              District (Korea example: Yongsan-gu) *<input />
+              AdditionalAddress *
+              <input
+                name="billingAdditionalAddress"
+                onKeyPress={this.handleInput}
+              />
             </label>
             <label>
-              City *<input />
+              District (Korea example: Yongsan-gu) *
+              <input name="billingDistrict" onKeyPress={this.handleInput} />
             </label>
             <label>
-              Postal code *<input />
+              City *<input name="billingCity" onKeyPress={this.handleInput} />
             </label>
             <label>
-              Phone *<input />
+              Postal code *
+              <input name="billingPostalCode" onKeyPress={this.handleInput} />
+            </label>
+            <label>
+              Phone *
+              <input name="billingPhoneNumber" onKeyPress={this.handleInput} />
             </label>
           </div>
           <div>
@@ -75,25 +119,54 @@ class Checkout extends Component {
               <div className="differentAddress">
                 <p>BILLING INFORMATION</p>
                 <label>
-                  Country / Region *<input />
+                  Country / Region *
+                  <input name="shippingCountry" onKeyPress={this.handleInput} />
                 </label>
                 <label>
-                  First name *<input />
+                  First name *
+                  <input
+                    name="shippingFirstName"
+                    onKeyPress={this.handleInput}
+                  />
                 </label>
                 <label>
-                  Last name *<input />
+                  Last name *
+                  <input
+                    name="shippingLastName"
+                    onKeyPress={this.handleInput}
+                  />
                 </label>
                 <label>
-                  Street & No. *<input />
+                  Street & No. *
+                  <input
+                    name="shippingStreetNumber"
+                    onKeyPress={this.handleInput}
+                  />
                 </label>
                 <label>
-                  District (Korea example: Yongsan-gu) *<input />
+                  Additional Address
+                  <input
+                    name="shippingAdditionalAddress"
+                    onKeyPress={this.handleInput}
+                  />
                 </label>
                 <label>
-                  City *<input />
+                  District (Korea example: Yongsan-gu) *
+                  <input
+                    name="shippingDistrict"
+                    onKeyPress={this.handleInput}
+                  />
                 </label>
                 <label>
-                  Postal code *<input />
+                  City *
+                  <input name="shippingCity" onKeyPress={this.handleInput} />
+                </label>
+                <label>
+                  Postal code *
+                  <input
+                    name="shippingPostalCode"
+                    onKeyPress={this.handleInput}
+                  />
                 </label>
               </div>
             )}
@@ -110,7 +183,12 @@ class Checkout extends Component {
                       className="formSubmit"
                     />
                   </div>
-                  <div className="formAction" onClick={value.handleCheckout}>
+                  <div
+                    className="formAction"
+                    onClick={() => {
+                      value.handleCheckout(this.state);
+                    }}
+                  >
                     <FaArrowRight className="icon" />
                     <input
                       type="button"

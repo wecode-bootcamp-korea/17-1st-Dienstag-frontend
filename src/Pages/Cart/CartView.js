@@ -37,7 +37,10 @@ class CartView extends Component {
                       <div className="checkoutBtnContainer">
                         <div
                           className="formAction"
-                          onClick={this.hanldeCheckout}
+                          onClick={() => {
+                            value.hanldeCartList();
+                            this.hanldeCheckout();
+                          }}
                         >
                           <FaShoppingCart className="icon" />
                           <input
