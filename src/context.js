@@ -18,7 +18,7 @@ class ProductProvider extends Component {
   }
   getToken = () => {
     return localStorage.getItem('token');
-  }
+  };
   componentDidMount() {
     const token = this.getToken();
     fetch(`http://10.58.2.91:8000/cart`, {

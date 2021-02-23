@@ -65,8 +65,9 @@ export default class BackpackList extends Component {
                             <div
                               className="cartBtn"
                               onClick={() => {
+                                const token = value.getToken();
                                 if (value.token) {
-                                  value.addCart(bag.id, value.token);
+                                  value.addCart(bag.id, token);
                                 } else {
                                   value.noneUserAddCart(bag.id);
                                 }

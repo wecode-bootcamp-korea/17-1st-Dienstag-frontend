@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import CartViewItem from './CartViewItem';
 import { FaShoppingCart } from 'react-icons/fa';
-import './CartView.scss';
 import { ProductConsumer } from '../../context';
 import { withRouter } from 'react-router-dom';
+import './CartView.scss';
 
 class CartView extends Component {
   hanldeCheckout = () => {
