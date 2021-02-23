@@ -19,18 +19,16 @@ export default class BackpackList extends Component {
         <div className="listContainer">
           {backpackdata.map((bag, inx) => {
             return (
-              <>
+              <div key={inx}>
                 {firstrange < bag.id && bag.id < lastrange && (
-                  <div key={inx}>
-                    <img
-                      alt="bag"
-                      src={bag.image_url}
-                      className="listImg"
-                      onClick={() => showDesc(bag.id, backpackdata)}
-                    />
-                  </div>
+                  <img
+                    alt="bag"
+                    src={bag.image_url}
+                    className="listImg"
+                    onClick={() => showDesc(bag.id, backpackdata)}
+                  />
                 )}
-              </>
+              </div>
             );
           })}
         </div>

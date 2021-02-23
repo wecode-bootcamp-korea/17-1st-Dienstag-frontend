@@ -122,19 +122,31 @@ export default class FnavModal extends Component {
                           <MdKeyboardArrowDown size={20} />
                         </div>
                       </li>
-                      {!openbags && (
-                        <div className="bagsLists">
-                          {bagLists.map(list => {
-                            return (
-                              <Link to={list.link}>
-                                <li key={list.categoryName}>
-                                  {list.categoryName}
-                                </li>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      )}
+                      <ProductConsumer>
+                        {value => {
+                          return (
+                            <>
+                              {!openbags && (
+                                <div className="bagsLists">
+                                  {bagLists.map(list => {
+                                    return (
+                                      <Link to="/bagcategoryview">
+                                        <li
+                                          key={list.categoryName}
+                                          id={list.id}
+                                          onClick={() => value.readId(list.id)}
+                                        >
+                                          {list.categoryName}
+                                        </li>
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+                              )}
+                            </>
+                          );
+                        }}
+                      </ProductConsumer>
                       <li>ACCESSORIES</li>
                       <li>F-ABRIC TWO-COLOR COMBOS</li>
                       <li>APPAREL FEMALE</li>
@@ -180,13 +192,13 @@ export default class FnavModal extends Component {
 }
 
 const bagLists = [
-  { categoryName: 'ALL MODELS', link: '/bagcategoryview' },
-  { categoryName: 'BACK PACKS', link: '/bagcategoryview' },
-  { categoryName: 'MESSENGER', link: '/bagcategoryview' },
-  { categoryName: 'SHOPPER', link: '/bagcategoryview' },
-  { categoryName: 'SHOULDER BAGS', link: '/bagcategoryview' },
-  { categoryName: 'TOTE BAGS', link: '/bagcategoryview' },
-  { categoryName: 'LAPTOP BAGS', link: '/bagcategoryview' },
-  { categoryName: 'TRAVEL BAGS', link: '/bagcategoryview' },
-  { categoryName: 'SPORTS BAGS', link: '/bagcategoryview' },
+  { categoryName: 'ALL MODELS', id: '1' },
+  { categoryName: 'BACK PACKS', id: '1' },
+  { categoryName: 'MESSENGER', id: '2' },
+  { categoryName: 'SHOPPER', id: '3' },
+  { categoryName: 'SHOULDER BAGS', id: '4' },
+  { categoryName: 'TOTE BAGS', id: '5' },
+  { categoryName: 'LAPTOP BAGS', id: '1' },
+  { categoryName: 'TRAVEL BAGS', id: '1' },
+  { categoryName: 'SPORTS BAGS', id: '1' },
 ];

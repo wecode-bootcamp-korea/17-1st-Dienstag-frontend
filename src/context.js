@@ -1,6 +1,5 @@
 // import { FALSE } from 'node-sass';
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 
 const ProductContext = React.createContext();
 const ProductConsumer = ProductContext.Consumer;
@@ -17,8 +16,11 @@ class ProductProvider extends Component {
       isFilteropen: false,
       backpackdata: [],
       filterInfo: '',
+      puryData: [],
+      jonanzaData: [],
     };
   }
+
   componentDidMount() {
     fetch('/data/totalProducts.json', {
       method: 'GET',
@@ -41,23 +43,53 @@ class ProductProvider extends Component {
       });
   }
 
-  onFilter = e => {
-    this.setState({ filterInfo: filterName[e] }, () => {
-      fetch('/data/a.json', {
-        method: 'GET',
-      })
-        .then(res => res.json())
-        .then(data => {
-          this.setState({
-            backpackdata: data,
-            // recommendAccdata: data.meesage[1],
-          });
+  readId = e => {
+    const listId = e;
+
+    fetch(`http://10.58.6.166:8000/product/category?bag_type=${listId}`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          puryData: data.PuryList,
+          jonanzaData: data.JonanzaList,
         });
-    });
+      });
   };
-  //비동기식 로직구현 완료
+
+  onFilter = e => {
+    this.setState(
+      { filterInfo: filterName[e] },
+      () => {
+        fetch('/data/a.json', {
+          method: 'GET',
+        })
+          .then(res => res.json())
+          .then(data => {
+            this.setState(
+              {
+                backpackdata: data,
+                // recommendAccdata: data.meesage[1],
+              },
+              () => console.log(this.state.filterInfo)
+            );
+          });
+      }
+      // `${this.state.filterInfo}`
+    );
+  };
+
   handleClick = e => {
     this.onFilter(e);
+  };
+
+  cloaseNav = () => {
+    this.setState({
+      isNavOpen: false,
+      isCartOpen: false,
+      isFilteropen: false,
+    });
   };
 
   openNav = () => {
@@ -103,6 +135,8 @@ class ProductProvider extends Component {
           habdleCartLsit: this.habdleCartLsit,
           onFilter: this.onFilter,
           handleClick: this.handleClick,
+          readId: this.readId,
+          cloaseNav: this.cloaseNav,
         }}
       >
         {this.props.children}

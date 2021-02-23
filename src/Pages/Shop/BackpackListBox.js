@@ -17,7 +17,7 @@ export default class BackpackListbox extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.2.113:8000/product/models', {
+    fetch('http://10.58.6.166:8000/product/model', {
       method: 'GET',
     })
       .then(res => res.json())

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class BagViewListBox extends Component {
   render() {
     const { bagView } = this.props;
+    console.log('list', bagView);
     return (
       <>
         <div className="listContainer">
@@ -14,7 +15,9 @@ class BagViewListBox extends Component {
             );
           })}
         </div>
-        <div className="productBtn">나만의 MIAMI 선택하기</div>
+        <div className="productbtnContainer">
+          <div className="productBtn">나만의 MIAMI 선택하기</div>
+        </div>
       </>
     );
   }

@@ -37,10 +37,10 @@ class FilterView extends Component {
           recommendAccdata: data,
         });
       });
-    window.addEventListener('scroll', this.show);
   }
 
   showDesc = (e, backpackdata) => {
+    console.dir(e.target);
     if (0 < e && e < 9) {
       window.scrollTo({ top: 400, behavior: 'smooth' });
     } else if (8 < e && e < 17) {
@@ -84,18 +84,17 @@ class FilterView extends Component {
                     />
                   );
                 })}
-
-                <ListDetail />
-
-                <div className="recommendAceesoriesHead">완벽한 동반자</div>
-                <RecommendAcc
-                  key={recommendAccdata.id}
-                  recommendAccdata={recommendAccdata}
-                />
               </>
             );
           }}
         </ProductConsumer>
+        <ListDetail />
+
+        <div className="recommendAceesoriesHead">완벽한 동반자</div>
+        <RecommendAcc
+          key={recommendAccdata.id}
+          recommendAccdata={recommendAccdata}
+        />
       </>
     );
   }

@@ -14,7 +14,9 @@ class Headlogos extends Component {
           return (
             <div className="headLogos">
               <Link to="/">
-                <div className="topLogo">DIENSTAG</div>
+                <div className="topLogo" onClick={value.cloaseNav}>
+                  DIENSTAG
+                </div>
               </Link>
               <div className="listIcon" onClick={value.openNav}>
                 <BsList size={45} />
