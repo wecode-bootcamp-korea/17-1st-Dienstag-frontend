@@ -5,6 +5,8 @@ import Nav from './Components/Nav/Nav';
 import BackpackListBox from './Pages/Shop/BackpackListBox';
 import BagCategoryView from './Pages/Shop/BagCategoryView';
 import SignUp from './Pages/SignUp/SignUp';
+import Cart from './Pages/Cart/Cart';
+import Checkout from './Pages/Cart/Checkout';
 
 class Routes extends React.Component {
   render() {
@@ -16,6 +18,8 @@ class Routes extends React.Component {
           <Route exact path="/bagcategoryview" component={BagCategoryView} />
           <Route exact path="/backpacklistbox" component={BackpackListBox} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
       </Router>
     );

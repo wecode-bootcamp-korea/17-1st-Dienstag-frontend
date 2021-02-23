@@ -16,9 +16,11 @@ class ProductProvider extends Component {
       totalPrice: 0,
     };
   }
+
   getToken = () => {
     return localStorage.getItem('token');
   };
+
   componentDidMount() {
     const token = this.getToken();
     fetch(`http://10.58.2.91:8000/cart`, {
@@ -45,15 +47,17 @@ class ProductProvider extends Component {
   }
   // nav
   openNav = () => {
+    const { isNavOpen } = this.state;
     this.setState({
-      isNavOpen: !this.state.isNavOpen,
+      isNavOpen: !isNavOpen,
       isCartOpen: false,
     });
   };
 
   showCart = () => {
+    const { isCartOpen } = this.state;
     this.setState({
-      isCartOpen: !this.state.isCartOpen,
+      isCartOpen: !isCartOpen,
       isNavOpen: false,
     });
   };
