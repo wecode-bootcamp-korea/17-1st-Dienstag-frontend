@@ -12,8 +12,19 @@
     animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     z-index: 8;
 
+    .priceContainer{
+      font-size: 20px;
+      .textTotal{
+        padding: 30px 10px 20px 10px;
+      }
+      .totalPrice{
+        padding: 5px;
+      }
+    }
+    
     .formAction {
         position: relative;
+        margin-top: 8px;
     
         .icon {
           position: absolute;
@@ -36,5 +47,9 @@
           color:#fff;
           cursor: pointer;
         }
+      }
+      .emptyCart{
+        z-index: 10;
+        color: black;
       }
 }

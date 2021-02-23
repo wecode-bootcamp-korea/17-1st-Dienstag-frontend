@@ -24,20 +24,19 @@ class CartViewItem extends Component {
                 </div>
                 <div className="productContainer">
                   <div className="imgContainer">
-                    <Link>
-                      <img
-                        className="productImg"
-                        src={image_url}
-                        alt="product"
-                      ></img>
-                    </Link>
+                    <img
+                      className="productImg"
+                      src={image_url}
+                      alt="product"
+                    ></img>
                   </div>
                   <div className="productQuantity">
                     <span className="oneProduct">{quantity}</span>
                     <span className="multiplecation">x</span>
                   </div>
                   <div className="productPrice">
-                    <div className="displayPrice">{price}</div>
+                    <div>$</div>
+                    <div className="displayPrice"> {price}</div>
                   </div>
                   <TiDelete
                     className="deleteBtn"

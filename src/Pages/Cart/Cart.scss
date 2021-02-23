@@ -1,8 +1,10 @@
 .checkoutContainer{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+
   .formAction {
     position: relative;
+    margin-left: 10px;
   
     .icon {
       position: absolute;
@@ -26,5 +28,4 @@
       cursor: pointer;
     }
   }
-
 }

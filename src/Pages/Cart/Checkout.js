@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 import { ProductConsumer } from '../../context';
 import Login from '../Login/Login';
 import './Checkout.scss';
@@ -24,13 +24,23 @@ class Checkout extends Component {
     shippingDistrict: '',
     shippingCity: '',
     shippingPostalCode: '',
-    isInfoOpen: false,
+    isSame: true,
   };
   gotoCartList = () => {
     this.props.history.push('/cart');
   };
-  openInfo = () => {
-    this.setState({ isInfoOpen: !this.state.isInfoOpen });
+  openInfo = e => {
+    const { checked } = e.target;
+    this.setState({
+      isSame: checked && false,
+    });
+  };
+
+  closeInfo = e => {
+    const { checked } = e.target;
+    this.setState({
+      isSame: checked && true,
+    });
   };
 
   handleInput = e => {
@@ -41,140 +51,199 @@ class Checkout extends Component {
   };
 
   render() {
-    const { isInfoOpen } = this.state;
+    const { isSame } = this.state;
+    const token = localStorage.getItem('token');
     return (
       <div className="checkout">
-        <p>Login</p>
-        <Login className="loginContainer" />
-        <div className="guestInputContainer">
-          <div>
+        {token && (
+          <>
+            <p>Login</p>
+            <Login className="loginContainer" />
+          </>
+        )}
+        <form className="guestInputContainer">
+          <div className="emailContainer">
             <p>Continue as a guest</p>
-            <label className="guestInputLabel">
-              E-mail address *
-              <input
-                name="email "
-                className="guestInput"
-                onKeyPress={this.handleInput}
-              ></input>
-            </label>
+            <label className="guestInputLabel">E-mail address *</label>
+            <input
+              required
+              name="email"
+              className="guestInput"
+              onKeyPress={this.handleInput}
+            />
           </div>
           <div className="deliveryAddress">
-            <p>BILLING INFORMATION</p>
-            <label>
-              Country / Region *
-              <input name="billingCountry" onKeyPress={this.handleInput} />
-            </label>
-            <label>
-              First name *
-              <input name="billingFirstName " onKeyPress={this.handleInput} />
-            </label>
-            <label>
-              Last name *
-              <input name="billingLastName " onKeyPress={this.handleInput} />
-            </label>
-            <label>
-              Street & No. *
-              <input name="billingStreetNumber" onKeyPress={this.handleInput} />
-            </label>
-            <label>
-              AdditionalAddress *
+            <div className="addressColumn">
+              <p>BILLING INFORMATION</p>
+              <label>Country / Region *</label>
               <input
-                name="billingAdditionalAddress"
+                required
+                name="billingCountry"
                 onKeyPress={this.handleInput}
               />
-            </label>
-            <label>
-              District (Korea example: Yongsan-gu) *
-              <input name="billingDistrict" onKeyPress={this.handleInput} />
-            </label>
-            <label>
-              City *<input name="billingCity" onKeyPress={this.handleInput} />
-            </label>
-            <label>
-              Postal code *
-              <input name="billingPostalCode" onKeyPress={this.handleInput} />
-            </label>
-            <label>
-              Phone *
-              <input name="billingPhoneNumber" onKeyPress={this.handleInput} />
-            </label>
+              <label className="name">
+                First name *
+                <input
+                  required
+                  name="billingFirstName"
+                  onKeyPress={this.handleInput}
+                />
+              </label>
+              <label className="name">
+                Last name *
+                <input name="billingLastName" onKeyPress={this.handleInput} />
+              </label>
+            </div>
+            <div className="addressColumn location">
+              <label>
+                Street & No. *
+                <input
+                  required
+                  name="billingStreetNumber"
+                  onKeyPress={this.handleInput}
+                />
+              </label>
+              <label>
+                AdditionalAddress *
+                <input
+                  required
+                  name="billingAdditionalAddress"
+                  onKeyPress={this.handleInput}
+                />
+              </label>
+              <label>
+                District (Korea example: Yongsan-gu) *
+                <input
+                  required
+                  name="billingDistrict"
+                  onKeyPress={this.handleInput}
+                />
+              </label>
+              <label>
+                City *
+                <input
+                  required
+                  name="billingCity"
+                  onKeyPress={this.handleInput}
+                />
+              </label>
+            </div>
+            <div className="numberContainer">
+              <label>
+                Postal code *
+                <input
+                  required
+                  name="billingPostalCode"
+                  onKeyPress={this.handleInput}
+                />
+              </label>
+              <label>
+                Phone *
+                <input
+                  required
+                  name="billingPhoneNumber"
+                  onKeyPress={this.handleInput}
+                />
+              </label>
+            </div>
           </div>
-          <div>
-            <div className="radioContainer">
+          <div className="radioContainer">
+            <div>
               <label>
                 Same as Billing Information
-                <input type="radio" className="radioBtn" />
+                <input
+                  required
+                  type="radio"
+                  className="radioBtn"
+                  value="billing"
+                  name="address"
+                  onClick={this.closeInfo}
+                />
               </label>
+            </div>
+            <div>
               <label>
                 Different Shipping Information
                 <input
                   type="radio"
                   className="radioBtn"
+                  value="shipping"
                   onClick={this.openInfo}
+                  name="address"
+                  required
                 />
               </label>
             </div>
-
-            {isInfoOpen && (
-              <div className="differentAddress">
-                <p>BILLING INFORMATION</p>
-                <label>
-                  Country / Region *
-                  <input name="shippingCountry" onKeyPress={this.handleInput} />
-                </label>
-                <label>
-                  First name *
-                  <input
-                    name="shippingFirstName"
-                    onKeyPress={this.handleInput}
-                  />
-                </label>
-                <label>
-                  Last name *
-                  <input
-                    name="shippingLastName"
-                    onKeyPress={this.handleInput}
-                  />
-                </label>
-                <label>
-                  Street & No. *
-                  <input
-                    name="shippingStreetNumber"
-                    onKeyPress={this.handleInput}
-                  />
-                </label>
-                <label>
-                  Additional Address
-                  <input
-                    name="shippingAdditionalAddress"
-                    onKeyPress={this.handleInput}
-                  />
-                </label>
-                <label>
-                  District (Korea example: Yongsan-gu) *
-                  <input
-                    name="shippingDistrict"
-                    onKeyPress={this.handleInput}
-                  />
-                </label>
-                <label>
-                  City *
-                  <input name="shippingCity" onKeyPress={this.handleInput} />
-                </label>
-                <label>
-                  Postal code *
-                  <input
-                    name="shippingPostalCode"
-                    onKeyPress={this.handleInput}
-                  />
-                </label>
-              </div>
-            )}
           </div>
+          {!isSame && (
+            <div className="shippingAddress">
+              <div className="ShippingInfoContainer">
+                <p>BILLING INFORMATION</p>
+                <div>
+                  <label>
+                    Country / Region *
+                    <input
+                      name="shippingCountry"
+                      onKeyPress={this.handleInput}
+                    />
+                  </label>
+                  <label>
+                    First name *
+                    <input
+                      name="shippingFirstName"
+                      onKeyPress={this.handleInput}
+                    />
+                  </label>
+                  <label>
+                    Last name *
+                    <input
+                      name="shippingLastName"
+                      onKeyPress={this.handleInput}
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    Street & No. *
+                    <input
+                      name="shippingStreetNumber"
+                      onKeyPress={this.handleInput}
+                    />
+                  </label>
+                  <label>
+                    Additional Address
+                    <input
+                      name="shippingAdditionalAddress"
+                      onKeyPress={this.handleInput}
+                    />
+                  </label>
+                  <label>
+                    District (Korea example: Yongsan-gu) *
+                    <input
+                      name="shippingDistrict"
+                      onKeyPress={this.handleInput}
+                    />
+                  </label>
+                  <label>
+                    City *
+                    <input name="shippingCity" onKeyPress={this.handleInput} />
+                  </label>
+                  <label>
+                    Postal code *
+                    <input
+                      name="shippingPostalCode"
+                      onKeyPress={this.handleInput}
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
+
           <ProductConsumer>
             {value => {
               return (
-                <>
+                <div className="buttonContainer">
                   <div className="formAction" onClick={this.gotoCartList}>
                     <FaArrowLeft className="icon" />
                     <input
@@ -189,18 +258,13 @@ class Checkout extends Component {
                       value.handleCheckout(this.state);
                     }}
                   >
-                    <FaArrowRight className="icon" />
-                    <input
-                      type="button"
-                      defaultValue="Continue Checkout"
-                      className="formSubmit"
-                    />
+                    <input type="submit" className="formSubmit" />
                   </div>
-                </>
+                </div>
               );
             }}
           </ProductConsumer>
-        </div>
+        </form>
       </div>
     );
   }

@@ -22,8 +22,10 @@ class Cart extends Component {
                     <CartViewItem key={product.product_id} product={product} />
                   );
                 })}
-                <div>Total</div>
-                <div>{value.totalPrice}</div>
+                <div className="priceContainer">
+                  <div className="total">Total</div>
+                  <div className="price">$120000</div>
+                </div>
                 <div className="formAction" onClick={this.goToMain}>
                   <FaArrowLeft className="icon" />
                   <input type="button" defaultValue="Back to the shop" />

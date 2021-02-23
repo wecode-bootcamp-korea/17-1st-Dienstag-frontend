@@ -14,6 +14,7 @@ class ProductProvider extends Component {
       isCartOpen: false,
       noneUserCart: [],
       totalPrice: 0,
+      isBuyingProduct: true,
     };
   }
 
@@ -23,7 +24,7 @@ class ProductProvider extends Component {
 
   componentDidMount() {
     const token = this.getToken();
-    fetch(`http://10.58.2.91:8000/cart`, {
+    fetch(`http://10.58.6.75:8000/cart`, {
       method: 'GET',
       headers: { Authorization: token },
     })
@@ -64,11 +65,11 @@ class ProductProvider extends Component {
 
   //cart
   addCart = (bagId, token) => {
-    fetch('http://10.58.2.91:8000/cart', {
+    fetch('http://10.58.6.75:8000/cart/product', {
       method: 'POST',
       headers: { Authorization: token },
       body: JSON.stringify({
-        product_id: bagId,
+        product_id: 4,
       }),
     })
       .then(response => response.json())
@@ -76,18 +77,21 @@ class ProductProvider extends Component {
         console.log(error);
       })
       .then(result => {
+        result.message && this.setState({ isBuyingProduct: true });
+        console.log(result.message);
         this.handleCartList();
       });
   };
 
   handleCartList = () => {
     const token = this.getToken();
-    fetch(`http://10.58.2.91:8000/cart`, {
+    fetch(`http://10.58.6.75:8000/cart`, {
       method: 'GET',
       headers: { Authorization: token },
     })
       .then(res => res.json())
       .then(data => {
+        //console.log(data.data);
         const {
           total_items_list: cartList,
           total_price: totalPrice,
@@ -103,7 +107,7 @@ class ProductProvider extends Component {
 
   deleteCart = id => {
     const token = this.getToken();
-    fetch(`http://10.58.2.91:8000/cart/${id}`, {
+    fetch(`http://10.58.6.75:8000/cart/${id}`, {
       method: 'DELETE',
       headers: { Authorization: token },
     })
@@ -114,7 +118,6 @@ class ProductProvider extends Component {
   };
 
   handleCheckout = data => {
-    const token = this.getToken();
     const {
       email,
       billingFirstName,
@@ -134,10 +137,12 @@ class ProductProvider extends Component {
       shippingDistrict,
       shippingCity,
       shippingPostalCode,
+      isSame,
     } = data;
-    fetch(``, {
+    console.log(data);
+
+    fetch('http://10.58.6.160:8000/user/checkout', {
       method: 'POST',
-      headers: { Authorization: token },
       body: JSON.stringify({
         email: email,
         billing_first_name: billingFirstName,
@@ -149,14 +154,18 @@ class ProductProvider extends Component {
         billing_postal_code: billingPostalCode,
         billing_phone_number: billingPhoneNumber,
         billing_country: billingCountry,
-        shipping_country: shippingCountry,
-        shipping_first_name: shippingFirstName,
-        shipping_last_name: shippingLastName,
-        shipping_street_number: shippingStreetNumber,
-        shipping_additional_address: shippingAdditionalAddress,
-        shipping_district: shippingDistrict,
-        shipping_city: shippingCity,
-        shipping_postal_code: shippingPostalCode,
+        shipping_country: isSame ? billingCountry : shippingCountry,
+        shipping_first_name: isSame ? billingFirstName : shippingFirstName,
+        shipping_last_name: isSame ? billingLastName : shippingLastName,
+        shipping_street_number: isSame
+          ? billingStreetNumber
+          : shippingStreetNumber,
+        shipping_additional_address: isSame
+          ? billingAdditionalAddress
+          : shippingAdditionalAddress,
+        shipping_district: isSame ? billingDistrict : shippingDistrict,
+        shipping_city: isSame ? billingCity : shippingCity,
+        shipping_postal_code: isSame ? billingPostalCode : shippingPostalCode,
       }),
     })
       .then(res => res.json())
@@ -176,6 +185,7 @@ class ProductProvider extends Component {
           handleCartList: this.handleCartList,
           deleteCart: this.deleteCart,
           handleCheckout: this.handleCheckout,
+          getToken: this.getToken,
         }}
       >
         {this.props.children}

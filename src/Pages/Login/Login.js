@@ -53,6 +53,7 @@ class Login extends Component {
                 *
               </span>
               <input
+                required
                 type="text"
                 name="email"
                 className="formText required"
@@ -61,7 +62,7 @@ class Login extends Component {
             </label>
           </div>
           <div className="formLoginItem loginPassword">
-            <label className="editPass">
+            <label required className="editPass">
               Password
               <span className="formRequired" title="This field is required">
                 *

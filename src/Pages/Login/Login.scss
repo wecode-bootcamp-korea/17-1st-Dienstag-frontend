@@ -31,6 +31,10 @@
           transition: border 0.1s;
           outline: none;
         }
+        :required:focus{
+          border: 2px solid #ADC088ed;
+          outline: none;
+        }
       }
     }
 

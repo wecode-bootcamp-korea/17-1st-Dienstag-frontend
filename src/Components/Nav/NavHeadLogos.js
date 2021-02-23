@@ -24,10 +24,12 @@ class Headlogos extends Component {
                 onClick={() => {
                   value.handleCartList();
                   value.showCart();
+                  //value.addCart(4, value.getToken());
+                  //value.deleteCart(4);
                 }}
               >
                 <CgShoppingCart size={37} />
-                <span>{value.totalProducts}</span>;
+                <span>{value.totalProducts}</span>
               </div>
             </div>
           );
