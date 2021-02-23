@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import NavHeadLogos from './NavHeadLogos';
 import Navmodal from './NavModal';
+import CartView from '../../Pages/Cart/CartView';
 import './Nav.scss';
+import { ProductConsumer } from '../../context';
 
 class Nav extends Component {
   constructor() {
     super();
-    this.state = { MainStoriesdata: [], isNavOpen: false };
+    this.state = { MainStoriesdata: [] };
   }
-
-  openNav = () => {
-    this.setState({ isNavOpen: !this.state.isNavOpen });
-  };
   render() {
-    const { isNavOpen } = this.state;
     return (
-      <div className="Nav">
-        <NavHeadLogos isNavOpen={isNavOpen} openNav={this.openNav} />
-        {isNavOpen && <Navmodal openNav={this.openNav} />}
-      </div>
+      <ProductConsumer>
+        {value => {
+          return (
+            <div className="Nav">
+              <NavHeadLogos />
+              {value.isNavOpen && <Navmodal />}
+              {value.isCartOpen && <CartView />}
+            </div>
+          );
+        }}
+      </ProductConsumer>
     );
   }
 }

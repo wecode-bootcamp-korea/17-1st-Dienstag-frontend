@@ -3,7 +3,7 @@
   width: auto;
   height: auto;
 
-  .videLogoContiner {
+  .videoLogoContiner {
     position: relative;
     width: 100%;
     height: auto;
@@ -19,7 +19,7 @@
       bottom: 4px;
       padding: 20px;
       color: white;
-      background-color: blue;
+      background-color: black;
       font-size: 20px;
       z-index: 4;
 
@@ -181,6 +181,5 @@
     .none {
       display: none;
     }
-
   }
 }

@@ -1,0 +1,92 @@
+.ListDetail {
+  .bagDetail {
+    display: flex;
+    width: 1130px;
+    height: 200px;
+    margin: 70px auto 0;
+    padding: 20px;
+    border-top: 1px solid black;
+
+    .bagFeature {
+      width: 282.5px;
+      height: 148px;
+      padding: 10px;
+
+      .star {
+        width: 36px;
+        height: 36px;
+      }
+
+      h1 {
+        margin-top: 5px;
+        font-size: 25px;
+        font-weight: 500;
+      }
+
+      p {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .bigDetailimg {
+    display: flex;
+    width: 1130px;
+    height: auto;
+    margin: 60px auto 60px;
+  }
+
+  .featureBox {
+    display: flex;
+    justify-content: space-between;
+    margin: 90px auto;
+    width: 1130px;
+    height: auto;
+
+    .featureTextBox {
+      h1 {
+        font-size: 30px;
+        font-weight: 500;
+      }
+
+      p {
+        margin-top: 30px;
+        font-size: 20px;
+      }
+    }
+
+    .featureImg {
+      width: 360.63px;
+      height: 360.63px;
+    }
+  }
+  .recommendOtherbag {
+    display: flex;
+    justify-content: space-between;
+    width: 1130px;
+    height: auto;
+    margin: 90px auto;
+
+    img {
+      width: 452.97px;
+      height: 452.97px;
+    }
+
+    .recommendBagtext {
+      width: 50%;
+      margin-top: 90px;
+      font-size: 40px;
+
+      .recommendBtn {
+        width: 200.81px;
+        height: 44px;
+        padding: 10px;
+        margin-top: 40px;
+        text-align: center;
+        font-size: 15px;
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+}
