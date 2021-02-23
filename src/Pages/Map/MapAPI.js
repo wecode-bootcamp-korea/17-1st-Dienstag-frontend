@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-import './MapAPI.scss';
 
 class MapAPI extends Component {
   constructor(props) {
@@ -21,12 +20,9 @@ class MapAPI extends Component {
       ],
     };
   }
-  handleInfo = () => {
-    console.log('hello world');
-  };
   showMarker = () => {
     const img =
-      'https://www.freitag.ch/profiles/freitag_neo/themes/neocortex/images/f-square-152x152.png';
+      'https://media.vlpt.us/images/try_catch/post/67359403-fcd2-4221-89b9-a7ec75252140/%E1%84%83%E1%85%A9%E1%86%BC%E1%84%80%E1%85%B3%E1%86%AFd.gif';
 
     return this.state.stores.map((store, index) => {
       return (
@@ -43,7 +39,7 @@ class MapAPI extends Component {
             lat: store.lat,
             lng: store.lng,
           }}
-          onClick={() => console.log('You Clicked Me!')}
+          onClick={() => console.log('잘 동작?')}
         >
           <InfoWindow>
             <div style={{ color: 'black' }}>클릭시 빰!</div>
