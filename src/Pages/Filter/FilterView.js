@@ -36,21 +36,24 @@ class FilterView extends Component {
         this.setState({
           recommendAccdata: data,
         });
+        console.log(data);
       });
   }
 
   showDesc = (e, backpackdata) => {
-    console.dir(e.target);
-    if (0 < e && e < 9) {
+    let result = backpackdata.map(bag => bag.model_number);
+    console.log(backpackdata.index);
+    if (0 < e[0] && e[0] < 9) {
       window.scrollTo({ top: 400, behavior: 'smooth' });
-    } else if (8 < e && e < 17) {
+    } else if (8 < e[0] && e[0] < 17) {
       window.scrollTo({ top: 550, behavior: 'smooth' });
     } else {
       window.scrollTo({ top: 690, behavior: 'smooth' });
     }
 
+    // let filtered = this.state.backpackdata.map(a => a.model_number);
     const backpackdesc = backpackdata.filter(bag => {
-      return bag.id === e;
+      return bag.model_number === e[1];
     });
 
     this.setState({ backdescdata: backpackdesc, isdescOpen: true });

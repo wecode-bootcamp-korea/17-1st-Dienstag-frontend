@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MdColorLens } from 'react-icons/md';
 import { GiResize } from 'react-icons/gi';
+import { RiInboxArchiveFill } from 'react-icons/ri';
 
 export default class BackpackList extends Component {
   render() {
@@ -20,12 +21,14 @@ export default class BackpackList extends Component {
           {backpackdata.map((bag, inx) => {
             return (
               <div key={inx}>
-                {firstrange < bag.id && bag.id < lastrange && (
+                {firstrange < inx && inx < lastrange && (
                   <img
                     alt="bag"
                     src={bag.image_url}
                     className="listImg"
-                    onClick={() => showDesc(bag.id, backpackdata)}
+                    onClick={() =>
+                      showDesc([inx, bag.model_number], backpackdata)
+                    }
                   />
                 )}
               </div>

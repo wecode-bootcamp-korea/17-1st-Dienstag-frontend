@@ -59,25 +59,22 @@ class ProductProvider extends Component {
   };
 
   onFilter = e => {
-    this.setState(
-      { filterInfo: filterName[e] },
-      () => {
-        fetch('/data/a.json', {
+    this.setState({ filterInfo: filterName[e] }, () => {
+      fetch(
+        `http://10.58.6.166:8000/product/filter?keyword=${this.state.filterInfo}`,
+        {
           method: 'GET',
-        })
-          .then(res => res.json())
-          .then(data => {
-            this.setState(
-              {
-                backpackdata: data,
-                // recommendAccdata: data.meesage[1],
-              },
-              () => console.log(this.state.filterInfo)
-            );
+        }
+      )
+        .then(res => res.json())
+        .then(data => {
+          // console.log(data.ItemList);
+          this.setState({
+            backpackdata: data.ItemList,
+            // recommendAccdata: data.meesage[1],
           });
-      }
-      // `${this.state.filterInfo}`
-    );
+        });
+    });
   };
 
   handleClick = e => {
@@ -109,7 +106,11 @@ class ProductProvider extends Component {
   };
 
   openFilter = () => {
-    this.setState({ isFilteropen: !this.state.isFilteropen, isNavOpen: false });
+    this.setState({
+      isFilteropen: !this.state.isFilteropen,
+      isNavOpen: false,
+      isCartOpen: false,
+    });
   };
 
   habdleCartLsit = () => {
@@ -152,7 +153,7 @@ const filterName = {
   2: 'green',
   3: 'blue',
   4: 'yellow',
-  5: 'small',
-  6: 'medium',
-  7: 'large',
+  5: 'S',
+  6: 'M',
+  7: 'L',
 };
