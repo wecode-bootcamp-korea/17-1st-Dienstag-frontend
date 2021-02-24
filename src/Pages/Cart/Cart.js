@@ -19,7 +19,11 @@ class Cart extends Component {
               <div className="checkoutContainer">
                 {value.cartList.map(product => {
                   return (
-                    <CartViewItem key={product.item_id} product={product} />
+                    <CartViewItem
+                      setStyle="cart"
+                      key={product.item_id}
+                      product={product}
+                    />
                   );
                 })}
                 <div className="priceContainer">

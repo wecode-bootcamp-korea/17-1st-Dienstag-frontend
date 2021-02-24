@@ -22,11 +22,11 @@ class Headlogos extends Component {
               <div
                 className="cartIcon"
                 onClick={() => {
-                  //value.handleCartList();
-                  //value.showCart();
-                  //value.addCart(23, value.getToken());
-                  value.deleteCart(90);
-                  console.log(value.cartId);
+                  value.handleCartList();
+                  value.showCart();
+                  value.addCart(16, value.getToken());
+                  //value.deleteCart(90);
+                  // console.log(value.cartId);
                 }}
               >
                 <CgShoppingCart size={37} />

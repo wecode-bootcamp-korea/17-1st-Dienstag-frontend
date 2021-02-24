@@ -2,19 +2,23 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { TiDelete } from 'react-icons/ti';
 import { ProductConsumer } from '../../context';
-import styled from 'styled-components';
 import './CartViewItem.scss';
 
 class CartViewItem extends Component {
   render() {
-    const cartContainer = styled.div``;
-    const productName = styled.div``;
-    const { title, price, image_url, quantity, cart_id } = this.props.product;
+    const {
+      title,
+      price,
+      image_url,
+      quantity,
+      cart_id,
+      setStyle,
+    } = this.props.product;
     return (
       <ProductConsumer>
         {value => {
           return (
-            <div className="cartContainer">
+            <div className={setStyle}>
               <div>
                 <h3 className="productName">{title} Fury</h3>
               </div>

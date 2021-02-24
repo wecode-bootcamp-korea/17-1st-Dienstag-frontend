@@ -36,7 +36,7 @@ class ProductProvider extends Component {
       .then(data => {
         const {
           total_items_list: cartList,
-          total_products: totalProducts,
+          total_items: totalProducts,
           cart_id: cartId,
         } = data.data;
 
@@ -98,7 +98,7 @@ class ProductProvider extends Component {
         //console.log(data.data);
         const {
           total_items_list: cartList,
-          total_products: totalProducts,
+          total_items: totalProducts,
           cart_id: cartId,
         } = data.data;
         this.setState({
