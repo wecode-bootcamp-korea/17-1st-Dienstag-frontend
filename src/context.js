@@ -56,6 +56,7 @@ class ProductProvider extends Component {
           jonanzaData: data['data'][1][`D133 Jonanza`],
         });
       });
+    this.cloaseNav();
   };
 
   onFilter = e => {

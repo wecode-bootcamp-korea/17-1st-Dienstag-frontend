@@ -15,7 +15,7 @@ class FilterView extends Component {
     this.state = {
       isdescOpen: false,
       backdescdata: [],
-      recommendAccdata: [],
+      Accdata: [],
     };
   }
 
@@ -34,14 +34,14 @@ class FilterView extends Component {
     fetch('/data/recommendAcc.json')
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         this.setState({
-          recommendAccdata: data,
+          Accdata: data,
         });
       });
   }
 
   showDesc = (e, backpackdata) => {
-    // console.log(e[1], backpackdata);
     if (0 < e[0] && e[0] < 9) {
       window.scrollTo({ top: 400, behavior: 'smooth' });
     } else if (8 < e[0] && e[0] < 17) {
@@ -54,9 +54,7 @@ class FilterView extends Component {
       return bag.model_number === e[1];
     });
 
-    this.setState({ backdescdata: backpackdesc, isdescOpen: true }, () => {
-      // console.log('>>>>', this.state.backdescdata);
-    });
+    this.setState({ backdescdata: backpackdesc, isdescOpen: true }, () => {});
   };
 
   descClose = () => {
@@ -64,7 +62,7 @@ class FilterView extends Component {
   };
 
   render() {
-    const { backdescdata, isdescOpen, recommendAccdata } = this.state;
+    const { backdescdata, isdescOpen, Accdata } = this.state;
     return (
       <>
         <div className="listCategoryHead">STORES - BAGS </div>
@@ -94,10 +92,7 @@ class FilterView extends Component {
         <ListDetail />
 
         <div className="recommendAceesoriesHead">완벽한 동반자</div>
-        <RecommendAcc
-          key={recommendAccdata.id}
-          recommendAccdata={recommendAccdata}
-        />
+        <RecommendAcc key={Accdata.id} recommendAccdata={Accdata} />
       </>
     );
   }

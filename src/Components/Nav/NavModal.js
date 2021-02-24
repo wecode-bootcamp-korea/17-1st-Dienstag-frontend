@@ -161,11 +161,17 @@ export default class FnavModal extends Component {
                   <li>
                     <MdLocationCity size={20} /> CITY GUIDE LINES
                   </li>
-                  <Link to="newsletter">
-                    <li>
-                      <RiHeartAddLine size={20} /> S.W.A.P
-                    </li>
-                  </Link>
+                  <ProductConsumer>
+                    {value => {
+                      return (
+                        <Link to="newsletter">
+                          <li onClick={value.cloaseNav}>
+                            <RiHeartAddLine size={20} /> S.W.A.P
+                          </li>
+                        </Link>
+                      );
+                    }}
+                  </ProductConsumer>
                   <li>
                     <IoIosInformationCircleOutline size={20} /> CONNECT
                   </li>
@@ -194,10 +200,10 @@ export default class FnavModal extends Component {
 const bagLists = [
   { categoryName: 'ALL MODELS', id: '1' },
   { categoryName: 'BACK PACKS', id: '1' },
-  { categoryName: 'MESSENGER', id: '2' },
-  { categoryName: 'SHOPPER', id: '3' },
-  { categoryName: 'SHOULDER BAGS', id: '4' },
-  { categoryName: 'TOTE BAGS', id: '5' },
+  { categoryName: 'MESSENGER', id: '1' },
+  { categoryName: 'SHOPPER', id: '1' },
+  { categoryName: 'SHOULDER BAGS', id: '1' },
+  { categoryName: 'TOTE BAGS', id: '1' },
   { categoryName: 'LAPTOP BAGS', id: '1' },
   { categoryName: 'TRAVEL BAGS', id: '1' },
   { categoryName: 'SPORTS BAGS', id: '1' },
