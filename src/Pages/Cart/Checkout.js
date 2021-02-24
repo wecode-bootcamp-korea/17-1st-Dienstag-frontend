@@ -24,6 +24,7 @@ class Checkout extends Component {
     shippingDistrict: '',
     shippingCity: '',
     shippingPostalCode: '',
+    shippingPhoneNumber: '',
     isSame: true,
   };
   gotoCartList = () => {
@@ -235,6 +236,13 @@ class Checkout extends Component {
                       onKeyPress={this.handleInput}
                     />
                   </label>
+                  <label>
+                    Phone Number *
+                    <input
+                      name="shippingPhoneNumber"
+                      onKeyPress={this.handleInput}
+                    />
+                  </label>
                 </div>
               </div>
             </div>
@@ -258,7 +266,11 @@ class Checkout extends Component {
                       value.handleCheckout(this.state);
                     }}
                   >
-                    <input type="submit" className="formSubmit" />
+                    <input
+                      type="button"
+                      defaultValue="checkout"
+                      className="formSubmit"
+                    />
                   </div>
                 </div>
               );

@@ -30,6 +30,7 @@ export default class FnavModal extends Component {
       isShopsclick: false,
       openbags: true,
       isLoginClick: false,
+      isToken: localStorage.getItem('token') ? true : false,
     };
   }
   shopOpen = () => {
@@ -51,6 +52,10 @@ export default class FnavModal extends Component {
     this.setState({ isLoginClick: !this.state.isLoginClick });
   };
 
+  handleLogout = () => {
+    localStorage.removeItem('token');
+  };
+
   render() {
     const { isnavopen, openNav } = this.props;
     const {
@@ -59,7 +64,9 @@ export default class FnavModal extends Component {
       openbags,
       openShop,
       isLoginClick,
+      isToken,
     } = this.state;
+
     return (
       <div>
         {!isnavopen && (
@@ -69,8 +76,12 @@ export default class FnavModal extends Component {
               <ul>
                 <li></li>
                 <li className="loginEn">
-                  <span onClick={this.handleShowLogin}>
-                    <RiUser3Line size={20} /> LOGIN
+                  <span
+                    onClick={() => {
+                      this.handleShowLogin();
+                    }}
+                  >
+                    <RiUser3Line size={20} /> {isToken ? '유저명' : 'Login'}
                   </span>
                   <div>
                     <img alt="korea" className="ko" src={korea} />
@@ -78,7 +89,7 @@ export default class FnavModal extends Component {
                   </div>
                 </li>
                 <li className={'loginForm ' + (!isLoginClick && 'showLogin')}>
-                  <Login />
+                  <Login isToken={isToken} handleLogout={this.handleLogout} />
                 </li>
                 <ul className="searchStores">
                   <div>

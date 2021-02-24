@@ -21,7 +21,7 @@ class Login extends Component {
 
   handleSubmit = () => {
     const { email, password } = this.state;
-    fetch('http://10.58.2.91:8000/user/signin', {
+    fetch('http://10.58.1.193:8000/user/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -43,54 +43,64 @@ class Login extends Component {
   };
 
   render() {
+    const { isToken, handleLogout } = this.props;
     return (
-      <form className="userLoginForm">
-        <div className="userLoginContainer">
-          <div className="formLoginItem loginName">
-            <label className="editName">
-              Username or e-mail address
-              <span className="formRequired" title="This field is required">
-                *
-              </span>
-              <input
-                required
-                type="text"
-                name="email"
-                className="formText required"
-                onChange={this.handleInput}
-              />
-            </label>
-          </div>
-          <div className="formLoginItem loginPassword">
-            <label required className="editPass">
-              Password
-              <span className="formRequired" title="This field is required">
-                *
-              </span>
-              <input
-                type="password"
-                name="password"
-                className="formText required"
-                onChange={this.handleInput}
-              />
-            </label>
-          </div>
-          <div className="formAction">
-            <MdPerson className="personIcon" />
-            <input
-              onClick={this.handleSubmit}
-              name="submit"
-              defaultValue="Log in"
-              className="formSubmit"
-            />
-          </div>
-          <div className="formLink">
-            <Link to="/signup" className="linkText">
-              Create new account
-            </Link>
-          </div>
+      <div>
+        {!isToken && (
+          <form className="userLoginForm">
+            <div className="userLoginContainer">
+              <div className="formLoginItem loginName">
+                <label className="editName">
+                  Username or e-mail address
+                  <span className="formRequired" title="This field is required">
+                    *
+                  </span>
+                  <input
+                    required
+                    type="text"
+                    name="email"
+                    className="formText required"
+                    onChange={this.handleInput}
+                  />
+                </label>
+              </div>
+              <div className="formLoginItem loginPassword">
+                <label required className="editPass">
+                  Password
+                  <span className="formRequired" title="This field is required">
+                    *
+                  </span>
+                  <input
+                    type="password"
+                    name="password"
+                    className="formText required"
+                    onChange={this.handleInput}
+                  />
+                </label>
+              </div>
+              <div className="formAction">
+                <MdPerson className="personIcon" />
+                <input
+                  onClick={this.handleSubmit}
+                  name="submit"
+                  defaultValue="Log in"
+                  className="formSubmit"
+                />
+              </div>
+              <div className="formLink">
+                <Link to="/signup" className="linkText">
+                  Create new account
+                </Link>
+              </div>
+            </div>
+          </form>
+        )}
+        <div>
+          <div> HELLO, 이름 </div>
+          <div> 이메일</div>
+          <div onClick={handleLogout}>로그아웃</div>
         </div>
-      </form>
+      </div>
     );
   }
 }

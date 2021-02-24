@@ -1,41 +1,20 @@
-@import '../../Styles/common.scss';
-    li {
-      padding: 25px 8px;
-      font-size: 14px;
-      height: 130px;
-      list-style: none;
+.cartContainer{
+  border-bottom: 1px solid black;
+  margin-top: 10px;
+  padding: 10px;
 
-      .productContainer{
-        display: flex;
-        justify-content: flex-start;
-        margin-top: 15px;
+  .productName{
+    
+  }
+  
+  .productContainer{
+    display: flex;
 
-        .productImg{
-          width: 40px;
-          height: 40px;
-        }
-      }
-
-      .productQuantity,
-      .productPrice,
-      .deleteBtn{
-        font-size: 20px;
-        align-self: center;
-        margin-left: 10px;
-
-        & :hover {
-          color: rgb(83, 83, 83);
-        }
-      }
-
-      .productQuantity{
-        padding-right: 20px;
-        padding-bottom:7px ;
-        border-bottom:2px solid black;
-
-        span{
-          margin-right: 15px;
-        }
-      }
+    img{
+      width: 60px;
+      height: 60px;
     }
 
+  }
+  
+}

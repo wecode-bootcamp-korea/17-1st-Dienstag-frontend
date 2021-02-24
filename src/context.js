@@ -15,6 +15,7 @@ class ProductProvider extends Component {
       noneUserCart: [],
       totalPrice: 0,
       isBuyingProduct: true,
+      token: '',
     };
   }
 
@@ -23,10 +24,12 @@ class ProductProvider extends Component {
   };
 
   componentDidMount() {
-    const token = this.getToken();
-    fetch(`http://10.58.6.75:8000/cart`, {
+    this.setState({
+      token: this.getToken(),
+    });
+    fetch(`http://10.58.1.193:8000/cart`, {
       method: 'GET',
-      headers: { Authorization: token },
+      headers: { Authorization: this.getToken() },
     })
       .then(res => res.json())
       .then(data => {
@@ -42,7 +45,7 @@ class ProductProvider extends Component {
             totalPrice: totalPrice,
             totalProducts: totalProducts,
           },
-          () => this.state.cartList
+          () => console.log(this.state.cartList)
         );
       });
   }
@@ -65,11 +68,11 @@ class ProductProvider extends Component {
 
   //cart
   addCart = (bagId, token) => {
-    fetch('http://10.58.6.75:8000/cart/product', {
+    fetch('http://10.58.1.193:8000/cart/product', {
       method: 'POST',
       headers: { Authorization: token },
       body: JSON.stringify({
-        product_id: 4,
+        product_id: bagId,
       }),
     })
       .then(response => response.json())
@@ -85,7 +88,7 @@ class ProductProvider extends Component {
 
   handleCartList = () => {
     const token = this.getToken();
-    fetch(`http://10.58.6.75:8000/cart`, {
+    fetch(`http://10.58.1.193:8000/cart`, {
       method: 'GET',
       headers: { Authorization: token },
     })
@@ -107,7 +110,7 @@ class ProductProvider extends Component {
 
   deleteCart = id => {
     const token = this.getToken();
-    fetch(`http://10.58.6.75:8000/cart/${id}`, {
+    fetch(`http://10.58.1.193:8000/cart${1}`, {
       method: 'DELETE',
       headers: { Authorization: token },
     })
@@ -137,11 +140,12 @@ class ProductProvider extends Component {
       shippingDistrict,
       shippingCity,
       shippingPostalCode,
+      shippingPhoneNumber,
       isSame,
     } = data;
     console.log(data);
 
-    fetch('http://10.58.6.160:8000/user/checkout', {
+    fetch('http://10.58.1.225:8000/cart/checkout', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -166,6 +170,9 @@ class ProductProvider extends Component {
         shipping_district: isSame ? billingDistrict : shippingDistrict,
         shipping_city: isSame ? billingCity : shippingCity,
         shipping_postal_code: isSame ? billingPostalCode : shippingPostalCode,
+        shipping_phone_number: isSame
+          ? billingPhoneNumber
+          : shippingPhoneNumber,
       }),
     })
       .then(res => res.json())

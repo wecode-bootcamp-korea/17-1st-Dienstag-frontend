@@ -19,12 +19,12 @@ class Cart extends Component {
               <div className="checkoutContainer">
                 {value.cartList.map(product => {
                   return (
-                    <CartViewItem key={product.product_id} product={product} />
+                    <CartViewItem key={product.item_id} product={product} />
                   );
                 })}
                 <div className="priceContainer">
                   <div className="total">Total</div>
-                  <div className="price">$120000</div>
+                  <div className="price">${value.totalPrice}</div>
                 </div>
                 <div className="formAction" onClick={this.goToMain}>
                   <FaArrowLeft className="icon" />

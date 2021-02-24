@@ -1,31 +1,6 @@
 .checkoutContainer{
   display: flex;
   flex-direction: column;
-
-  .formAction {
-    position: relative;
-    margin-left: 10px;
-  
-    .icon {
-      position: absolute;
-      margin: 6px 6px;
-      font-weight: bold;
-      font-size: 25px;
-      color: white;
-    }
-    
-    input {
-      padding: 12px 20px 10px 35px;
-      margin-right: 10px;
-      border: medium none;
-      border-radius: 0;
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.25px;
-      text-transform: uppercase;
-      background-color: black;
-      color:#fff;
-      cursor: pointer;
-    }
-  }
+  align-items: center;
+  margin-top: 35px;
 }
