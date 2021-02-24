@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { TiDelete } from 'react-icons/ti';
 import { ProductConsumer } from '../../context';
+import styled from 'styled-components';
 import './CartViewItem.scss';
 
 class CartViewItem extends Component {
   render() {
-    const { item_id, title, price, image_url, quantity } = this.props.product;
+    const cartContainer = styled.div``;
+    const productName = styled.div``;
+    const { title, price, image_url, quantity, cart_id } = this.props.product;
     return (
       <ProductConsumer>
         {value => {
@@ -33,7 +36,7 @@ class CartViewItem extends Component {
                 </div>
                 <TiDelete
                   className="deleteBtn"
-                  onClick={() => value.deleteCart(item_id)}
+                  onClick={() => value.deleteCart(cart_id)}
                 />
               </div>
             </div>

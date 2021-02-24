@@ -16,6 +16,7 @@ class ProductProvider extends Component {
       totalPrice: 0,
       isBuyingProduct: true,
       token: '',
+      cartId: '',
     };
   }
 
@@ -35,15 +36,15 @@ class ProductProvider extends Component {
       .then(data => {
         const {
           total_items_list: cartList,
-          total_price: totalPrice,
           total_products: totalProducts,
+          cart_id: cartId,
         } = data.data;
 
         this.setState(
           {
             cartList: cartList,
-            totalPrice: totalPrice,
             totalProducts: totalProducts,
+            cart_id: cartId,
           },
           () => console.log(this.state.cartList)
         );
@@ -97,12 +98,12 @@ class ProductProvider extends Component {
         //console.log(data.data);
         const {
           total_items_list: cartList,
-          total_price: totalPrice,
           total_products: totalProducts,
+          cart_id: cartId,
         } = data.data;
         this.setState({
           cartList: cartList,
-          totalPrice: totalPrice,
+          cartId: cartId,
           totalProducts: totalProducts,
         });
       });
@@ -110,7 +111,7 @@ class ProductProvider extends Component {
 
   deleteCart = id => {
     const token = this.getToken();
-    fetch(`http://10.58.1.193:8000/cart${1}`, {
+    fetch(`http://10.58.1.193:8000/cart/${id}`, {
       method: 'DELETE',
       headers: { Authorization: token },
     })
