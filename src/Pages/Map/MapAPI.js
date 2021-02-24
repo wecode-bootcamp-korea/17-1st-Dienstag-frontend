@@ -22,7 +22,7 @@ class MapAPI extends Component {
   }
   showMarker = () => {
     const img =
-      'https://media.vlpt.us/images/try_catch/post/67359403-fcd2-4221-89b9-a7ec75252140/%E1%84%83%E1%85%A9%E1%86%BC%E1%84%80%E1%85%B3%E1%86%AFd.gif';
+      'https://media.vlpt.us/images/try_catch/post/b1dd34c0-5bc9-43bc-8b1d-a12c635aa820/%E1%84%85%E1%85%A9%E1%84%80%E1%85%A92.gif';
 
     return this.state.stores.map((store, index) => {
       return (
