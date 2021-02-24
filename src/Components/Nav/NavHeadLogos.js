@@ -24,7 +24,7 @@ class Headlogos extends Component {
                 onClick={() => {
                   value.handleCartList();
                   value.showCart();
-                  value.addCart(16, value.getToken());
+                  value.addCart(17, value.getToken());
                   //value.deleteCart(90);
                   // console.log(value.cartId);
                 }}
