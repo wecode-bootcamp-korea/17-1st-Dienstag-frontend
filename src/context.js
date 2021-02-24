@@ -51,11 +51,10 @@ class ProductProvider extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(typeof data);
-        // this.setState({
-        //   puryData: data[0],
-        //   jonanzaData: data[1],
-        // });
+        this.setState({
+          puryData: data['data'][0][`D132 Pury`],
+          jonanzaData: data['data'][1][`D133 Jonanza`],
+        });
       });
   };
 
@@ -78,16 +77,17 @@ class ProductProvider extends Component {
     });
   };
 
-  handleClick = e => {
-    this.onFilter(e);
-  };
-
   cloaseNav = () => {
     this.setState({
       isNavOpen: false,
       isCartOpen: false,
       isFilteropen: false,
     });
+  };
+
+  handleClick = e => {
+    this.onFilter(e);
+    this.cloaseNav();
   };
 
   openNav = () => {

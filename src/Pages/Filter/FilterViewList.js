@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { MdColorLens } from 'react-icons/md';
 import { GiResize } from 'react-icons/gi';
 
-export default class BackpackList extends Component {
+export default class FilterViewList extends Component {
   render() {
     const {
       backpackdata,
@@ -25,7 +25,9 @@ export default class BackpackList extends Component {
                     alt="bag"
                     src={bag.image_url}
                     className="listImg"
-                    onClick={() => showDesc(bag.id, backpackdata)}
+                    onClick={() =>
+                      showDesc([inx, bag.model_number], backpackdata)
+                    }
                   />
                 )}
               </div>

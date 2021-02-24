@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import BackpackList from '../Shop/BackpackList';
+// import BackpackList from '../Shop/BackpackList';
 import RecommendAcc from '../Shop/RecommendAcc';
 import ListDetail from '../Shop/ListDetail';
 // import '../Shop/Shop.scss';
 import './FilterView.scss';
 import { ProductConsumer } from '../../context';
+import FilterViewList from './FilterViewList';
 
 class FilterView extends Component {
   constructor() {
@@ -40,9 +41,6 @@ class FilterView extends Component {
   }
 
   showDesc = (e, backpackdata) => {
-    // let result = backpackdata.map(bag => bag.model_number);
-    // console.log('>', backpackdata);
-    // console.log(e[1]);
     if (0 < e[0] && e[0] < 9) {
       window.scrollTo({ top: 400, behavior: 'smooth' });
     } else if (8 < e[0] && e[0] < 17) {
@@ -51,12 +49,13 @@ class FilterView extends Component {
       window.scrollTo({ top: 690, behavior: 'smooth' });
     }
 
-    // let filtered = this.state.backpackdata.map(a => a.model_number);
     const backpackdesc = backpackdata.filter(bag => {
       return bag.model_number === e[1];
     });
 
-    this.setState({ backdescdata: backpackdesc, isdescOpen: true });
+    this.setState({ backdescdata: backpackdesc, isdescOpen: true }, () => {
+      console.log('>>>>', this.state.backdescdata);
+    });
   };
 
   descClose = () => {
@@ -75,7 +74,7 @@ class FilterView extends Component {
               <>
                 {range.map((list, inx) => {
                   return (
-                    <BackpackList
+                    <FilterViewList
                       key={inx}
                       backpackdata={value.backpackdata}
                       backdescdata={backdescdata}

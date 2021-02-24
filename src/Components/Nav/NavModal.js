@@ -67,9 +67,7 @@ export default class FnavModal extends Component {
           <>
             <ProductConsumer>
               {value => {
-                return (
-                  <div className="modalOutside" onClick={value.openNav}></div>
-                );
+                return <div className="modalOutside" onClick={value.openNav} />;
               }}
             </ProductConsumer>
 

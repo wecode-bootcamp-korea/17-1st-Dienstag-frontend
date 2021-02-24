@@ -29,6 +29,7 @@ class BagCategoryView extends Component {
               <div className="listCategoryHead">STORES - BAGS </div>
               <div className="categoryHead">BACKPACK</div>
               <div className="baglistName">MIAMI</div>
+
               <div className="miniDesc">A BLAST FROM THE PAST CHF 241.40 </div>
               <Link to={'/backpacklistbox'}>
                 <BagViewListBox bagView={value.puryData} />
@@ -49,3 +50,5 @@ class BagCategoryView extends Component {
 }
 
 export default BagCategoryView;
+
+// const categorydatas = []
