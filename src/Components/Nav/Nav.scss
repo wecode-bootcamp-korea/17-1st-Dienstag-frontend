@@ -194,6 +194,11 @@
           width: 20px;
           height: 20px;
         }
+        .bagsArrowrotate {
+          width: 20px;
+          height: 20px;
+          transform: rotate(180deg);
+        }
       }
 
       .bagsLists li {
@@ -221,6 +226,11 @@
         .shopArrow {
           width: 20px;
           height: 20px;
+        }
+        .shopArrowrotate {
+          width: 20px;
+          height: 20px;
+          transform: rotate(180deg);
         }
       }
 

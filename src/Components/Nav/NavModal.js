@@ -100,8 +100,9 @@ export default class FnavModal extends Component {
                       <CgShoppingCart size={20} /> SHOP
                     </span>
                     <div
-                      className="shopArrow"
-                      style={{ transform: isShopsclick && 'rotate(180deg)' }}
+                      className={
+                        !isShopsclick ? 'shopArrow' : 'shopArrowrotate'
+                      }
                     >
                       <MdKeyboardArrowDown size={20} />
                     </div>
@@ -114,8 +115,9 @@ export default class FnavModal extends Component {
                       <li onClick={this.bagsOpen} className="bagsList">
                         <span>BAGS</span>
                         <div
-                          className="bagsArrow"
-                          style={{ transform: isbagsclick && 'rotate(180deg)' }}
+                          className={
+                            !isbagsclick ? 'bagsArrow' : 'bagsArrowrotate'
+                          }
                         >
                           <MdKeyboardArrowDown size={20} />
                         </div>

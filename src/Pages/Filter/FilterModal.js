@@ -88,7 +88,6 @@ class FilterModal extends Component {
                     </div>
                   )}
                 </ul>
-                <div></div>
               </div>
             </>
           );

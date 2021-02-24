@@ -3,6 +3,13 @@ import { MdColorLens } from 'react-icons/md';
 import { GiResize } from 'react-icons/gi';
 
 export default class FilterViewList extends Component {
+  state = {
+    clickedIdx: 0,
+  };
+
+  handleClickedIdx = e => {
+    this.setState({ clickedIdx: Number(e.target.id) });
+  };
   render() {
     const {
       backpackdata,
@@ -13,16 +20,17 @@ export default class FilterViewList extends Component {
       firstrange,
       lastrange,
     } = this.props;
-
+    const { clickedIdx } = this.state;
     return (
       <div>
         <div className="listContainer">
           {backpackdata.map((bag, inx) => {
             return (
-              <div key={inx}>
+              <div key={inx} onClick={e => this.handleClickedIdx(e)}>
                 {firstrange < inx && inx < lastrange && (
                   <img
                     alt="bag"
+                    id={inx}
                     src={bag.image_url}
                     className="listImg"
                     onClick={() =>
@@ -37,7 +45,7 @@ export default class FilterViewList extends Component {
         {backdescdata.map((bag, inx) => {
           return (
             <div key={inx}>
-              {isdescOpen && bag.id > firstrange && bag.id < lastrange && (
+              {isdescOpen && clickedIdx > firstrange && clickedIdx < lastrange && (
                 <div className="listDescContainer">
                   <div className="listDescBox">
                     <img

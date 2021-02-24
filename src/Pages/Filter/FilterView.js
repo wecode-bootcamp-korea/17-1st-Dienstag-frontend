@@ -41,6 +41,7 @@ class FilterView extends Component {
   }
 
   showDesc = (e, backpackdata) => {
+    // console.log(e[1], backpackdata);
     if (0 < e[0] && e[0] < 9) {
       window.scrollTo({ top: 400, behavior: 'smooth' });
     } else if (8 < e[0] && e[0] < 17) {
@@ -54,7 +55,7 @@ class FilterView extends Component {
     });
 
     this.setState({ backdescdata: backpackdesc, isdescOpen: true }, () => {
-      console.log('>>>>', this.state.backdescdata);
+      // console.log('>>>>', this.state.backdescdata);
     });
   };
 
@@ -72,10 +73,10 @@ class FilterView extends Component {
           {value => {
             return (
               <>
-                {range.map((list, inx) => {
+                {range.map((list, idx) => {
                   return (
                     <FilterViewList
-                      key={inx}
+                      key={idx}
                       backpackdata={value.backpackdata}
                       backdescdata={backdescdata}
                       showDesc={this.showDesc}

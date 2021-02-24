@@ -55,7 +55,7 @@ class NewsLetter extends Component {
           className="newsHeadimg"
           alt="newsletterimg"
           src="https://images.pexels.com/photos/5999976/pexels-photo-5999976.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-        ></img>
+        />
         <div className="headbox">
           <div className="head one">S.W.A.P. -IT'S</div>
           <div className="head one">ABOUT GIVE AND</div>
