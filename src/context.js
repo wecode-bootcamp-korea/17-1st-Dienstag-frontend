@@ -46,22 +46,23 @@ class ProductProvider extends Component {
   readId = e => {
     const listId = e;
 
-    fetch(`http://10.58.6.166:8000/product/category?bag_type=${listId}`, {
+    fetch(`http://10.58.2.4:8000/product/category?bag_type=${listId}`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          puryData: data.PuryList,
-          jonanzaData: data.JonanzaList,
-        });
+        console.log(typeof data);
+        // this.setState({
+        //   puryData: data[0],
+        //   jonanzaData: data[1],
+        // });
       });
   };
 
   onFilter = e => {
     this.setState({ filterInfo: filterName[e] }, () => {
       fetch(
-        `http://10.58.6.166:8000/product/filter?keyword=${this.state.filterInfo}`,
+        `http://10.58.2.4:8000/product/filter?keyword=${this.state.filterInfo}`,
         {
           method: 'GET',
         }

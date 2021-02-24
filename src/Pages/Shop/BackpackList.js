@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MdColorLens } from 'react-icons/md';
 import { GiResize } from 'react-icons/gi';
-import { RiInboxArchiveFill } from 'react-icons/ri';
+import { BsInbox } from 'react-icons/bs';
 
 export default class BackpackList extends Component {
   render() {
@@ -19,6 +19,7 @@ export default class BackpackList extends Component {
       <div>
         <div className="listContainer">
           {backpackdata.map((bag, inx) => {
+            console.log(backpackdata);
             return (
               <div key={inx}>
                 {firstrange < inx && inx < lastrange && (
@@ -26,9 +27,8 @@ export default class BackpackList extends Component {
                     alt="bag"
                     src={bag.image_url}
                     className="listImg"
-                    onClick={() =>
-                      showDesc([inx, bag.model_number], backpackdata)
-                    }
+                    onClick={() => showDesc(bag.id, backpackdata)}
+                    // [inx, bag.model_number]
                   />
                 )}
               </div>
@@ -36,10 +36,11 @@ export default class BackpackList extends Component {
           })}
         </div>
         {backdescdata.map((bag, inx) => {
+          console.log('>', backdescdata);
           return (
-            <>
+            <div key={inx}>
               {isdescOpen && bag.id > firstrange && bag.id < lastrange && (
-                <div className="listDescContainer" key={inx}>
+                <div className="listDescContainer">
                   <div className="listDescBox">
                     <img
                       alt="bag"
@@ -53,7 +54,7 @@ export default class BackpackList extends Component {
                       </div>
                       <div className="descColor">
                         <MdColorLens size={20} /> COLOR : {bag.color_name}
-                        , <GiResize size={20} /> size : {bag.size_name}
+                        , <GiResize size={20} /> SIZE : {bag.size_name}
                       </div>
                       <div className="descText">- {bag.description[0]}</div>
                       <div className="descText">- {bag.description[1]}</div>
@@ -67,7 +68,7 @@ export default class BackpackList extends Component {
                   </div>
                 </div>
               )}
-            </>
+            </div>
           );
         })}
       </div>

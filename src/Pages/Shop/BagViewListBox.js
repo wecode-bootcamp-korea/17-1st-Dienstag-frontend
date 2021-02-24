@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class BagViewListBox extends Component {
   render() {
     const { bagView } = this.props;
-    console.log('list', bagView);
+
     return (
       <>
         <div className="listContainer">

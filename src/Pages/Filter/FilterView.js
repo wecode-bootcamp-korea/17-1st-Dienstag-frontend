@@ -12,7 +12,7 @@ class FilterView extends Component {
 
     super();
     this.state = {
-      isdescOpen: true,
+      isdescOpen: false,
       backdescdata: [],
       recommendAccdata: [],
     };
@@ -36,13 +36,13 @@ class FilterView extends Component {
         this.setState({
           recommendAccdata: data,
         });
-        console.log(data);
       });
   }
 
   showDesc = (e, backpackdata) => {
-    let result = backpackdata.map(bag => bag.model_number);
-    console.log(backpackdata.index);
+    // let result = backpackdata.map(bag => bag.model_number);
+    // console.log('>', backpackdata);
+    // console.log(e[1]);
     if (0 < e[0] && e[0] < 9) {
       window.scrollTo({ top: 400, behavior: 'smooth' });
     } else if (8 < e[0] && e[0] < 17) {
