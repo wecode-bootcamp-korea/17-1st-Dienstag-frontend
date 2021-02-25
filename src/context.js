@@ -39,7 +39,7 @@ class ProductProvider extends Component {
 
   noneUserAddCart = id => {
     //none user api
-    fetch(`http://10.58.1.193:8000/cart`, {
+    fetch(`http://10.58.5.135:8000/cart/${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
