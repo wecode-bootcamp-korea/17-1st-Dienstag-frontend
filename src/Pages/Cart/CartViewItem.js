@@ -1,42 +1,48 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { TiDelete } from 'react-icons/ti';
-import './CartViewItem.scss';
 import { ProductConsumer } from '../../context';
+import './CartViewItem.scss';
 
 class CartViewItem extends Component {
   render() {
-    const { id, title, price, img, quantity } = this.props.product;
+    const {
+      title,
+      price,
+      image_url,
+      quantity,
+      cart_id,
+      setStyle,
+    } = this.props.product;
     return (
       <ProductConsumer>
         {value => {
           return (
-            <div className="cartContainer">
-              <li>
-                <div>
-                  <h3 className="productName">{title}</h3>
+            <div className={setStyle}>
+              <div>
+                <h3 className="productName">{title} Fury</h3>
+              </div>
+              <div className="productContainer">
+                <div className="imgContainer">
+                  <img
+                    className="productImg"
+                    src={image_url}
+                    alt="product"
+                  ></img>
                 </div>
-                <div className="productContainer">
-                  <div className="imgContainer">
-                    <Link>
-                      <img className="productImg" src={img} alt="product"></img>
-                    </Link>
-                  </div>
-                  <div className="productQuantity">
-                    <span className="oneProduct">{quantity}</span>
-                    <span
-                      className="multiplecation"
-                      onClick={value.deleteCart(id)}
-                    >
-                      x
-                    </span>
-                  </div>
-                  <div className="productPrice">
-                    <div className="displayPrice">{price}</div>
-                  </div>
-                  <TiDelete className="deleteBtn" />
+                <div className="productQuantity">
+                  <span className="oneProduct">{quantity}</span>
+                  <span className="multiplecation">x</span>
                 </div>
-              </li>
+                <div className="productPrice">
+                  <span>$</span>
+                  <div className="displayPrice"> {Number(price)}원</div>
+                </div>
+                <TiDelete
+                  className="deleteBtn"
+                  onClick={() => value.deleteCart(cart_id)}
+                />
+              </div>
             </div>
           );
         }}

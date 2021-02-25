@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ProductProvider } from './context';
 import Routes from './Routes';
+import { ProductProvider } from './context';
 import './Styles/common.scss';
 import './Styles/reset.scss';
 

@@ -42,16 +42,19 @@
       height: 141.25px;
     }
   }
-  .productBtn {
-    width: 240px;
-    margin: 70px 0 50px 260px;
-    padding: 15px;
-    text-align: center;
-    background-color: black;
-    color: white;
 
-    &:hover {
-      background-color: gray;
+  .productbtnContainer {
+    width: 100%;
+    height: auto;
+    width: 1130px;
+
+    margin: 0 auto;
+    .productBtn {
+      width: 240px;
+
+      &:hover {
+        background-color: gray;
+      }
     }
   }
 }

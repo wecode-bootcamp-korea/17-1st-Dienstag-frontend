@@ -31,13 +31,11 @@ class Main extends Component {
     return (
       <div className="Main">
         <div className="videoLogoContiner">
-          <video loop autoPlay muted className="mainVideo">
-            <source
-              src="https://www.freitag.ch/sites/default/files/neo_content_video/f601_malcolm_banner_1600x900.mp4
-              "
-              type="video/mp4"
-            />
-          </video>
+          <img
+            alt="background"
+            className="mainVideo"
+            src="https://freitag.rokka.io/fullwidth_1919max_2x/0a0ef9272093dfc7efa6c91a6f49e5bb2a4d2d41/fttb-backpack-rgb-highres-2.jpg?itok=eKFctM-m"
+          />
           <span className="unfoldingLogo">UNFOLDING SOON</span>
         </div>
         <MainCategory />

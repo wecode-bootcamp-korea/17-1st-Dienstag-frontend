@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { MdColorLens } from 'react-icons/md';
 import { GiResize } from 'react-icons/gi';
-import { ProductConsumer } from '../../context';
 
-export default class BackpackList extends Component {
+export default class FilterViewList extends Component {
+  state = {
+    clickedIdx: 0,
+  };
+
+  handleClickedIdx = e => {
+    this.setState({ clickedIdx: Number(e.target.id) });
+  };
   render() {
     const {
       backpackdata,
@@ -14,19 +20,22 @@ export default class BackpackList extends Component {
       firstrange,
       lastrange,
     } = this.props;
-
+    const { clickedIdx } = this.state;
     return (
       <div>
         <div className="listContainer">
           {backpackdata.map((bag, inx) => {
             return (
-              <div key={inx}>
+              <div key={inx} onClick={e => this.handleClickedIdx(e)}>
                 {firstrange < inx && inx < lastrange && (
                   <img
                     alt="bag"
+                    id={inx}
                     src={bag.image_url}
                     className="listImg"
-                    onClick={() => showDesc(bag.id, backpackdata)}
+                    onClick={() =>
+                      showDesc([inx, bag.model_number], backpackdata)
+                    }
                   />
                 )}
               </div>
@@ -36,7 +45,7 @@ export default class BackpackList extends Component {
         {backdescdata.map((bag, inx) => {
           return (
             <div key={inx}>
-              {isdescOpen && bag.id > firstrange && bag.id < lastrange && (
+              {isdescOpen && clickedIdx > firstrange && clickedIdx < lastrange && (
                 <div className="listDescContainer">
                   <div className="listDescBox">
                     <img
@@ -57,33 +66,7 @@ export default class BackpackList extends Component {
                       <div className="descText">- {bag.description[1]}</div>
                       <div className="descText">- {bag.description[2]}</div>
                       <div className="descTextlast">- {bag.description[3]}</div>
-                      <ProductConsumer>
-                        {value => {
-                          return (
-                            <div
-                              className="cartBtn"
-                              onClick={() => {
-                                const token = value.getToken();
-
-                                if (token) {
-                                  console.log(bag.id);
-                                  value.addCart(bag.id, token);
-                                } else {
-                                  value.noneUserAddCart(bag.id);
-                                  localStorage.setItem(
-                                    'product',
-                                    value.noneUserCart
-                                  );
-                                  console.log(localStorage.getItem('product'));
-                                }
-                              }}
-                            >
-                              장바구니에 추가
-                              <div>DIENSTAG은 유일합니다.</div>
-                            </div>
-                          );
-                        }}
-                      </ProductConsumer>
+                      <div className="cartBtn">장바구니에 추가</div>
                       <span className="descClosebtn" onClick={descClose}>
                         X
                       </span>
