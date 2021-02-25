@@ -7,30 +7,45 @@
 
       .productContainer{
         display: flex;
-        justify-content: flex-start;
+        flex-direction: center;
         margin-top: 15px;
-      }
+        padding-bottom: 8px;
+        line-height: 35px;
 
-      .productQuantity,
-      .productPrice,
-      .deleteBtn{
-        font-size: 20px;
-        align-self: center;
-        margin-left: 10px;
-
-        & :hover {
-          color: rgb(83, 83, 83);
+        .productImg{
+          width: 60px;
+          height: 60px;
         }
-      }
 
-      .productQuantity{
-        padding-right: 20px;
-        padding-bottom:7px ;
-        border-bottom:2px solid black;
-
-        span{
-          margin-right: 15px;
+        .productQuantity{
+          padding-bottom: 0;
         }
-      }
+
+        .productPrice{
+          display: flex;
+          margin-top: 5px;
+        }
+
+        .productQuantity,
+        .productPrice,
+        .deleteBtn{
+          font-size: 20px;
+          align-self: center;
+          margin-left: 10px;
+  
+          & :hover {
+            color: rgb(83, 83, 83);
+          }
+        }
+  
+        .productQuantity{
+          padding-right: 20px;
+          padding-bottom:7px ;
+          border-bottom:2px solid black;
+  
+          span{
+            margin-right: 15px;
+          }
+        }
+      }      
     }
-

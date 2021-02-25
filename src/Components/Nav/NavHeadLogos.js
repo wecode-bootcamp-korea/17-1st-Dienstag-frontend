@@ -27,6 +27,7 @@ class Headlogos extends Component {
               <div
                 className="cartIcon"
                 onClick={() => {
+                  value.handleCartList();
                   value.showCart();
                 }}
               >

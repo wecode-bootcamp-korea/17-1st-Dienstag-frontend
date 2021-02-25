@@ -1,0 +1,33 @@
+@import '../../Styles/common.scss';
+
+.cartContainer {
+  width: 40%;
+  h1 {
+    font-size: 25px;
+  }
+  .productContainer {
+    display: flex;
+    justify-content: space-between;
+    // background-color: blue;
+    border-bottom: 1px solid gray;
+    img {
+      width: 75px;
+      height: 75px;
+    }
+    .productText {
+      margin-top: 10px;
+      font-size: 5px;
+
+    }
+    .price {
+      margin-top: 30px;
+      margin-right: 10px;
+      font-size: 15px;
+    }
+  }
+  .totalcontainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+}
