@@ -257,14 +257,14 @@ class Checkout extends Component {
               {value => {
                 return (
                   <div className="buttonContainer">
-                    <div className="formAction" onClick={this.gotoCartList}>
+                    {/* <div className="formAction" onClick={this.gotoCartList}>
                       <FaArrowLeft className="icon" />
                       <input
                         type="button"
                         defaultValue="Back to the CartList"
                         className="formSubmit"
                       />
-                    </div>
+                    </div> */}
                     <div
                       className="formAction"
                       onClick={() => {

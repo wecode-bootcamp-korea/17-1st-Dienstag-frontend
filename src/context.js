@@ -29,11 +29,11 @@ class ProductProvider extends Component {
     return localStorage.getItem('token');
   };
 
-  // componentDidMount() {
-  //   const token = this.getToken();
-  //   console.log(token);
-  //   token ? this.handleCartList() : this.handleNoneUserCart();
-  // }
+  componentDidMount() {
+    const token = this.getToken();
+    console.log(token);
+    token ? this.handleCartList() : this.handleNoneUserCart();
+  }
 
   handleNoneUserCart = () => {
     const cartList = localStorage.getItem('product');
@@ -86,7 +86,7 @@ class ProductProvider extends Component {
         });
         console.log(data);
       });
-    this.cloaseNav();
+    this.closeNav();
   };
 
   onFilter = e => {
@@ -108,7 +108,7 @@ class ProductProvider extends Component {
     });
   };
 
-  cloaseNav = () => {
+  closeNav = () => {
     this.setState({
       isNavOpen: false,
       isCartOpen: false,
@@ -118,7 +118,7 @@ class ProductProvider extends Component {
 
   handleClick = e => {
     this.onFilter(e);
-    this.cloaseNav();
+    this.closeNav();
   };
 
   openNav = () => {
@@ -227,7 +227,7 @@ class ProductProvider extends Component {
     } = data;
     console.log(data);
 
-    fetch('http://10.58.1.225:8000/cart/checkout', {
+    fetch('http://10.58.7.188:8000/cart/checkout', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -287,7 +287,7 @@ class ProductProvider extends Component {
           onFilter: this.onFilter,
           handleClick: this.handleClick,
           readId: this.readId,
-          cloaseNav: this.cloaseNav,
+          closeNav: this.closeNav,
         }}
       >
         {this.props.children}

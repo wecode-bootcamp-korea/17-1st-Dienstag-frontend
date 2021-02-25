@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { ProductConsumer } from '../../context';
 import CartItem from './CartItem';
@@ -27,12 +28,16 @@ class Cart extends Component {
                   );
                 })}
                 <div className="totalcontainer">
-                  <span>ORDER TOTAL</span>
-                  <span>${value.totalPrice}</span>
+                  <div>ORDER TOTAL</div>
+                  <div>${value.totalPrice}</div>
                 </div>
                 <div className="formAction" onClick={this.goToMain}>
                   <FaArrowLeft className="icon" />
-                  <input type="button" defaultValue="Back to the shop" />
+                  <input
+                    classname="homeBtn"
+                    type="button"
+                    defaultValue="Back to the shop"
+                  />
                 </div>
               </div>
             );
@@ -43,4 +48,4 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+export default withRouter(Cart);
