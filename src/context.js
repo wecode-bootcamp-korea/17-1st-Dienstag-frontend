@@ -29,11 +29,11 @@ class ProductProvider extends Component {
     return localStorage.getItem('token');
   };
 
-  // componentDidMount() {
-  //   const token = this.getToken();
-  //   console.log(token);
-  //   token ? this.handleCartList() : this.handleNoneUserCart();
-  // }
+  componentDidMount() {
+    const token = this.getToken();
+    console.log(token);
+    token ? this.handleCartList() : this.handleNoneUserCart();
+  }
 
   handleNoneUserCart = () => {
     const cartList = localStorage.getItem('product');
