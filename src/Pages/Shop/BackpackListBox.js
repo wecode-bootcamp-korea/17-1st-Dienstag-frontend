@@ -10,14 +10,14 @@ export default class BackpackListbox extends Component {
     super();
     this.state = {
       backpackdata: [],
-      isdescOpen: true,
+      isdescOpen: false,
       backdescdata: [],
       recommendAccdata: [],
     };
   }
 
   componentDidMount() {
-    fetch('http://10.58.6.166:8000/product/models', {
+    fetch(`http://10.58.6.143:8000/product/model?bag_model=1`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -32,6 +32,7 @@ export default class BackpackListbox extends Component {
   }
 
   showDesc = e => {
+    console.log(this.state.backpackdata[0]);
     if (0 < e && e < 9) {
       window.scrollTo({ top: 400, behavior: 'smooth' });
     } else if (8 < e && e < 17) {

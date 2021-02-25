@@ -36,6 +36,7 @@ class Login extends Component {
       })
       .then(result => {
         if (result.message === 'SUCCESS') {
+          console.log(localStorage.getItem('token'));
           localStorage.setItem('token', result.access_token);
           localStorage.setItem('username', result.username);
           this.props.history.push('/');
@@ -43,6 +44,8 @@ class Login extends Component {
           alert('맞지 않습니다.');
         }
       });
+    // eslint-disable-next-line no-restricted-globals
+    // location.reload();
   };
 
   render() {

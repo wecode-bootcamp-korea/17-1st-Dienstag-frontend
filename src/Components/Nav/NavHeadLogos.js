@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { BsBell, BsList } from 'react-icons/bs';
+import { BsList } from 'react-icons/bs';
 import { CgShoppingCart } from 'react-icons/cg';
+import { FiFilter } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import { ProductConsumer } from '../../context';
 import './Nav.scss';
 
@@ -11,23 +13,22 @@ class Headlogos extends Component {
         {value => {
           return (
             <div className="headLogos">
-              <div className="topLogo">DIENSTAG</div>
-
+              <Link to="/">
+                <div className="topLogo" onClick={value.cloaseNav}>
+                  DIENSTAG
+                </div>
+              </Link>
               <div className="listIcon" onClick={value.openNav}>
                 <BsList size={45} />
               </div>
-              <div className="bellIcon">
-                <BsBell size={35} />
+              <div className="bellIcon" onClick={value.openFilter}>
+                <FiFilter size={35} />
               </div>
               <div
                 className="cartIcon"
                 onClick={() => {
                   value.handleCartList();
                   value.showCart();
-                  // value.addCart(6, localStorage.getItem('token'));
-                  console.log(localStorage.getItem('token'));
-                  //value.deleteCart(90);
-                  // console.log(value.cartId);
                 }}
               >
                 <CgShoppingCart size={37} />

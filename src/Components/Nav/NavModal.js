@@ -20,6 +20,7 @@ import {
 } from 'react-icons/ri';
 import './Nav.scss';
 import { korea } from './imageList';
+import { ProductConsumer } from '../../context';
 
 export default class FnavModal extends Component {
   constructor() {
@@ -72,7 +73,14 @@ export default class FnavModal extends Component {
       <div>
         {!isnavopen && (
           <>
-            <div className="modalOutside" onClick={openNav}></div>
+            <ProductConsumer>
+              {value => {
+                return (
+                  <div className="modalOutside" onClick={value.cloaseNav} />
+                );
+              }}
+            </ProductConsumer>
+
             <div className="modalNavContainer">
               <ul>
                 <li></li>
@@ -106,8 +114,9 @@ export default class FnavModal extends Component {
                       <CgShoppingCart size={20} /> SHOP
                     </span>
                     <div
-                      className="shopArrow"
-                      style={{ transform: isShopsclick && 'rotate(180deg)' }}
+                      className={
+                        !isShopsclick ? 'shopArrow' : 'shopArrowrotate'
+                      }
                     >
                       <MdKeyboardArrowDown size={20} />
                     </div>
@@ -120,25 +129,38 @@ export default class FnavModal extends Component {
                       <li onClick={this.bagsOpen} className="bagsList">
                         <span>BAGS</span>
                         <div
-                          className="bagsArrow"
-                          style={{ transform: isbagsclick && 'rotate(180deg)' }}
+                          className={
+                            !isbagsclick ? 'bagsArrow' : 'bagsArrowrotate'
+                          }
                         >
                           <MdKeyboardArrowDown size={20} />
                         </div>
                       </li>
-                      {!openbags && (
-                        <div className="bagsLists">
-                          {bagLists.map(list => {
-                            return (
-                              <Link to={list.link}>
-                                <li key={list.categoryName}>
-                                  {list.categoryName}
-                                </li>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      )}
+                      <ProductConsumer>
+                        {value => {
+                          return (
+                            <>
+                              {!openbags && (
+                                <div className="bagsLists">
+                                  {bagLists.map(list => {
+                                    return (
+                                      <Link to="/bagcategoryview">
+                                        <li
+                                          key={list.categoryName}
+                                          id={list.id}
+                                          onClick={() => value.readId(list.id)}
+                                        >
+                                          {list.categoryName}
+                                        </li>
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+                              )}
+                            </>
+                          );
+                        }}
+                      </ProductConsumer>
                       <li>ACCESSORIES</li>
                       <li>F-ABRIC TWO-COLOR COMBOS</li>
                       <li>APPAREL FEMALE</li>
@@ -153,9 +175,17 @@ export default class FnavModal extends Component {
                   <li>
                     <MdLocationCity size={20} /> CITY GUIDE LINES
                   </li>
-                  <li>
-                    <RiHeartAddLine size={20} /> S.W.A.P
-                  </li>
+                  <ProductConsumer>
+                    {value => {
+                      return (
+                        <Link to="newsletter">
+                          <li onClick={value.cloaseNav}>
+                            <RiHeartAddLine size={20} /> S.W.A.P
+                          </li>
+                        </Link>
+                      );
+                    }}
+                  </ProductConsumer>
                   <li>
                     <IoIosInformationCircleOutline size={20} /> CONNECT
                   </li>
@@ -182,13 +212,13 @@ export default class FnavModal extends Component {
 }
 
 const bagLists = [
-  { categoryName: 'ALL MODELS', link: '/bagcategoryview' },
-  { categoryName: 'BACK PACKS', link: '/bagcategoryview' },
-  { categoryName: 'MESSENGER', link: '/bagcategoryview' },
-  { categoryName: 'SHOPPER', link: '/bagcategoryview' },
-  { categoryName: 'SHOULDER BAGS', link: '/bagcategoryview' },
-  { categoryName: 'TOTE BAGS', link: '/bagcategoryview' },
-  { categoryName: 'LAPTOP BAGS', link: '/bagcategoryview' },
-  { categoryName: 'TRAVEL BAGS', link: '/bagcategoryview' },
-  { categoryName: 'SPORTS BAGS', link: '/bagcategoryview' },
+  { categoryName: 'ALL MODELS', id: '1' },
+  { categoryName: 'BACK PACKS', id: '1' },
+  { categoryName: 'MESSENGER', id: '1' },
+  { categoryName: 'SHOPPER', id: '1' },
+  { categoryName: 'SHOULDER BAGS', id: '1' },
+  { categoryName: 'TOTE BAGS', id: '1' },
+  { categoryName: 'LAPTOP BAGS', id: '1' },
+  { categoryName: 'TRAVEL BAGS', id: '1' },
+  { categoryName: 'SPORTS BAGS', id: '1' },
 ];

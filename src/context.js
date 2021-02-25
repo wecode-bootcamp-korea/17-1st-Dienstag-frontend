@@ -1,3 +1,4 @@
+// import { FALSE } from 'node-sass';
 import React, { Component } from 'react';
 
 const ProductContext = React.createContext();
@@ -17,6 +18,10 @@ class ProductProvider extends Component {
       isBuyingProduct: true,
       token: '',
       cartId: '',
+      isFilteropen: false,
+      puryData: [],
+      jonanzaData: [],
+      backpackdata: [],
     };
   }
 
@@ -26,6 +31,7 @@ class ProductProvider extends Component {
 
   // componentDidMount() {
   //   const token = this.getToken();
+  //   console.log(token);
   //   token ? this.handleCartList() : this.handleNoneUserCart();
   // }
 
@@ -40,26 +46,87 @@ class ProductProvider extends Component {
   noneUserAddCart = id => {
     //none user api
     fetch(`http://10.58.5.135:8000/cart/${id}`, {
+      isFilteropen: false,
+      backpackdata: [],
+      filterInfo: '',
+      puryData: [],
+      jonanzaData: [],
+    });
+  };
+
+  // componentDidMount() {
+  //   fetch('/data/totalProducts.json', {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log(data);
+  //       //구현해야할 부분: totalPrice, 같은 값이 있을때
+  //       this.setState(
+  //         {
+  //           noneUserCart: data,
+  //         },
+  //         () => this.state.noneUserCart
+  //       );
+  //     });
+  // }
+
+  readId = e => {
+    console.log('eeeeeeeee');
+    const listId = e;
+
+    fetch(`http://10.58.6.143:8000/product/category?bag_type=${listId}`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
+        this.setState({
+          puryData: data['data'][0][`D132 Pury`],
+          jonanzaData: data['data'][1][`D133 Jonanza`],
+        });
         console.log(data);
-        //구현해야할 부분: totalPrice, 같은 값이 있을때
-        this.setState(
-          {
-            noneUserCart: data,
-          },
-          () => this.state.noneUserCart
-        );
       });
+    this.cloaseNav();
   };
-  // nav
+
+  onFilter = e => {
+    this.setState({ filterInfo: filterName[e] }, () => {
+      fetch(
+        `http://10.58.6.143:8000/product/filter?keyword=${this.state.filterInfo}`,
+        {
+          method: 'GET',
+        }
+      )
+        .then(res => res.json())
+        .then(data => {
+          // console.log(data.ItemList);
+          this.setState({
+            backpackdata: data.ItemList,
+            // recommendAccdata: data.meesage[1],
+          });
+        });
+    });
+  };
+
+  cloaseNav = () => {
+    this.setState({
+      isNavOpen: false,
+      isCartOpen: false,
+      isFilteropen: false,
+    });
+  };
+
+  handleClick = e => {
+    this.onFilter(e);
+    this.cloaseNav();
+  };
+
   openNav = () => {
     const { isNavOpen } = this.state;
     this.setState({
       isNavOpen: !isNavOpen,
       isCartOpen: false,
+      isFilteropen: false,
     });
   };
 
@@ -68,12 +135,13 @@ class ProductProvider extends Component {
     this.setState({
       isCartOpen: !isCartOpen,
       isNavOpen: false,
+      isFilteropen: false,
     });
   };
 
   //cart
   addCart = (bagId, token) => {
-    fetch('http://10.58.5.135:8000/cart/product', {
+    fetch('http://10.58.5.135:8000/cart', {
       method: 'POST',
       headers: { Authorization: token },
       body: JSON.stringify({
@@ -93,6 +161,7 @@ class ProductProvider extends Component {
 
   handleCartList = () => {
     const token = this.getToken();
+    // console.log('aaaaaaa');
     token &&
       fetch(`http://10.58.5.135:8000/cart`, {
         method: 'GET',
@@ -103,7 +172,6 @@ class ProductProvider extends Component {
           const {
             total_items_list: cartList,
             total_items: totalProducts,
-            cart_id: cartId,
           } = data.data;
 
           let totalPrice = 0;
@@ -115,7 +183,6 @@ class ProductProvider extends Component {
             {
               cartList: cartList,
               totalProducts: totalProducts,
-              cart_id: cartId,
               totalPrice: totalPrice,
             },
             () => console.log(this.state.cartList)
@@ -196,6 +263,13 @@ class ProductProvider extends Component {
       });
   };
 
+  openFilter = () => {
+    this.setState({
+      isFilteropen: !this.state.isFilteropen,
+      isNavOpen: false,
+      isCartOpen: false,
+    });
+  };
   render() {
     return (
       <ProductContext.Provider
@@ -208,6 +282,12 @@ class ProductProvider extends Component {
           deleteCart: this.deleteCart,
           handleCheckout: this.handleCheckout,
           getToken: this.getToken,
+          openFilter: this.openFilter,
+          habdleCartLsit: this.habdleCartLsit,
+          onFilter: this.onFilter,
+          handleClick: this.handleClick,
+          readId: this.readId,
+          cloaseNav: this.cloaseNav,
         }}
       >
         {this.props.children}
@@ -217,3 +297,13 @@ class ProductProvider extends Component {
 }
 
 export { ProductProvider, ProductConsumer };
+
+const filterName = {
+  1: 'red',
+  2: 'green',
+  3: 'blue',
+  4: 'yellow',
+  5: 'S',
+  6: 'M',
+  7: 'L',
+};
