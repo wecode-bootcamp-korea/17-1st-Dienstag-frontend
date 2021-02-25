@@ -1,51 +1,51 @@
 @import '../../Styles/common.scss';
-    li {
-      padding: 25px 8px;
-      font-size: 14px;
-      height: 130px;
-      list-style: none;
+    // li {
+    //   padding: 25px 8px;
+    //   font-size: 14px;
+    //   height: 130px;
+    //   list-style: none;
 
-      .productContainer{
-        display: flex;
-        flex-direction: center;
-        margin-top: 15px;
-        padding-bottom: 8px;
-        line-height: 35px;
+    //   .productContainer{
+    //     display: flex;
+    //     flex-direction: center;
+    //     margin-top: 15px;
+    //     padding-bottom: 8px;
+    //     line-height: 35px;
 
-        .productImg{
-          width: 60px;
-          height: 60px;
-        }
+    //     .productImg{
+    //       width: 60px;
+    //       height: 60px;
+    //     }
 
-        .productQuantity{
-          padding-bottom: 0;
-        }
+    //     .productQuantity{
+    //       padding-bottom: 0;
+    //     }
 
-        .productPrice{
-          display: flex;
-          margin-top: 5px;
-        }
+    //     .productPrice{
+    //       display: flex;
+    //       margin-top: 5px;
+    //     }
 
-        .productQuantity,
-        .productPrice,
-        .deleteBtn{
-          font-size: 20px;
-          align-self: center;
-          margin-left: 10px;
+    //     .productQuantity,
+    //     .productPrice,
+    //     .deleteBtn{
+    //       font-size: 20px;
+    //       align-self: center;
+    //       margin-left: 10px;
   
-          & :hover {
-            color: rgb(83, 83, 83);
-          }
-        }
+    //       & :hover {
+    //         color: rgb(83, 83, 83);
+    //       }
+    //     }
   
-        .productQuantity{
-          padding-right: 20px;
-          padding-bottom:7px ;
-          border-bottom:2px solid black;
+    //     .productQuantity{
+    //       padding-right: 20px;
+    //       padding-bottom:7px ;
+    //       border-bottom:2px solid black;
   
-          span{
-            margin-right: 15px;
-          }
-        }
-      }      
-    }
+    //       span{
+    //         margin-right: 15px;
+    //       }
+    //     }
+    //   }      
+    // }

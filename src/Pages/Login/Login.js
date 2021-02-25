@@ -9,6 +9,7 @@ class Login extends Component {
     email: '',
     password: '',
     username: localStorage.getItem('username'),
+    isLogin: false,
   };
 
   handleInput = e => {
@@ -39,6 +40,11 @@ class Login extends Component {
           console.log(localStorage.getItem('token'));
           localStorage.setItem('token', result.access_token);
           localStorage.setItem('username', result.username);
+          this.props.updateLogin();
+
+          this.setState({
+            isLogin: true,
+          })
           this.props.history.push('/');
         } else {
           alert('맞지 않습니다.');
@@ -49,7 +55,7 @@ class Login extends Component {
   };
 
   render() {
-    const { isToken, handleLogout } = this.props;
+    const { isToken, handleLogout, updateLogin } = this.props;
     const { username } = this.state;
     console.log(username, localStorage.getItem('username'));
     return (

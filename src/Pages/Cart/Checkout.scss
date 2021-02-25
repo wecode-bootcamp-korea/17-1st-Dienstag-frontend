@@ -6,7 +6,7 @@ display: flex;
 
     display: flex;
     flex-direction: column;
-    margin: 100px;
+    margin: 50px 10px 50px 50px;
     font-size: 30px;
     outline: none;
   
@@ -27,13 +27,15 @@ display: flex;
       }
   
     .userLoginContainer{
-      display: flex;
-      flex-direction: column;
-      border: none;
+      // display: flex;
+      // flex-direction: column;
+      // border: none;
   
       .formAction{
         position: relative;
-  
+  input{
+    padding: 15px;
+  }
         .personIcon{
           position:absolute;
           margin-top: 17px;
@@ -173,7 +175,7 @@ display: flex;
           }
           
           input {
-            padding: 12px 20px 10px 35px;
+            padding: 15px;
             margin-right: 10px;
             border: medium none;
             border-radius: 0;
