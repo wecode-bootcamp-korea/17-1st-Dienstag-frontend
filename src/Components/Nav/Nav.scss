@@ -42,7 +42,7 @@
 
 .Nav {
   .headLogos {
-    position: fixed; 
+    position: fixed;
     display: flex;
     z-index: 10;
     top: 0;
@@ -91,7 +91,7 @@
 
   .modalOutside {
     position: fixed;
-    top : 0;
+    top: 0;
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
@@ -111,11 +111,11 @@
     z-index: 8;
     overflow: auto;
     animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    .loginForm{
+    .loginForm {
       height: 240px;
       padding: 0;
     }
-    .showLogin{
+    .showLogin {
       display: none;
     }
 
@@ -194,6 +194,11 @@
           width: 20px;
           height: 20px;
         }
+        .bagsArrowrotate {
+          width: 20px;
+          height: 20px;
+          transform: rotate(180deg);
+        }
       }
 
       .bagsLists li {
@@ -221,6 +226,11 @@
         .shopArrow {
           width: 20px;
           height: 20px;
+        }
+        .shopArrowrotate {
+          width: 20px;
+          height: 20px;
+          transform: rotate(180deg);
         }
       }
 
@@ -252,6 +262,41 @@
         font-size: 15px;
       }
     }
+    .colorsList {
+      display: flex;
+      justify-content: space-between;
+
+      .bagsArrow {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .colorList li {
+      // height: 40px;
+      color: black;
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      font-weight: 400;
+      animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+    .sizeLists {
+      display: flex;
+      justify-content: space-between;
+      .bagsArrow {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .sizeList li {
+      color: black;
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      font-weight: 400;
+      animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
   }
 }
-

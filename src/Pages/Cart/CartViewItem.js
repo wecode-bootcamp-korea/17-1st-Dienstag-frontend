@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { TiDelete } from 'react-icons/ti';
-import './CartViewItem.scss';
 import { ProductConsumer } from '../../context';
+import './CartViewItem.scss';
 
 class CartViewItem extends Component {
   render() {

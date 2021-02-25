@@ -1,3 +1,4 @@
+// import { FALSE } from 'node-sass';
 import React, { Component } from 'react';
 
 const ProductContext = React.createContext();
@@ -12,8 +13,14 @@ class ProductProvider extends Component {
       cartList: [],
       isNavOpen: false,
       isCartOpen: false,
+      isFilteropen: false,
+      backpackdata: [],
+      filterInfo: '',
+      puryData: [],
+      jonanzaData: [],
     };
   }
+
   componentDidMount() {
     fetch('/data/totalProducts.json', {
       method: 'GET',
@@ -24,20 +31,102 @@ class ProductProvider extends Component {
           totalProducts: data[0].totalProducts,
         });
       });
+
+    fetch('/data/cartList.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          cartList: data,
+        });
+      });
   }
+
+  readId = e => {
+    const listId = e;
+
+    fetch(`http://10.58.6.143:8000/product/category?bag_type=${listId}`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          puryData: data['data'][0][`D132 Pury`],
+          jonanzaData: data['data'][1][`D133 Jonanza`],
+        });
+      });
+    this.cloaseNav();
+  };
+
+  onFilter = e => {
+    this.setState({ filterInfo: filterName[e] }, () => {
+      fetch(
+        `http://10.58.6.143:8000/product/filter?keyword=${this.state.filterInfo}`,
+        {
+          method: 'GET',
+        }
+      )
+        .then(res => res.json())
+        .then(data => {
+          // console.log(data.ItemList);
+          this.setState({
+            backpackdata: data.ItemList,
+            // recommendAccdata: data.meesage[1],
+          });
+        });
+    });
+  };
+
+  cloaseNav = () => {
+    this.setState({
+      isNavOpen: false,
+      isCartOpen: false,
+      isFilteropen: false,
+    });
+  };
+
+  handleClick = e => {
+    this.onFilter(e);
+    this.cloaseNav();
+  };
 
   openNav = () => {
     this.setState({
       isNavOpen: !this.state.isNavOpen,
-      isCartOpen: this.state.isCartOpen && !this.state.isCartOpen,
+      isCartOpen: false,
+      isFilteropen: false,
     });
   };
+
   showCart = () => {
     this.setState({
       isCartOpen: !this.state.isCartOpen,
-      isNavOpen: this.state.isNavOpen && !this.state.isNavOpen,
+      isNavOpen: false,
+      isFilteropen: false,
     });
   };
+
+  openFilter = () => {
+    this.setState({
+      isFilteropen: !this.state.isFilteropen,
+      isNavOpen: false,
+      isCartOpen: false,
+    });
+  };
+
+  habdleCartLsit = () => {
+    fetch('/data/cartList.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          cartList: data,
+        });
+      });
+  };
+
   render() {
     return (
       <ProductContext.Provider
@@ -45,6 +134,12 @@ class ProductProvider extends Component {
           ...this.state,
           openNav: this.openNav,
           showCart: this.showCart,
+          openFilter: this.openFilter,
+          habdleCartLsit: this.habdleCartLsit,
+          onFilter: this.onFilter,
+          handleClick: this.handleClick,
+          readId: this.readId,
+          cloaseNav: this.cloaseNav,
         }}
       >
         {this.props.children}
@@ -54,3 +149,13 @@ class ProductProvider extends Component {
 }
 
 export { ProductProvider, ProductConsumer };
+
+const filterName = {
+  1: 'red',
+  2: 'green',
+  3: 'blue',
+  4: 'yellow',
+  5: 'S',
+  6: 'M',
+  7: 'L',
+};

@@ -14,33 +14,36 @@ class CartView extends Component {
       <ProductConsumer>
         {value => {
           return (
-            <div className="cartView">
-              <li></li>
-              <div className="lol">
-                {value.cartList.map(product => {
-                  return <CartViewItem key={product.id} product={product} />;
-                })}
-                <div className="checkoutContainer">
-                  <div>
-                    <span className="textTotal">Total</span>
-                    <span>₩</span>
-                    <span className="totalPrice">2,422,00</span>
-                  </div>
-                  <div>
-                    <Link to="/checkout">
-                      <div className="checkoutBtnContainer">
-                        <div onClick={value.hanldeCheckout}>
-                          <FaShoppingCart />
-                          <span className="checkoutBtn">
-                            CONTINUE TO CHECKOUT
-                          </span>
+            <>
+              <div className="modalOutside" onClick={value.showCart}></div>
+              <div className="cartView">
+                <li></li>
+                <div className="lol">
+                  {value.cartList.map(product => {
+                    return <CartViewItem key={product.id} product={product} />;
+                  })}
+                  <div className="checkoutContainer">
+                    <div>
+                      <span className="textTotal">Total</span>
+                      <span>₩</span>
+                      <span className="totalPrice">2,422,00</span>
+                    </div>
+                    <div>
+                      <Link to="/checkout">
+                        <div className="checkoutBtnContainer">
+                          <div onClick={value.hanldeCheckout}>
+                            <FaShoppingCart />
+                            <span className="checkoutBtn">
+                              CONTINUE TO CHECKOUT
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    </Link>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </>
           );
         }}
       </ProductConsumer>
