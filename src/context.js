@@ -46,7 +46,7 @@ class ProductProvider extends Component {
   readId = e => {
     const listId = e;
 
-    fetch(`http://10.58.2.4:8000/product/category?bag_type=${listId}`, {
+    fetch(`http://10.58.6.143:8000/product/category?bag_type=${listId}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -62,7 +62,7 @@ class ProductProvider extends Component {
   onFilter = e => {
     this.setState({ filterInfo: filterName[e] }, () => {
       fetch(
-        `http://10.58.2.4:8000/product/filter?keyword=${this.state.filterInfo}`,
+        `http://10.58.6.143:8000/product/filter?keyword=${this.state.filterInfo}`,
         {
           method: 'GET',
         }
