@@ -183,7 +183,9 @@ export default class FnavModal extends Component {
                     <GrChat size={20} /> STORIES
                   </li>
                   <li>
-                    <MdLocationCity size={20} /> CITY GUIDE LINES
+                    <Link to={'/map'}>
+                      <MdLocationCity size={20} /> CITY GUIDE LINES
+                    </Link>
                   </li>
                   <ProductConsumer>
                     {value => {
