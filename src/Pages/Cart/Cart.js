@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { ProductConsumer } from '../../context';
-import CartViewItem from './CartViewItem';
+import CartItem from './CartItem';
 import './Cart.scss';
 
 class Cart extends Component {
@@ -19,7 +19,7 @@ class Cart extends Component {
               <div className="checkoutContainer">
                 {value.cartList.map(product => {
                   return (
-                    <CartViewItem
+                    <CartItem
                       setStyle="cart"
                       key={product.item_id}
                       product={product}

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { MdPerson } from 'react-icons/md';
@@ -7,6 +8,7 @@ class Login extends Component {
   state = {
     email: '',
     password: '',
+    username: localStorage.getItem('username'),
   };
 
   handleInput = e => {
@@ -21,7 +23,7 @@ class Login extends Component {
 
   handleSubmit = () => {
     const { email, password } = this.state;
-    fetch('http://10.58.1.193:8000/user/signin', {
+    fetch('http://10.58.6.137:8000/user/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -35,6 +37,7 @@ class Login extends Component {
       .then(result => {
         if (result.message === 'SUCCESS') {
           localStorage.setItem('token', result.access_token);
+          localStorage.setItem('username', result.username);
           this.props.history.push('/');
         } else {
           alert('맞지 않습니다.');
@@ -44,9 +47,11 @@ class Login extends Component {
 
   render() {
     const { isToken, handleLogout } = this.props;
+    const { username } = this.state;
+    console.log(username, localStorage.getItem('username'));
     return (
       <div>
-        {!isToken && (
+        {!isToken ? (
           <form className="userLoginForm">
             <div className="userLoginContainer">
               <div className="formLoginItem loginName">
@@ -94,12 +99,12 @@ class Login extends Component {
               </div>
             </div>
           </form>
-        )}
-        <div>
-          <div> HELLO, 이름 </div>
-          <div> 이메일</div>
-          <div onClick={handleLogout}>로그아웃</div>
-        </div>
+        ) : (
+            <div>
+              <div> HELLO, {this.state.username} </div>
+              <div onClick={() => handleLogout()}>로그아웃</div>
+            </div>
+          )}
       </div>
     );
   }

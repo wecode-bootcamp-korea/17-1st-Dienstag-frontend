@@ -66,6 +66,7 @@ export default class FnavModal extends Component {
       isLoginClick,
       isToken,
     } = this.state;
+    const username = localStorage.getItem('username');
 
     return (
       <div>
@@ -81,7 +82,7 @@ export default class FnavModal extends Component {
                       this.handleShowLogin();
                     }}
                   >
-                    <RiUser3Line size={20} /> {isToken ? '유저명' : 'Login'}
+                    <RiUser3Line size={20} /> {isToken ? username : 'Login'}
                   </span>
                   <div>
                     <img alt="korea" className="ko" src={korea} />

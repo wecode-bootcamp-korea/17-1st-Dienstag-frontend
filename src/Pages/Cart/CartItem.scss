@@ -1,0 +1,42 @@
+@import '../../Styles/common.scss';
+
+.cartContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+margin-bottom: 20px;
+border: 1px gray solid;
+  .productName{
+    font-size: 15px;
+  }
+  .productContainer{
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+    
+    .imgContainer{
+      img{
+        width: 50px;
+        height: 50px;
+      }
+
+    }
+
+    .productQuantity{
+      display: flex;
+      margin-top: 15px;
+     
+    }
+
+    .productPrice{
+      display: flex;
+      margin-top: 20px;
+    }
+    svg{
+      margin: 15px 30px 0 0;
+    }
+  }
+
+}
+    
+

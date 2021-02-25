@@ -24,32 +24,36 @@ class ProductProvider extends Component {
     return localStorage.getItem('token');
   };
 
-  componentDidMount() {
+  // componentDidMount() {
+  //   const token = this.getToken();
+  //   token ? this.handleCartList() : this.handleNoneUserCart();
+  // }
+
+  handleNoneUserCart = () => {
+    const cartList = localStorage.getItem('product');
+    console.log('NoneuserHandle cart >>>>>>', cartList);
     this.setState({
-      token: this.getToken(),
+      cartList: cartList,
     });
+  };
+
+  noneUserAddCart = id => {
+    //none user api
     fetch(`http://10.58.1.193:8000/cart`, {
       method: 'GET',
-      headers: { Authorization: this.getToken() },
     })
       .then(res => res.json())
       .then(data => {
-        const {
-          total_items_list: cartList,
-          total_items: totalProducts,
-          cart_id: cartId,
-        } = data.data;
-
+        console.log(data);
+        //구현해야할 부분: totalPrice, 같은 값이 있을때
         this.setState(
           {
-            cartList: cartList,
-            totalProducts: totalProducts,
-            cart_id: cartId,
+            noneUserCart: data,
           },
-          () => console.log(this.state.cartList)
+          () => this.state.noneUserCart
         );
       });
-  }
+  };
   // nav
   openNav = () => {
     const { isNavOpen } = this.state;
@@ -69,7 +73,7 @@ class ProductProvider extends Component {
 
   //cart
   addCart = (bagId, token) => {
-    fetch('http://10.58.1.193:8000/cart/product', {
+    fetch('http://10.58.5.135:8000/cart/product', {
       method: 'POST',
       headers: { Authorization: token },
       body: JSON.stringify({
@@ -81,37 +85,47 @@ class ProductProvider extends Component {
         console.log(error);
       })
       .then(result => {
-        result.message && this.setState({ isBuyingProduct: true });
-        console.log(result.message);
+        result.message === false && this.setState({ isBuyingProduct: false });
+        console.log('cart 추가할때 >>>>>, ', result, result.message);
         this.handleCartList();
       });
   };
 
   handleCartList = () => {
     const token = this.getToken();
-    fetch(`http://10.58.1.193:8000/cart`, {
-      method: 'GET',
-      headers: { Authorization: token },
-    })
-      .then(res => res.json())
-      .then(data => {
-        //console.log(data.data);
-        const {
-          total_items_list: cartList,
-          total_items: totalProducts,
-          cart_id: cartId,
-        } = data.data;
-        this.setState({
-          cartList: cartList,
-          cartId: cartId,
-          totalProducts: totalProducts,
+    token &&
+      fetch(`http://10.58.5.135:8000/cart`, {
+        method: 'GET',
+        headers: { Authorization: token },
+      })
+        .then(res => res.json())
+        .then(data => {
+          const {
+            total_items_list: cartList,
+            total_items: totalProducts,
+            cart_id: cartId,
+          } = data.data;
+
+          let totalPrice = 0;
+          for (let item of cartList) {
+            totalPrice += Number(item.price);
+          }
+
+          this.setState(
+            {
+              cartList: cartList,
+              totalProducts: totalProducts,
+              cart_id: cartId,
+              totalPrice: totalPrice,
+            },
+            () => console.log(this.state.cartList)
+          );
         });
-      });
   };
 
   deleteCart = id => {
     const token = this.getToken();
-    fetch(`http://10.58.1.193:8000/cart/${id}`, {
+    fetch(`http://10.58.5.135:8000/cart/${id}`, {
       method: 'DELETE',
       headers: { Authorization: token },
     })

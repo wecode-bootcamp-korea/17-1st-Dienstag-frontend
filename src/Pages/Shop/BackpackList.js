@@ -71,11 +71,16 @@ export default class BackpackList extends Component {
                                   value.addCart(bag.id, token);
                                 } else {
                                   value.noneUserAddCart(bag.id);
+                                  localStorage.setItem(
+                                    'product',
+                                    value.noneUserCart
+                                  );
+                                  console.log(localStorage.getItem('product'));
                                 }
                               }}
                             >
                               장바구니에 추가
-                              <div></div>
+                              <div>여기다가 alert추가해야한다</div>
                             </div>
                           );
                         }}

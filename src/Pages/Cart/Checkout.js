@@ -64,7 +64,7 @@ class Checkout extends Component {
         )}
         <form className="guestInputContainer">
           <div className="emailContainer">
-            <p>Continue as a guest</p>
+            <div>Continue as a guest</div>
             <label className="guestInputLabel">E-mail address *</label>
             <input
               required
@@ -150,7 +150,7 @@ class Checkout extends Component {
           </div>
           <div className="radioContainer">
             <div>
-              <label>
+              <label className="billinginfo">
                 Same as Billing Information
                 <input
                   required
@@ -163,7 +163,7 @@ class Checkout extends Component {
               </label>
             </div>
             <div>
-              <label>
+              <label className="billinginfo">
                 Different Shipping Information
                 <input
                   type="radio"
