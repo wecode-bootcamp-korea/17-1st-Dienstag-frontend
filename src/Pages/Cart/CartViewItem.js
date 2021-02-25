@@ -12,38 +12,29 @@ class CartViewItem extends Component {
       image_url,
       quantity,
       cart_id,
-      setStyle,
+      model_number,
     } = this.props.product;
     return (
       <ProductConsumer>
         {value => {
           return (
-            <div className={setStyle}>
-              <div>
-                <h3 className="productName">{title} Fury</h3>
-              </div>
-              <div className="productContainer">
-                <div className="imgContainer">
-                  <img
-                    className="productImg"
-                    src={image_url}
-                    alt="product"
-                  ></img>
-                </div>
-                <div className="productQuantity">
-                  <span className="oneProduct">{quantity}</span>
-                  <span className="multiplecation">x</span>
-                </div>
-                <div className="productPrice">
-                  <span>$</span>
-                  <div className="displayPrice"> {Number(price)}원</div>
+            <>
+              <div className="cartContainer">
+                <div className="productContainer">
+                  <img src={image_url} alt="product" />
+                  <div className="productText">
+                    <div>X {quantity}</div>
+                    <div>{model_number} </div>
+                    <div>{title}</div>
+                  </div>
+                  <div className="price">${Number(price)}</div>
                 </div>
                 <TiDelete
                   className="deleteBtn"
                   onClick={() => value.deleteCart(cart_id)}
                 />
               </div>
-            </div>
+            </>
           );
         }}
       </ProductConsumer>

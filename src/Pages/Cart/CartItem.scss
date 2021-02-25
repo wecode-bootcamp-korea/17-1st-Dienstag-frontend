@@ -1,7 +1,8 @@
 @import '../../Styles/common.scss';
 
 .cartContainer {
-  width: 40%;
+  width: 100%;
+  position: relative;
   h1 {
     font-size: 25px;
   }
@@ -15,7 +16,7 @@
       height: 75px;
     }
     .productText {
-      margin-top: 10px;
+      margin-top: 20px;
       font-size: 5px;
 
     }
@@ -29,5 +30,9 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
+  }
+  .deleteBtn{
+    position: absolute;
+    top:0;
   }
 }

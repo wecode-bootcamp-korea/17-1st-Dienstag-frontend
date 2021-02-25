@@ -16,9 +16,8 @@ class CartView extends Component {
           if (value.cartList) {
             return (
               <>
-                <div className="modalOutside" onClick={value.openNav}></div>
+                <div className="modalOutside" onClick={value.closeNav}></div>
                 <div className="cartView">
-                  <li></li>
                   <div className="cartList">
                     {value.cartList.map(product => {
                       return (
@@ -61,9 +60,9 @@ class CartView extends Component {
           } else {
             return (
               <>
-                <div className="modalOutside" onClick={value.openNav}></div>
+                <div className="modalOutside" onClick={value.closeNav}></div>
                 <div className="cartView">
-                  <div className="emptyCart">카트가 비었습니다.</div>
+                  <div className="emptyCart">EMPTY CART.</div>
                 </div>
               </>
             );

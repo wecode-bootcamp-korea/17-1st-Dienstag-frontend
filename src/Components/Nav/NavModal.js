@@ -34,6 +34,12 @@ export default class FnavModal extends Component {
       isToken: localStorage.getItem('token') ? true : false,
     };
   }
+
+  updateLogin = () => {
+    this.setState({
+      isToken: true,
+    });
+  };
   shopOpen = () => {
     const { openShop, isShopsclick } = this.state;
     this.setState({
@@ -76,7 +82,7 @@ export default class FnavModal extends Component {
             <ProductConsumer>
               {value => {
                 return (
-                  <div className="modalOutside" onClick={value.cloaseNav} />
+                  <div className="modalOutside" onClick={value.closeNav} />
                 );
               }}
             </ProductConsumer>
@@ -98,7 +104,11 @@ export default class FnavModal extends Component {
                   </div>
                 </li>
                 <li className={'loginForm ' + (!isLoginClick && 'showLogin')}>
-                  <Login isToken={isToken} handleLogout={this.handleLogout} />
+                  <Login
+                    isToken={isToken}
+                    handleLogout={this.handleLogout}
+                    updateLogin={this.updateLogin}
+                  />
                 </li>
                 <ul className="searchStores">
                   <div>
