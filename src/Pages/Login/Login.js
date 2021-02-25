@@ -100,9 +100,12 @@ class Login extends Component {
             </div>
           </form>
         ) : (
-            <div>
-              <div> HELLO, {this.state.username} </div>
-              <div onClick={() => handleLogout()}>로그아웃</div>
+            <div className="loginStatus">
+              <div> HELLO, {this.state.username} 님! </div>
+              <div>WE THINK </div>
+              <div>AND ACT IN CYCLES.</div>
+              <div> AND CYCLE</div>
+              <div clsass="logoutBtn" onClick={() => handleLogout()}>로그아웃</div>
             </div>
           )}
       </div>

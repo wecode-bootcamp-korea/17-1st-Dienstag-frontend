@@ -76,3 +76,17 @@
     }
   }
 }
+.loginStatus{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  div{
+    margin: 10px;
+    font-size: 18px;
+  }
+
+  .logoutBtn{
+    background-color: blue;
+  } 
+}

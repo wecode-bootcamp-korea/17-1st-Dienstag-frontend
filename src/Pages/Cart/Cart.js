@@ -10,8 +10,8 @@ class Cart extends Component {
   };
   render() {
     return (
-      <div>
-        <div>SHOPPING CART</div>
+      <div className="Cart">
+        <div>SUMMARY</div>
         <p>1 ITEM</p>
         <ProductConsumer>
           {value => {
@@ -26,9 +26,9 @@ class Cart extends Component {
                     />
                   );
                 })}
-                <div className="priceContainer">
-                  <div className="total">Total</div>
-                  <div className="price">${value.totalPrice}</div>
+                <div className="totalcontainer">
+                  <span>ORDER TOTAL</span>
+                  <span>${value.totalPrice}</span>
                 </div>
                 <div className="formAction" onClick={this.goToMain}>
                   <FaArrowLeft className="icon" />

@@ -58,7 +58,7 @@ class Checkout extends Component {
     return (
       <div className="cartcontentContainer">
         <div className="checkout">
-          {token && (
+          {!token && (
             <>
               <p>Login</p>
               <Login className="loginContainer" />
