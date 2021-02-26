@@ -43,16 +43,8 @@ class ProductProvider extends Component {
     });
   };
 
-  noneUserAddCart = id => {
-    //none user api
-    fetch(`http://10.58.5.135:8000/cart/${id}`, {
-      isFilteropen: false,
-      backpackdata: [],
-      filterInfo: '',
-      puryData: [],
-      jonanzaData: [],
-    });
-  };
+
+
 
   // componentDidMount() {
   //   fetch('/data/totalProducts.json', {
