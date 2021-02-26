@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaArrowLeft } from 'react-icons/fa';
+import { withRouter } from 'react-router-dom';
 import { ProductConsumer } from '../../context';
 import Login from '../Login/Login';
 import Cart from '../Cart/Cart';
@@ -269,6 +269,8 @@ class Checkout extends Component {
                       className="formAction"
                       onClick={() => {
                         value.handleCheckout(this.state);
+                        alert('결제가 완료되었습니다');
+                        this.props.history.push('/');
                       }}
                     >
                       <input
@@ -289,4 +291,4 @@ class Checkout extends Component {
   }
 }
 
-export default Checkout;
+export default withRouter(Checkout);

@@ -14,7 +14,7 @@ class Headlogos extends Component {
           return (
             <div className="headLogos">
               <Link to="/">
-                <div className="topLogo" onClick={value.cloaseNav}>
+                <div className="topLogo" onClick={value.closeNav}>
                   DIENSTAG
                 </div>
               </Link>

@@ -70,10 +70,6 @@ export default class BackpackList extends Component {
                                   value.addCart(bag.id, token);
                                 } else {
                                   value.noneUserAddCart(bag.id);
-                                  localStorage.setItem(
-                                    'product',
-                                    value.noneUserCart
-                                  );
                                   console.log(localStorage.getItem('product'));
                                 }
                               }}

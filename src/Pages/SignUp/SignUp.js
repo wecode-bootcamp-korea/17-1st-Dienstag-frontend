@@ -18,7 +18,7 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     const { name, email, password, phone, isAnonymous } = this.state;
-    fetch('http://10.58.5.135:8000/user/signup', {
+    fetch('http://10.58.1.184:8000/user/signup', {
       method: 'POST',
       body: JSON.stringify({
         username: name,
@@ -32,6 +32,7 @@ class SignUp extends Component {
       .catch(error => console.error(error))
       .then(result => {
         if (result.message === 'SUCCESS') {
+          alert('회원가입이 완료되었습니다');
           this.props.history.push('/');
         } else {
           alert('회원가입이 안되었습니다.');

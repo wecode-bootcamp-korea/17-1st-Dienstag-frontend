@@ -31,51 +31,51 @@ class ProductProvider extends Component {
 
   componentDidMount() {
     const token = this.getToken();
-    console.log(token);
-    token ? this.handleCartList() : this.handleNoneUserCart();
+    token && this.handleCartList();
+    //: this.handleNoneUserCart();
   }
 
-  handleNoneUserCart = () => {
-    const cartList = localStorage.getItem('product');
-    console.log('NoneuserHandle cart >>>>>>', cartList);
-    this.setState({
-      cartList: cartList,
-    });
-  };
+  // handleNoneUserCart = () => {
+  //   const cartList = localStorage.getItem('product');
+  //   console.log('NoneuserHandle cart >>>>>>', cartList);
+  //   this.setState({
+  //     cartList: cartList,
+  //   });
+  // };
 
-  noneUserAddCart = id => {
-    //none user api
-    fetch(`http://10.58.5.135:8000/cart/${id}`, {
-      isFilteropen: false,
-      backpackdata: [],
-      filterInfo: '',
-      puryData: [],
-      jonanzaData: [],
-    });
-  };
+  // handleUpdateNonuser = id => {
+  //   localStorage.setItem('product', JSON.stringify(this.state.noneUserCart));
+  //   this.setState(
+  //     {
+  //       cartList: localStorage.getItem('product'),
+  //     },
+  //     () => console.log(this.state.cartList)
+  //   );
+  // };
 
-  // componentDidMount() {
-  //   fetch('/data/totalProducts.json', {
+  // noneUserAddCart = id => {
+  //   fetch(`http://10.58.1.184:8000/cart/nonuser/${10}`, {
   //     method: 'GET',
   //   })
   //     .then(res => res.json())
   //     .then(data => {
   //       console.log(data);
-  //       //구현해야할 부분: totalPrice, 같은 값이 있을때
   //       this.setState(
   //         {
-  //           noneUserCart: data,
+  //           noneUserCart: data.data,
   //         },
-  //         () => this.state.noneUserCart
+  //         () => {
+  //           console.log(this.state.noneUserCart);
+  //           this.handleUpdateNonuser();
+  //         }
   //       );
   //     });
-  // }
+  // };
 
   readId = e => {
-    console.log('eeeeeeeee');
     const listId = e;
 
-    fetch(`http://10.58.6.143:8000/product/category?bag_type=${listId}`, {
+    fetch(`http://10.58.1.184:8000/product/category?bag_type=${listId}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -92,7 +92,7 @@ class ProductProvider extends Component {
   onFilter = e => {
     this.setState({ filterInfo: filterName[e] }, () => {
       fetch(
-        `http://10.58.6.143:8000/product/filter?keyword=${this.state.filterInfo}`,
+        `http://10.58.1.184:8000/product/filter?keyword=${this.state.filterInfo}`,
         {
           method: 'GET',
         }
@@ -141,7 +141,7 @@ class ProductProvider extends Component {
 
   //cart
   addCart = (bagId, token) => {
-    fetch('http://10.58.5.135:8000/cart', {
+    fetch('http://10.58.1.184:8000/cart', {
       method: 'POST',
       headers: { Authorization: token },
       body: JSON.stringify({
@@ -163,7 +163,7 @@ class ProductProvider extends Component {
     const token = this.getToken();
     // console.log('aaaaaaa');
     token &&
-      fetch(`http://10.58.5.135:8000/cart`, {
+      fetch(`http://10.58.1.184:8000/cart`, {
         method: 'GET',
         headers: { Authorization: token },
       })
@@ -188,11 +188,12 @@ class ProductProvider extends Component {
             () => console.log(this.state.cartList)
           );
         });
+    this.closeNav();
   };
 
   deleteCart = id => {
     const token = this.getToken();
-    fetch(`http://10.58.5.135:8000/cart/${id}`, {
+    fetch(`http://10.58.1.184:8000/cart/${id}`, {
       method: 'DELETE',
       headers: { Authorization: token },
     })
@@ -227,7 +228,7 @@ class ProductProvider extends Component {
     } = data;
     console.log(data);
 
-    fetch('http://10.58.7.188:8000/cart/checkout', {
+    fetch('http://10.58.1.184:8000/cart/checkout', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -288,6 +289,7 @@ class ProductProvider extends Component {
           handleClick: this.handleClick,
           readId: this.readId,
           closeNav: this.closeNav,
+          noneUserAddCart: this.noneUserAddCart,
         }}
       >
         {this.props.children}

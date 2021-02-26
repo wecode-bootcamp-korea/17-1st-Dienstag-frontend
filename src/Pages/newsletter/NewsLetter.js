@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './NewsLetter.scss';
 
 class NewsLetter extends Component {
@@ -22,7 +23,7 @@ class NewsLetter extends Component {
   };
 
   checkValid = () => {
-    const { emailvalid, firstName, lastvalid } = this.state;
+    // const { emailvalid, firstName, lastvalid } = this.state;
 
     // if (!emailvalid.includes('@') || !emailvalid.includes('.')) {
     //   this.setState({
@@ -46,6 +47,8 @@ class NewsLetter extends Component {
     //       }
     //     });
     // }
+    alert('구독신청이 완료되었습니다');
+    this.props.history.push('/');
   };
 
   render() {
@@ -129,4 +132,4 @@ class NewsLetter extends Component {
   }
 }
 
-export default NewsLetter;
+export default withRouter(NewsLetter);
