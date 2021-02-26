@@ -29,10 +29,9 @@ class Cart extends Component {
                 })}
                 <div className="totalcontainer">
                   <div>ORDER TOTAL</div>
-                  <div>${value.totalPrice}</div>
+                  <div>${value.totalPrice.toLocaleString()}</div>
                 </div>
                 <div className="formAction" onClick={this.goToMain}>
-                  <FaArrowLeft className="icon" />
                   <input
                     classname="homeBtn"
                     type="button"

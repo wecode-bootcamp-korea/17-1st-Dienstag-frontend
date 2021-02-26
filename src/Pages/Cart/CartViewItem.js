@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { TiDelete } from 'react-icons/ti';
 import { ProductConsumer } from '../../context';
 import './CartViewItem.scss';
@@ -27,7 +26,7 @@ class CartViewItem extends Component {
                     <div>{model_number} </div>
                     <div>{title}</div>
                   </div>
-                  <div className="price">${Number(price)}</div>
+                  <div className="price">${Number(price).toLocaleString()}</div>
                 </div>
                 <TiDelete
                   className="deleteBtn"

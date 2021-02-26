@@ -34,7 +34,7 @@ class Main extends Component {
           <img
             alt="background"
             className="mainVideo"
-            src="https://freitag.rokka.io/fullwidth_1919max_2x/0a0ef9272093dfc7efa6c91a6f49e5bb2a4d2d41/fttb-backpack-rgb-highres-2.jpg?itok=eKFctM-m"
+            src="https://images.unsplash.com/photo-1556300673-04df21735615?ixid=MXwxMjA3fDB8MHxwaG90by1[…]ufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
           />
           <span className="unfoldingLogo">UNFOLDING SOON</span>
         </div>

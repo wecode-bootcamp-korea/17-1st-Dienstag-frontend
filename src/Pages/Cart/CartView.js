@@ -32,7 +32,9 @@ class CartView extends Component {
                       <div className="priceContainer">
                         <span className="textTotal">Total</span>
                         <span>₩</span>
-                        <span className="totalPrice">{value.totalPrice}</span>
+                        <span className="totalPrice">
+                          {value.totalPrice.toLocaleString()}
+                        </span>
                       </div>
                       <div>
                         <div className="checkoutBtnContainer">

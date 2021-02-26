@@ -84,9 +84,18 @@
   div{
     margin: 10px;
     font-size: 18px;
+
+    span{
+      padding: 3px;
+      background-color: rgb(158,180,118);
+    }
   }
 
   .logoutBtn{
-    background-color: blue;
+    display: inline;
+    width: 100px;
+    padding: 8px;
+    color: white;
+    background-color: black;
   } 
 }

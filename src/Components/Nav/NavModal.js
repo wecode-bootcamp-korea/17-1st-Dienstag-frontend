@@ -61,10 +61,12 @@ export default class FnavModal extends Component {
 
   handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    this.setState({ isToken: false });
   };
 
   render() {
-    const { isnavopen, openNav } = this.props;
+    const { isnavopen } = this.props;
     const {
       isbagsclick,
       isShopsclick,
@@ -191,7 +193,7 @@ export default class FnavModal extends Component {
                     {value => {
                       return (
                         <Link to="newsletter">
-                          <li onClick={value.cloaseNav}>
+                          <li onClick={value.closeNav}>
                             <RiHeartAddLine size={20} /> S.W.A.P
                           </li>
                         </Link>
