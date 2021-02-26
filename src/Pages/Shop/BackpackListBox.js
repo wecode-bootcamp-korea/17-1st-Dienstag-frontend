@@ -4,6 +4,7 @@ import BackpackList from './BackpackList';
 import ListDetail from './ListDetail';
 import RecommendAcc from './RecommendAcc';
 import './BackpackListbox.scss';
+import { ProductConsumer } from '../../context';
 
 export default class BackpackListbox extends Component {
   constructor() {
@@ -17,7 +18,7 @@ export default class BackpackListbox extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://10.58.6.143:8000/product/model?bag_model=1`, {
+    fetch(`http://10.58.1.184:8000/product/model?bag_model=1`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -61,39 +62,45 @@ export default class BackpackListbox extends Component {
     } = this.state;
 
     return (
-      <div className="BackpackListbox">
-        <div className="listCategoryHead">STORES - BAGS </div>
-        <div className="baglistName">MIAMI</div>
-        <div className="priceandFilter">
-          <span className="price">A BLAST FROM THE PAST, $346</span>
-          <span className="filterLogo">
-            <RiFilterLine size={20} /> filter
-          </span>
-        </div>
-
-        {range.map((list, inx) => {
+      <ProductConsumer>
+        {value => {
           return (
-            <BackpackList
-              key={inx}
-              backpackdata={backpackdata}
-              backdescdata={backdescdata}
-              showDesc={this.showDesc}
-              descClose={this.descClose}
-              isdescOpen={isdescOpen}
-              firstrange={list.firstrange}
-              lastrange={list.lastrange}
-            />
+            <div className="BackpackListbox">
+              <div className="listCategoryHead">STORES - BAGS </div>
+              <div className="baglistName">MIAMI</div>
+              <div className="priceandFilter">
+                <span className="price">A BLAST FROM THE PAST, $346</span>
+                <span className="filterLogo" onClick={value.openFilter}>
+                  <RiFilterLine size={20} /> filter
+                </span>
+              </div>
+
+              {range.map((list, inx) => {
+                return (
+                  <BackpackList
+                    key={inx}
+                    backpackdata={backpackdata}
+                    backdescdata={backdescdata}
+                    showDesc={this.showDesc}
+                    descClose={this.descClose}
+                    isdescOpen={isdescOpen}
+                    firstrange={list.firstrange}
+                    lastrange={list.lastrange}
+                  />
+                );
+              })}
+
+              <ListDetail />
+
+              <div className="recommendAceesoriesHead">완벽한 동반자</div>
+              <RecommendAcc
+                key={recommendAccdata.id}
+                recommendAccdata={recommendAccdata}
+              />
+            </div>
           );
-        })}
-
-        <ListDetail />
-
-        <div className="recommendAceesoriesHead">완벽한 동반자</div>
-        <RecommendAcc
-          key={recommendAccdata.id}
-          recommendAccdata={recommendAccdata}
-        />
-      </div>
+        }}
+      </ProductConsumer>
     );
   }
 }

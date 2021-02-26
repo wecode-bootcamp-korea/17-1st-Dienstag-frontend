@@ -7,7 +7,7 @@ class MainDiy extends Component {
         <img
           alt="diy"
           className="mainDiyImg"
-          src="https://images.unsplash.com/photo-1505798577917-a65157d3320a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8ZGl5fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+          src="https://images.unsplash.com/photo-1602539820266-ab8bcdffe18e?ixid=MXwxMjA3fDB8MHxwaG90[…]ufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2252&q=80"
         ></img>
         <div className="mainDiyText">
           <h1>MAKE YOUR OWN F719 MEL</h1>

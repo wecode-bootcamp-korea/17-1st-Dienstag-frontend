@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { MdPerson } from 'react-icons/md';
 import './Login.scss';
+import { ProductConsumer } from '../../context';
 
 class Login extends Component {
   state = {
@@ -24,7 +25,7 @@ class Login extends Component {
 
   handleSubmit = () => {
     const { email, password } = this.state;
-    fetch('http://10.58.5.135:8000/user/signin', {
+    fetch('http://10.58.1.184:8000/user/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -59,65 +60,74 @@ class Login extends Component {
     const { username } = this.state;
     console.log(username, localStorage.getItem('username'));
     return (
-      <div>
-        {!isToken ? (
-          <form className="userLoginForm">
-            <div className="userLoginContainer">
-              <div className="formLoginItem loginName">
-                <label className="editName">
-                  Username or e-mail address
-                  <span className="formRequired" title="This field is required">
-                    *
-                  </span>
-                  <input
-                    required
-                    type="text"
-                    name="email"
-                    className="formText required"
-                    onChange={this.handleInput}
-                  />
-                </label>
-              </div>
-              <div className="formLoginItem loginPassword">
-                <label required className="editPass">
-                  Password
-                  <span className="formRequired" title="This field is required">
-                    *
-                  </span>
-                  <input
-                    type="password"
-                    name="password"
-                    className="formText required"
-                    onChange={this.handleInput}
-                  />
-                </label>
-              </div>
-              <div className="formAction">
-                <MdPerson className="personIcon" />
-                <input
-                  onClick={this.handleSubmit}
-                  name="submit"
-                  defaultValue="Log in"
-                  className="formSubmit"
-                />
-              </div>
-              <div className="formLink">
-                <Link to="/signup" className="linkText">
-                  Create new account
-                </Link>
-              </div>
+
+      <ProductConsumer>
+        {value => {
+          return (
+            <div>
+              {!isToken ? (
+                <form className="userLoginForm">
+                  <div className="userLoginContainer">
+                    <div className="formLoginItem loginName">
+                      <label className="editName">
+                        Username or e-mail address
+                <span className="formRequired" title="This field is required">
+                          *
+                </span>
+                        <input
+                          required
+                          type="text"
+                          name="email"
+                          className="formText required"
+                          onChange={this.handleInput}
+                        />
+                      </label>
+                    </div>
+                    <div className="formLoginItem loginPassword">
+                      <label required className="editPass">
+                        Password
+                <span className="formRequired" title="This field is required">
+                          *
+                </span>
+                        <input
+                          type="password"
+                          name="password"
+                          className="formText required"
+                          onChange={this.handleInput}
+                        />
+                      </label>
+                    </div>
+                    <div className="formAction">
+                      <MdPerson className="personIcon" />
+                      <input
+                        onClick={this.handleSubmit}
+                        name="submit"
+                        defaultValue="Log in"
+                        className="formSubmit"
+                      />
+                    </div>
+                    <div className="formLink" onClick={value.closeNav}>
+                      <Link to="/signup" className="linkText">
+                        Create new account
+              </Link>
+                    </div>
+                  </div>
+                </form>
+              ) : (
+                  <div className="loginStatus">
+                    <div> HELLO,<span className="userName"> {localStorage.getItem('username')}</span> 님! </div>
+                    <div>WE THINK </div>
+                    <div>AND ACT IN CYCLES.</div>
+                    <div> AND CYCLE</div>
+                    <div className="logoutBtn" onClick={() => handleLogout()}>LOGOUT</div>
+                  </div>
+                )}
             </div>
-          </form>
-        ) : (
-            <div className="loginStatus">
-              <div> HELLO, {this.state.username} 님! </div>
-              <div>WE THINK </div>
-              <div>AND ACT IN CYCLES.</div>
-              <div> AND CYCLE</div>
-              <div clsass="logoutBtn" onClick={() => handleLogout()}>로그아웃</div>
-            </div>
-          )}
-      </div>
+          )
+        }}
+      </ProductConsumer>
+
+
     );
   }
 }
