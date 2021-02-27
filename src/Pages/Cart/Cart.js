@@ -13,7 +13,6 @@ class Cart extends Component {
     return (
       <div className="Cart">
         <div>SUMMARY</div>
-        <p>1 ITEM</p>
         <ProductConsumer>
           {value => {
             return (

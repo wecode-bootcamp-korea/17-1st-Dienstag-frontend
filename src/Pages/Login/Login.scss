@@ -1,10 +1,10 @@
 .userLoginForm {
   margin-top: 0em;
   font-size: 12px;
-  
+
   .userLoginContainer {
     padding: 20px;
-    border-top: 1px solid #ECECEC;
+    border-top: 1px solid #ececec;
 
     .formLoginItem {
       margin-top: 10px;
@@ -13,13 +13,13 @@
       label {
         display: block;
         flex-direction: column;
-        color:#000;
+        color: #000;
         font-size: 14px;
         font-weight: bold;
         cursor: default;
-        
+
         span {
-          display:inline;
+          display: inline;
         }
 
         input {
@@ -31,8 +31,8 @@
           transition: border 0.1s;
           outline: none;
         }
-        :required:focus{
-          border: 2px solid #ADC088ed;
+        :required:focus {
+          border: 2px solid #adc088ed;
           outline: none;
         }
       }
@@ -59,43 +59,44 @@
         letter-spacing: 0.25px;
         text-transform: uppercase;
         background-color: black;
-        color:#fff;
+        color: #fff;
         cursor: pointer;
       }
     }
 
     .formLink {
       margin-top: 20px;
-      
+
       .linkText {
         padding: 5px;
         text-decoration: none;
-        background: #ADC088;
+        background: #adc088;
         color: black;
       }
     }
   }
 }
-.loginStatus{
+.loginStatus {
   display: flex;
   flex-direction: column;
   padding: 20px;
 
-  div{
+  div {
     margin: 10px;
     font-size: 18px;
 
-    span{
+    span {
+      margin-left: 5px;
       padding: 3px;
-      background-color: rgb(158,180,118);
+      background-color: rgb(158, 180, 118);
     }
   }
 
-  .logoutBtn{
+  .logoutBtn {
     display: inline;
     width: 100px;
     padding: 8px;
     color: white;
     background-color: black;
-  } 
+  }
 }

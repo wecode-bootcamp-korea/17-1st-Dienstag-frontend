@@ -23,7 +23,7 @@ class CartItem extends Component {
                   <div className="productText">
                     <div>X {quantity}</div>
                     <div>
-                      {model_number},{title}{' '}
+                      {model_number},{title}
                     </div>
                   </div>
                   <div className="price">${Number(price).toLocaleString()}</div>

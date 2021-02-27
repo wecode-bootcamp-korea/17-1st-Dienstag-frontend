@@ -45,7 +45,7 @@ class Login extends Component {
 
           this.setState({
             isLogin: true,
-          })
+          });
           this.props.history.push('/');
         } else {
           alert('맞지 않습니다.');
@@ -60,7 +60,6 @@ class Login extends Component {
     const { username } = this.state;
     console.log(username, localStorage.getItem('username'));
     return (
-
       <ProductConsumer>
         {value => {
           return (
@@ -71,9 +70,12 @@ class Login extends Component {
                     <div className="formLoginItem loginName">
                       <label className="editName">
                         Username or e-mail address
-                <span className="formRequired" title="This field is required">
+                        <span
+                          className="formRequired"
+                          title="This field is required"
+                        >
                           *
-                </span>
+                        </span>
                         <input
                           required
                           type="text"
@@ -86,9 +88,12 @@ class Login extends Component {
                     <div className="formLoginItem loginPassword">
                       <label required className="editPass">
                         Password
-                <span className="formRequired" title="This field is required">
+                        <span
+                          className="formRequired"
+                          title="This field is required"
+                        >
                           *
-                </span>
+                        </span>
                         <input
                           type="password"
                           name="password"
@@ -109,25 +114,32 @@ class Login extends Component {
                     <div className="formLink" onClick={value.closeNav}>
                       <Link to="/signup" className="linkText">
                         Create new account
-              </Link>
+                      </Link>
                     </div>
                   </div>
                 </form>
               ) : (
-                  <div className="loginStatus">
-                    <div> HELLO,<span className="userName"> {localStorage.getItem('username')}</span> 님! </div>
-                    <div>WE THINK </div>
-                    <div>AND ACT IN CYCLES.</div>
-                    <div> AND CYCLE</div>
-                    <div className="logoutBtn" onClick={() => handleLogout()}>LOGOUT</div>
+                <div className="loginStatus">
+                  <div>
+                    {' '}
+                    HELLO,
+                    <span className="userName">
+                      {localStorage.getItem('username')}
+                    </span>{' '}
+                    님!{' '}
                   </div>
-                )}
+                  <div>WE THINK </div>
+                  <div>AND ACT IN CYCLES.</div>
+                  <div> AND CYCLE</div>
+                  <div className="logoutBtn" onClick={() => handleLogout()}>
+                    LOGOUT
+                  </div>
+                </div>
+              )}
             </div>
-          )
+          );
         }}
       </ProductConsumer>
-
-
     );
   }
 }

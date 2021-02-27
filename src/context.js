@@ -84,7 +84,6 @@ class ProductProvider extends Component {
           puryData: data['data'][0][`D132 Pury`],
           jonanzaData: data['data'][1][`D133 Jonanza`],
         });
-        console.log(data);
       });
     this.closeNav();
   };
@@ -92,17 +91,12 @@ class ProductProvider extends Component {
   onFilter = e => {
     this.setState({ filterInfo: filterName[e] }, () => {
       fetch(
-        `http://10.58.1.184:8000/product/filter?keyword=${this.state.filterInfo}`,
-        {
-          method: 'GET',
-        }
+        `http://10.58.1.184:8000/product/filter?keyword=${this.state.filterInfo}`
       )
         .then(res => res.json())
         .then(data => {
-          // console.log(data.ItemList);
           this.setState({
             backpackdata: data.ItemList,
-            // recommendAccdata: data.meesage[1],
           });
         });
     });
@@ -178,6 +172,7 @@ class ProductProvider extends Component {
           for (let item of cartList) {
             totalPrice += Number(item.price);
           }
+          //가격 합계 계산
 
           this.setState(
             {

@@ -11,6 +11,7 @@ export default class FilterViewList extends Component {
   handleClickedIdx = e => {
     this.setState({ clickedIdx: Number(e.target.id) });
   };
+
   render() {
     const {
       backpackdata,

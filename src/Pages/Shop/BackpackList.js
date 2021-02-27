@@ -68,10 +68,11 @@ export default class BackpackList extends Component {
                                 if (token) {
                                   console.log(bag.id);
                                   value.addCart(bag.id, token);
-                                } else {
-                                  value.noneUserAddCart(bag.id);
-                                  console.log(localStorage.getItem('product'));
                                 }
+                                // else {
+                                //   value.noneUserAddCart(bag.id);
+                                //   console.log(localStorage.getItem('product'));
+                                // }
                               }}
                             >
                               장바구니에 추가
