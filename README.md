@@ -7,10 +7,11 @@
 2021.02.15(월) ~ 2021.02.26(금)
 
 ## 팀 구성
-### 프론트엔드 (<a href="https://github.com/wecode-bootcamp-korea/17-1st-Dienstag-frontend">Repo</a>)
+### 프론트엔드
 - 강민지(PM) <a href="https://github.com/awaji0829">GitHub</a>
 - 변미현 <a href="https://github.com/cocoball200">GitHub</a>
-### 백엔드
+- 
+### 백엔드  (<a href="https://github.com/wecode-bootcamp-korea/17-1st-Dienstag-backend">Repo</a>)
 - 김하성 <a href="https://github.com/markkimjr">GitHub</a>
 - 안재이 <a href="https://github.com/jaeyiahn">GitHub</a>
 - 허정윤 <a href="https://github.com/banana1019">GitHub</a>
@@ -25,21 +26,6 @@
 - Trello, Slack 앱을 활용해 Scrum 방식으로 진행
 ![trello](https://user-images.githubusercontent.com/72085261/109430747-3c209600-7a46-11eb-9a5a-49780b91f427.gif)
 
-## 백엔드 구현 목록
-#### 회원가입 & 로그인
-- Bcrypt를 활용한 비밀번호 암호화
-- JWT를 활용한 Access Token 발행
-- 로그인 @decorator 
-#### 상품 리스트 나열
-- 가방 타입 내의 모델별 리스트 나열 기능
-- 모델별 상세페이지 리스트 나열 & detail 정보 전달
-- 모델별 추천 상품 목록 전달
-- 컬러, 사이즈 별 상품 필터링
-#### 장바구니 & 결제
-- 장바구니에 상품 추가
-- 장바구니에 있는 상품 삭제
-- 전달받은 결제정보(billing address & shipping address) 저장
-- 주문 상태 저장
 
 ## 프론트 엔드 구현목록
 
