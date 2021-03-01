@@ -16,10 +16,12 @@
 - 허정윤 <a href="https://github.com/banana1019">GitHub</a>
 
 ## 사용한 기술 스택
+
 - 프론트엔드: html, css, Javscript, scss, react, CRA, context API 
 - 백엔드: Python, Django, MySQL, AQueryTool, Git
 
 ## 프로젝트 진행 방식
+
 - Trello, Slack 앱을 활용해 Scrum 방식으로 진행
 ![trello](https://user-images.githubusercontent.com/72085261/109430747-3c209600-7a46-11eb-9a5a-49780b91f427.gif)
 
